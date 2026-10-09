@@ -1,1 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eunoia — Animation &amp; Visual Art</title>
+  <meta name="description" content="Eunoia: A portfolio of 2D keyframe animation, traditional works on paper, character model sheets, and 3D modeling.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.5' stroke='%23f2f0eb' stroke-width='1.5' stroke-opacity='0.4' fill='%230e0e10'/%3E%3Cpath d='M22 10.5C20.5 8.8 18.4 8 16 8C11.58 8 8 11.58 8 16C8 20.42 11.58 24 16 24C18.6 24 20.8 23 22.2 21' stroke='%23f2f0eb' stroke-width='1.8' stroke-linecap='round' fill='none'/%3E%3Cpath d='M11 16H20.5' stroke='%23f2f0eb' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='16' r='1.8' fill='%23b82e3b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <!-- =========================================================================
+       HEADER NAVIGATION (Consolidated, quiet, single-line)
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="brand-button" onclick="navigateToPage('cover')">
+        <svg class="brand-logo-mark" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="16" cy="16" r="14.5" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+          <path d="M22 10.5C20.5 8.8 18.4 8 16 8C11.58 8 8 11.58 8 16C8 20.42 11.58 24 16 24C18.6 24 20.8 23 22.2 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M11 16H20.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="21" cy="16" r="1.6" fill="#b82e3b"/>
+        </svg>
+        <span class="brand-text-group">
+          <span class="brand-name">Eunoia</span>
+          <span class="brand-role">Animation &amp; Art</span>
+        </span>
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><button class="nav-link active" data-nav="overview" onclick="navigateToPage('cover')">Overview</button></li>
+          <li><button class="nav-link" data-nav="animation" onclick="navigateToPage('digital')">2D &amp; Animation</button></li>
+          <li><button class="nav-link" data-nav="concept" onclick="navigateToPage('character')">Concept &amp; 3D</button></li>
+          <li><button class="nav-link" data-nav="applied" onclick="navigateToPage('photography')">Photography &amp; Goods</button></li>
+          <li><button class="nav-link" data-nav="about" onclick="navigateToPage('about')">About</button></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-inquire" onclick="openCommissionModal()">Inquire</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="nav-links">
+      <li><button class="nav-link active" data-nav="overview" onclick="navigateToPage('cover')">Overview</button></li>
+      <li><button class="nav-link" data-nav="animation" onclick="navigateToPage('digital')">2D &amp; Animation</button></li>
+      <li><button class="nav-link" data-nav="concept" onclick="navigateToPage('character')">Concept &amp; 3D</button></li>
+      <li><button class="nav-link" data-nav="applied" onclick="navigateToPage('photography')">Photography &amp; Goods</button></li>
+      <li><button class="nav-link" data-nav="about" onclick="navigateToPage('about')">About</button></li>
+    </ul>
+    <div style="margin-top: 2rem;">
+      <button class="btn-inquire" onclick="openCommissionModal()">Inquire</button>
+    </div>
+  </div>
+
+  <main class="site-main">
+
+    <!-- =========================================================================
+         PAGE 1: OVERVIEW & INDEX
+         ========================================================================= -->
+    <article class="webpage active" id="page-cover">
+      <div class="container">
+        
+        <section class="hero-editorial">
+          <div class="hero-editorial-grid">
+            
+            <div class="hero-text-col">
+              <div class="hero-eyebrow">Selected Work · 2020–2024</div>
+              <h1 class="hero-title">Motion, Drawing &amp; Form</h1>
+              <p class="hero-intro">
+                An independent animation and visual arts portfolio spanning 2D character animation, traditional gouache on paper, visual development, and production-ready 3D modeling.
+              </p>
+              <div class="hero-cta-row">
+                <button class="btn-primary" onclick="navigateToPage('digital')">View Work</button>
+                <button class="btn-secondary" onclick="navigateToPage('about')">About the Studio</button>
+              </div>
+            </div>
+
+            <div class="hero-visual-col">
+              <div class="hero-art-display">
+                <img src="assets/images/hero-art.jpg" alt="The Scarlet Overture lead keyframe" class="hero-art-image">
+                <div class="hero-caption-bar">
+                  <div>
+                    <div class="caption-meta-title">The Scarlet Overture</div>
+                    <div class="caption-meta-detail">Digital keyframe, 2024 · 24fps fluid motion study</div>
+                  </div>
+                  <button class="btn-link-action" onclick="openLightbox('assets/images/hero-art.jpg', 'The Scarlet Overture', 'Digital Keyframe', 'Operatic sequence exploring fluid dynamics of crimson silk drapery and airborne embers. Keyframed at 24fps in Clip Studio Paint EX with custom light diffusion passes.', '2024', 'Clip Studio Paint EX / DaVinci Resolve', '3840 × 2160 px', '#B91C2C,#D4A373,#0E0E10')">
+                    View piece &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Work Index Table -->
+        <section class="work-index-section">
+          <div class="index-header-row">
+            <h2 class="index-title">Index of Work</h2>
+            <span class="index-subtitle">Disciplines &amp; Selected Projects</span>
+          </div>
+
+          <div class="index-table">
+            
+            <div class="index-row" onclick="navigateToPage('digital')">
+              <span class="index-row-num">01</span>
+              <div class="index-row-title">
+                Digital Art &amp; Animation
+                <span class="index-row-sub">Keyframes · Lighting · Timing</span>
+              </div>
+              <p class="index-row-desc">Operatic 24fps animation keyframes, dynamic spacing studies, and cinematic lighting scripts.</p>
+              <span class="index-row-action">View &rarr;</span>
+            </div>
+
+            <div class="index-row" onclick="navigateToPage('traditional')">
+              <span class="index-row-num">02</span>
+              <div class="index-row-title">
+                Traditional Works on Paper
+                <span class="index-row-sub">Gouache · Sumi Ink · Gold Leaf</span>
+              </div>
+              <p class="index-row-desc">Physical gouache washes, sepia sumi ink gestures, and gold leaf on 300gsm Arches cotton rag.</p>
+              <span class="index-row-action">View &rarr;</span>
+            </div>
+
+            <div class="index-row" onclick="navigateToPage('character')">
+              <span class="index-row-num">03</span>
+              <div class="index-row-title">
+                Character Design &amp; Model Sheets
+                <span class="index-row-sub">Turnarounds · Expressions · Costumes</span>
+              </div>
+              <p class="index-row-desc">Production turnarounds, 6-register acting matrices, and costume clearance specifications.</p>
+              <span class="index-row-action">View &rarr;</span>
+            </div>
+
+            <div class="index-row" onclick="navigateToPage('photography')">
+              <span class="index-row-num">04</span>
+              <div class="index-row-title">
+                Photographic Studies
+                <span class="index-row-sub">Medium Format · Natural Light · Fabric</span>
+              </div>
+              <p class="index-row-desc">Observational studies of raking natural light, architectural shadows, and textile tension.</p>
+              <span class="index-row-action">View &rarr;</span>
+            </div>
+
+            <div class="index-row" onclick="navigateToPage('atelier')">
+              <span class="index-row-num">05</span>
+              <div class="index-row-title">
+                Applied Print &amp; Physical Goods
+                <span class="index-row-sub">Desk Mats · Woven Lanyards · Print</span>
+              </div>
+              <p class="index-row-desc">Applied illustration on dye-sublimated desk mats, woven jacquard lanyards, and packaging.</p>
+              <span class="index-row-action">View &rarr;</span>
+            </div>
+
+            <div class="index-row" onclick="navigateToPage('three-d')">
+              <span class="index-row-num">06</span>
+              <div class="index-row-title">
+                3D Character Modeling &amp; Topology
+                <span class="index-row-sub">ZBrush · Quad Topology · PBR</span>
+              </div>
+              <p class="index-row-desc">Game-ready character models with an interactive shaded and wireframe topology comparison slider.</p>
+              <span class="index-row-action">View &rarr;</span>
+            </div>
+
+            <div class="index-row" onclick="navigateToPage('about')">
+              <span class="index-row-num">07</span>
+              <div class="index-row-title">
+                About &amp; Production Background
+                <span class="index-row-sub">Statement · Timeline · Toolset</span>
+              </div>
+              <p class="index-row-desc">Artist background, chronological production milestones, and an interactive 24fps light-table scrubber.</p>
+              <span class="index-row-action">View &rarr;</span>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Index Overview</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('digital')">Next: Digital Art &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- =========================================================================
+         PAGE 2: DIGITAL ARTWORKS
+         ========================================================================= -->
+    <article class="webpage" id="page-digital">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-label">01 · Animation &amp; 2D</div>
+          <h1 class="section-title">Digital Artworks &amp; Keyframes</h1>
+          <p class="section-statement">
+            Illustrations developed with an animator's understanding of inertia, drag, and emotional weight.
+          </p>
+          <div class="discipline-switch-bar">
+            <button class="discipline-switch-btn active" onclick="navigateToPage('digital')">Digital Keyframes</button>
+            <button class="discipline-switch-btn" onclick="navigateToPage('traditional')">Traditional Media</button>
+          </div>
+        </header>
+
+        <!-- Lead Study -->
+        <section class="lead-study-section">
+          <div class="lead-study-grid">
+            <div class="lead-study-media" onclick="openLightbox('assets/images/hero-art.jpg', 'The Scarlet Overture', 'Digital Keyframe', 'Conceived for a theatrical sequence exploring the fluid dynamics of crimson silk drapery and airborne embers. Keyframed at 24fps in Clip Studio Paint EX with custom light diffusion passes.', '2024', 'Clip Studio Paint EX / DaVinci Resolve', '3840 × 2160 px', '#B91C2C,#D4A373,#0E0E10')">
+              <img src="assets/images/hero-art.jpg" alt="The Scarlet Overture master keyframe" class="lead-study-img">
+            </div>
+            <div class="lead-study-content">
+              <span class="lead-study-discipline">Lead Sequence Study</span>
+              <h2 class="lead-study-title">The Scarlet Overture</h2>
+              <p class="lead-study-caption">
+                Conceived for a theatrical sequence, this piece balances grand architectural scale against the weightless movement of the figure. The trailing ribbons were animated frame-by-frame to study air resistance and gravitational falloff.
+              </p>
+              <div class="spec-list">
+                <span class="spec-term">Medium</span>
+                <span class="spec-value">Clip Studio Paint EX / DaVinci Resolve</span>
+                <span class="spec-term">Year</span>
+                <span class="spec-value">2024</span>
+                <span class="spec-term">Resolution</span>
+                <span class="spec-value">3840 × 2160 px</span>
+                <span class="spec-term">Frame Rate</span>
+                <span class="spec-value">24 fps hand-timed arcs</span>
+              </div>
+              <div>
+                <button class="btn-primary" onclick="openLightbox('assets/images/hero-art.jpg', 'The Scarlet Overture', 'Digital Keyframe', 'Conceived for a theatrical sequence exploring the fluid dynamics of crimson silk drapery and airborne embers. Keyframed at 24fps in Clip Studio Paint EX with custom light diffusion passes.', '2024', 'Clip Studio Paint EX / DaVinci Resolve', '3840 × 2160 px', '#B91C2C,#D4A373,#0E0E10')">
+                  View high-resolution study
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Secondary Works Grid -->
+        <div class="work-grid">
+          
+          <div class="work-item" onclick="openLightbox('assets/images/digital-art-celestial.jpg', 'Aria of the Celestial Eclipse', 'Digital Environment &amp; Character', 'Atmospheric exploration depicting the convergence of warm direct sunlight and cool secondary reflections across suspended fabric.', '2024', 'Photoshop / CSP', '4096 × 2304 px', '#850E18,#C9933B,#1A1613')">
+            <div class="work-item-media">
+              <img src="assets/images/digital-art-celestial.jpg" alt="Aria of the Celestial Eclipse" class="work-item-img">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Aria of the Celestial Eclipse</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">Digital Illustration · Color Script</div>
+              <p class="work-item-caption">
+                Atmospheric lighting study exploring ambient rim illumination across high-velocity fabric simulation.
+              </p>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLightbox('assets/images/character-design-sheet.jpg', 'Combat Cadence: Arc Studies', 'Action Choreography', 'Sequence sketches charting the transfer of kinetic energy from stance to broadsword recovery arc.', '2023', 'Clip Studio Paint EX', 'Vector Linework', '#B91C2C,#D4A373,#F4EFEA')">
+            <div class="work-item-media">
+              <img src="assets/images/character-design-sheet.jpg" alt="Combat Cadence Keyframe Studies" class="work-item-img" style="object-position: 40% 70%;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Combat Cadence: Arc Studies</h3>
+                <span class="work-item-year">2023</span>
+              </div>
+              <div class="work-item-medium">Animation Timing · Spacing Breakdown</div>
+              <p class="work-item-caption">
+                Frame-by-frame spacing study tracking anticipation, impact poses, and recovery arcs.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Section 01 · Digital Art</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('cover')">&larr; Overview</button>
+            <button class="btn-folio-step" onclick="navigateToPage('traditional')">Next: Traditional Art &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- =========================================================================
+         PAGE 3: TRADITIONAL ARTWORKS
+         ========================================================================= -->
+    <article class="webpage" id="page-traditional">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-label">02 · Works on Paper</div>
+          <h1 class="section-title">Traditional Painting &amp; Drawing</h1>
+          <p class="section-statement">
+            Physical studies in gouache, sumi ink, and cotton paper that establish the line weight and tactile resistance behind every digital frame.
+          </p>
+          <div class="discipline-switch-bar">
+            <button class="discipline-switch-btn" onclick="navigateToPage('digital')">Digital Keyframes</button>
+            <button class="discipline-switch-btn active" onclick="navigateToPage('traditional')">Traditional Media</button>
+          </div>
+        </header>
+
+        <!-- Lead Study -->
+        <section class="lead-study-section">
+          <div class="lead-study-grid">
+            <div class="lead-study-media" onclick="openLightbox('assets/images/traditional-artwork.jpg', 'The Blade of Dawn', 'Scarlet Gouache &amp; Gold Leaf', 'Original traditional master study exploring dynamic combat movement through raw pigments on 300gsm Arches paper.', '2023', 'Gouache / Sepia Ink / Gold Leaf', '12 × 16 in Physical', '#B91C2C,#C9933B,#F5F1E9')">
+              <img src="assets/images/traditional-artwork.jpg" alt="The Blade of Dawn traditional painting" class="lead-study-img">
+            </div>
+            <div class="lead-study-content">
+              <span class="lead-study-discipline">Master Study on Paper</span>
+              <h2 class="lead-study-title">The Blade of Dawn</h2>
+              <p class="lead-study-caption">
+                Executed on 300gsm Arches cold-press cotton rag with deckled edges. Wet-on-dry washes of concentrated scarlet gouache convey fast motion, while gold leafing catches ambient light as the viewer shifts perspective.
+              </p>
+              <div class="spec-list">
+                <span class="spec-term">Medium</span>
+                <span class="spec-value">Gouache, sepia fountain pen, and 24k gold leaf</span>
+                <span class="spec-term">Year</span>
+                <span class="spec-value">2023</span>
+                <span class="spec-term">Surface</span>
+                <span class="spec-value">12 × 16 inches, 300gsm Arches cotton rag</span>
+                <span class="spec-term">Method</span>
+                <span class="spec-value">Wet-on-dry washes with dry-brush drag</span>
+              </div>
+              <div>
+                <button class="btn-primary" onclick="openLightbox('assets/images/traditional-artwork.jpg', 'The Blade of Dawn', 'Scarlet Gouache &amp; Gold Leaf', 'Original traditional master study exploring dynamic combat movement through raw pigments on 300gsm Arches paper.', '2023', 'Gouache / Sepia Ink / Gold Leaf', '12 × 16 in Physical', '#B91C2C,#C9933B,#F5F1E9')">
+                  View texture &amp; details
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Secondary Works Grid (3-column) -->
+        <div class="work-grid work-grid-3col">
+          
+          <div class="work-item" onclick="openLightbox('assets/images/traditional-artwork.jpg', 'Sumi Ink Gestures', 'Sepia Sumi Ink on Washi', 'Live model quick-poses executed in under 90 seconds to capture anatomical weight and organic tension.', '2023', 'Sumi Ink / Bamboo Brush', 'Handmade Washi Paper', '#1A1613,#D4CCC0,#7D0F1B')">
+            <div class="work-item-media">
+              <img src="assets/images/traditional-artwork.jpg" alt="Sumi Ink Gestures" class="work-item-img" style="object-position: left center;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Sumi Ink Gestures</h3>
+                <span class="work-item-year">2023</span>
+              </div>
+              <div class="work-item-medium">Sumi Ink on Paper</div>
+              <p class="work-item-caption">Live model quick-poses executed in under 90 seconds to capture pure kinetic weight.</p>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLightbox('assets/images/traditional-artwork.jpg', 'Drapery in Scarlet', 'Gouache on Artboard', 'Fabric folds captured under direct raking sunlight to inform digital costume physics.', '2022', 'Holbein Acryla Gouache', 'Moleskine Artboard', '#B91C2C,#D4A373,#FAF7F2')">
+            <div class="work-item-media">
+              <img src="assets/images/traditional-artwork.jpg" alt="Drapery in Scarlet" class="work-item-img" style="object-position: center center;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Drapery in Scarlet</h3>
+                <span class="work-item-year">2022</span>
+              </div>
+              <div class="work-item-medium">Gouache on Artboard</div>
+              <p class="work-item-caption">Fabric folds captured under direct raking sunlight to inform costume draping in animation.</p>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLightbox('assets/images/traditional-artwork.jpg', 'The Gilded Flora', 'Mixed Media with Gold Leaf', 'Harmonizing botanical motifs with the angular silhouette of a warrior figure.', '2023', 'Mixed Media &amp; Leaf', 'Cotton Artboard', '#C9933B,#B91C2C,#0E0E10')">
+            <div class="work-item-media">
+              <img src="assets/images/traditional-artwork.jpg" alt="The Gilded Flora" class="work-item-img" style="object-position: right center;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">The Gilded Flora</h3>
+                <span class="work-item-year">2023</span>
+              </div>
+              <div class="work-item-medium">Mixed Media on Paper</div>
+              <p class="work-item-caption">Intricate gold embellishments tested for light catch and high-contrast reproduction.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Section 02 · Traditional Art</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('digital')">&larr; Digital Art</button>
+            <button class="btn-folio-step" onclick="navigateToPage('character')">Next: Character Design &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- =========================================================================
+         PAGE 4: CHARACTER DESIGNS
+         ========================================================================= -->
+    <article class="webpage" id="page-character">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-label">03 · Concept &amp; VisDev</div>
+          <h1 class="section-title">Character Design &amp; Model Sheets</h1>
+          <p class="section-statement">
+            Production packages built for animation pipelines: turnarounds, emotional expression matrices, and costume clearance specifications.
+          </p>
+          <div class="discipline-switch-bar">
+            <button class="discipline-switch-btn active" onclick="navigateToPage('character')">Character Design</button>
+            <button class="discipline-switch-btn" onclick="navigateToPage('three-d')">3D Modeling &amp; Topology</button>
+          </div>
+        </header>
+
+        <!-- Lead Study -->
+        <section class="lead-study-section">
+          <div class="lead-study-grid">
+            <div class="lead-study-media" onclick="openLightbox('assets/images/character-design-sheet.jpg', 'Lyra: Model Sheet', 'Production Turnaround &amp; Expression Matrix', 'Original animated protagonist package featuring neutral poses, combat stance, action jumps, fabric callouts, and six micro-expression studies.', '2024', 'Photoshop / Storyboard Pro', '5000 × 3500 px Production Sheet', '#B91C2C,#D4A373,#F7F5EE')">
+              <img src="assets/images/character-design-sheet.jpg" alt="Lyra Character Model Sheet" class="lead-study-img">
+            </div>
+            <div class="lead-study-content">
+              <span class="lead-study-discipline">Feature Animation Spec</span>
+              <h2 class="lead-study-title">Lyra: The Vanguard Scout</h2>
+              <p class="lead-study-caption">
+                Designed for an action-adventure feature. The character’s silhouette is immediately distinguishable at any camera distance. The braided hair serves as a secondary motion dampener, emphasizing rapid changes in direction during combat choreography.
+              </p>
+              <div class="spec-list">
+                <span class="spec-term">Pipeline</span>
+                <span class="spec-value">Adobe Photoshop / Storyboard Pro</span>
+                <span class="spec-term">Year</span>
+                <span class="spec-value">2024</span>
+                <span class="spec-term">Package</span>
+                <span class="spec-value">Turnaround, 6 acting registers, fabric swatches</span>
+                <span class="spec-term">Target</span>
+                <span class="spec-value">2D / 3D Hybrid Feature Pipeline</span>
+              </div>
+              <div>
+                <button class="btn-primary" onclick="openLightbox('assets/images/character-design-sheet.jpg', 'Lyra: Model Sheet', 'Production Turnaround &amp; Expression Matrix', 'Original animated protagonist package featuring neutral poses, combat stance, action jumps, fabric callouts, and six micro-expression studies.', '2024', 'Photoshop / Storyboard Pro', '5000 × 3500 px Production Sheet', '#B91C2C,#D4A373,#F7F5EE')">
+                  View turnaround &amp; callouts
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Secondary Grid -->
+        <div class="work-grid">
+          
+          <div class="work-item" onclick="openLightbox('assets/images/character-design-sheet.jpg', 'Expression Matrix: 6 Registers', 'Animation Acting &amp; Subtlety', 'Studies covering determined, joyful, serious, astonished, and combat emotional states.', '2024', 'Vector Inking', 'Production Spec', '#B91C2C,#D4A373,#12100E')">
+            <div class="work-item-media">
+              <img src="assets/images/character-design-sheet.jpg" alt="Facial Expression Studies" class="work-item-img" style="object-position: right bottom;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Expression Matrix: 6 Registers</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">Acting Breakdown · Facial Silhouette</div>
+              <p class="work-item-caption">
+                Subtle micro-acting studies tracking eye line and facial silhouette across emotional shifts.
+              </p>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLightbox('assets/images/character-design-sheet.jpg', 'Costume Swatches &amp; Rigging Clearance', 'Material Callouts for 3D &amp; 2D Pipelines', 'Layered clothing designed to avoid geometry clipping during extreme crouching and jump frames.', '2024', 'Visual Development', 'Texture Swatches', '#7D0F1B,#D4A373,#D4CCC0')">
+            <div class="work-item-media">
+              <img src="assets/images/character-design-sheet.jpg" alt="Costume Swatches" class="work-item-img" style="object-position: right top;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Costume Swatches &amp; Rigging Clearance</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">Material Development · Deformation Safe</div>
+              <p class="work-item-caption">
+                Layered clothing designed to prevent geometry clipping during extreme crouching and jump frames.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Section 03 · Character Design</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('traditional')">&larr; Traditional Art</button>
+            <button class="btn-folio-step" onclick="navigateToPage('photography')">Next: Photography &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- =========================================================================
+         PAGE 5: PHOTOGRAPHY
+         ========================================================================= -->
+    <article class="webpage" id="page-photography">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-label">04 · Observational Lens</div>
+          <h1 class="section-title">Photographic &amp; Light Studies</h1>
+          <p class="section-statement">
+            Observational field work examining raking natural light, architectural geometry, and textile tension as lighting reference for animation.
+          </p>
+          <div class="discipline-switch-bar">
+            <button class="discipline-switch-btn active" onclick="navigateToPage('photography')">Photography Studies</button>
+            <button class="discipline-switch-btn" onclick="navigateToPage('atelier')">Print &amp; Physical Goods</button>
+          </div>
+        </header>
+
+        <!-- Lead Study -->
+        <section class="lead-study-section">
+          <div class="lead-study-grid">
+            <div class="lead-study-media" onclick="openLightbox('assets/images/cinematic-photography.jpg', 'Suspension in Light: The Crimson Veil', 'Fine Art Medium Format Photography', 'Museum exhibition study examining tension, natural raking golden sunlight, and organic scarlet textiles within geometric brutalist concrete architecture.', '2024', 'Hasselblad 500C/M / Kodak Portra 400', 'Framed Gallery Exhibition Print', '#B91C2C,#D4A373,#1A1613')">
+              <img src="assets/images/cinematic-photography.jpg" alt="Suspension in Light photographic study" class="lead-study-img">
+            </div>
+            <div class="lead-study-content">
+              <span class="lead-study-discipline">Medium Format Study</span>
+              <h2 class="lead-study-title">Suspension in Light: The Crimson Veil</h2>
+              <p class="lead-study-caption">
+                Shot in an architectural gallery during the late afternoon. Suspended crimson silk catches low-angled raking sunlight against cast concrete walls, directly informing the lighting balance in digital animation sequences.
+              </p>
+              <div class="spec-list">
+                <span class="spec-term">Camera</span>
+                <span class="spec-value">Hasselblad 500C/M · Carl Zeiss 80mm</span>
+                <span class="spec-term">Film</span>
+                <span class="spec-value">Kodak Portra 400</span>
+                <span class="spec-term">Year</span>
+                <span class="spec-value">2024</span>
+                <span class="spec-term">Lighting</span>
+                <span class="spec-value">Natural available golden hour light</span>
+              </div>
+              <div>
+                <button class="btn-primary" onclick="openLightbox('assets/images/cinematic-photography.jpg', 'Suspension in Light: The Crimson Veil', 'Fine Art Medium Format Photography', 'Museum exhibition study examining tension, natural raking golden sunlight, and organic scarlet textiles within geometric brutalist concrete architecture.', '2024', 'Hasselblad 500C/M / Kodak Portra 400', 'Framed Gallery Exhibition Print', '#B91C2C,#D4A373,#1A1613')">
+                  View full photograph
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Secondary Grid -->
+        <div class="work-grid">
+          
+          <div class="work-item" onclick="openLightbox('assets/images/cinematic-photography.jpg', 'Shadow Rhythms &amp; Geometric Light', 'Light Architecture', 'Natural light slicing through industrial window mullions onto concrete.', '2024', 'Natural Available Light', 'Medium Format Negative', '#FAF7F2,#D4A373,#12100E')">
+            <div class="work-item-media">
+              <img src="assets/images/cinematic-photography.jpg" alt="Shadow Rhythms and Geometric Light" class="work-item-img" style="object-position: center top;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Shadow Rhythms &amp; Geometric Light</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">Natural Lighting · Chiaroscuro</div>
+              <p class="work-item-caption">
+                Natural sunlight slicing across polished concrete, studying ray falloff and edge diffusion.
+              </p>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLightbox('assets/images/cinematic-photography.jpg', 'Kinetic Drapery &amp; Air Draft Dynamics', 'Fabric Dynamics', 'High-speed shutter study capturing micro-turbulence ripples in lightweight fabric during air draft.', '2024', '1/1000s Shutter', 'Motion Study', '#B91C2C,#D4CCC0,#0E0E10')">
+            <div class="work-item-media">
+              <img src="assets/images/cinematic-photography.jpg" alt="Fabric Dynamics" class="work-item-img" style="object-position: center center;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Kinetic Drapery &amp; Air Draft Dynamics</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">High-Speed Shutter · Fluid Reference</div>
+              <p class="work-item-caption">
+                High-speed shutter reference capturing turbulence ripples in lightweight fabric.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Section 04 · Photography</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('character')">&larr; Character Design</button>
+            <button class="btn-folio-step" onclick="navigateToPage('atelier')">Next: Applied Goods &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- =========================================================================
+         PAGE 6: APPLIED PRINT & PHYSICAL GOODS
+         ========================================================================= -->
+    <article class="webpage" id="page-atelier">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-label">05 · Physical Goods</div>
+          <h1 class="section-title">Applied Print &amp; Product Design</h1>
+          <p class="section-statement">
+            Translating illustration into physical objects: micro-woven desk mats, jacquard neck lanyards, and limited exhibition print packaging.
+          </p>
+          <div class="discipline-switch-bar">
+            <button class="discipline-switch-btn" onclick="navigateToPage('photography')">Photography Studies</button>
+            <button class="discipline-switch-btn active" onclick="navigateToPage('atelier')">Print &amp; Physical Goods</button>
+          </div>
+        </header>
+
+        <!-- Lead Study -->
+        <section class="lead-study-section">
+          <div class="lead-study-grid">
+            <div class="lead-study-media" onclick="openLightbox('assets/images/atelier-merch-lanyards.jpg', 'Kirin Series: Desk Mat &amp; Lanyards', 'Desk Mat, Woven Lanyards &amp; Stationery', 'Physical production showcase featuring floral botanical desk mat, dual woven neck lanyards, and custom packaging.', '2024', 'Physical Fabrication / Screen Print / Hot Foil', 'Custom Desk Edition', '#B91C2C,#D4A373,#12100E')">
+              <img src="assets/images/atelier-merch-lanyards.jpg" alt="Kirin series merchandise and lanyards" class="lead-study-img">
+            </div>
+            <div class="lead-study-content">
+              <span class="lead-study-discipline">Exhibition Suite</span>
+              <h2 class="lead-study-title">Kirin Series: Desk Mat &amp; Lanyards</h2>
+              <p class="lead-study-caption">
+                Designed as a physical collection for animation conventions. Includes a multi-layered desk mat with anti-fray stitched borders, dual woven satin lanyards with antique brass hardware, and foil-stamped presentation packaging.
+              </p>
+              <div class="spec-list">
+                <span class="spec-term">Materials</span>
+                <span class="spec-value">Micro-woven polyester, 4mm natural rubber, jacquard silk</span>
+                <span class="spec-term">Year</span>
+                <span class="spec-value">2024</span>
+                <span class="spec-term">Print</span>
+                <span class="spec-value">CMYK dye-sublimation with metallic accents</span>
+                <span class="spec-term">Hardware</span>
+                <span class="spec-value">Cast antique brass swivel clasps</span>
+              </div>
+              <div>
+                <button class="btn-primary" onclick="openLightbox('assets/images/atelier-merch-lanyards.jpg', 'Kirin Series: Desk Mat &amp; Lanyards', 'Desk Mat, Woven Lanyards &amp; Stationery', 'Physical production showcase featuring floral botanical desk mat, dual woven neck lanyards, and custom packaging.', '2024', 'Physical Fabrication / Screen Print / Hot Foil', 'Custom Desk Edition', '#B91C2C,#D4A373,#12100E')">
+                  View print &amp; textile details
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Secondary Grid (3-column) -->
+        <div class="work-grid work-grid-3col">
+          
+          <div class="work-item" onclick="openLightbox('assets/images/atelier-merch-lanyards.jpg', 'Dual Jacquard Lanyards', 'Satin Jacquard Weave', 'Dual-tone lanyards in deep crimson with golden crests and obsidian black with woven motifs.', '2024', 'Jacquard Silk / Brass Clips', '90 × 2.5 cm', '#B91C2C,#D4A373,#0E0E10')">
+            <div class="work-item-media">
+              <img src="assets/images/atelier-merch-lanyards.jpg" alt="Woven Lanyards" class="work-item-img" style="object-position: 50% 20%;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Dual Jacquard Lanyards</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">Textile Craft · Antique Brass</div>
+              <p class="work-item-caption">High thread-count woven ribbons engineered for sharp pattern clarity and durability.</p>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLightbox('assets/images/atelier-merch-lanyards.jpg', 'Botanical Desk Mat', 'Dye-Sublimation Desk Mat', 'A crimson and gold floral composition framing an enigmatic silhouette.', '2024', 'Micro-Woven Polyester / Rubber', '900 × 400 × 4 mm', '#B91C2C,#D4A373,#FAF7F2')">
+            <div class="work-item-media">
+              <img src="assets/images/atelier-merch-lanyards.jpg" alt="Botanical Desk Mat" class="work-item-img" style="object-position: left center;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Botanical Desk Mat</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">Stitched Edge · 900 × 400 mm</div>
+              <p class="work-item-caption">Anti-fray perimeter stitching and smooth surface glide designed for long daily work sessions.</p>
+            </div>
+          </div>
+
+          <div class="work-item" onclick="openLightbox('assets/images/atelier-merch-lanyards.jpg', 'Collector Box &amp; Stationery', 'Rigid Box with Hot Foil', 'Presentation packaging crafted with 1200gsm rigid board and micro-textured covers.', '2024', 'Hot Foil Stamping / Board', 'Custom Box Edition', '#1A1613,#D4A373,#FAF7F2')">
+            <div class="work-item-media">
+              <img src="assets/images/atelier-merch-lanyards.jpg" alt="Packaging Box" class="work-item-img" style="object-position: right top;">
+            </div>
+            <div class="work-item-body">
+              <div class="work-item-meta">
+                <h3 class="work-item-title">Collector Box &amp; Stationery</h3>
+                <span class="work-item-year">2024</span>
+              </div>
+              <div class="work-item-medium">Packaging · Hot Stamped Foil</div>
+              <p class="work-item-caption">Matte black board with metallic foil line art for limited exhibition packaging.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Section 05 · Applied Goods</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('photography')">&larr; Photography</button>
+            <button class="btn-folio-step" onclick="navigateToPage('three-d')">Next: 3D Projects &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- =========================================================================
+         PAGE 7: 3D PROJECTS
+         ========================================================================= -->
+    <article class="webpage" id="page-three-d">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-label">06 · Dimensional Work</div>
+          <h1 class="section-title">3D Character Modeling &amp; Topology</h1>
+          <p class="section-statement">
+            High-resolution sculpting, clean deformation topology, and PBR texturing designed for real-time engines and cinematic offline rendering.
+          </p>
+          <div class="discipline-switch-bar">
+            <button class="discipline-switch-btn" onclick="navigateToPage('character')">Character Design</button>
+            <button class="discipline-switch-btn active" onclick="navigateToPage('three-d')">3D Modeling &amp; Topology</button>
+          </div>
+        </header>
+
+        <!-- Interactive Topology Comparison Slider -->
+        <div class="topology-block">
+          <div class="topology-header-row">
+            <div>
+              <h2 style="font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 0.25rem;">
+                Aurelia: Vanguard 3D Asset
+              </h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                Drag the slider left and right to inspect the shaded PBR render against the quad deformation wireframe.
+              </p>
+            </div>
+          </div>
+
+          <div class="topology-slider-container" id="topologySliderWrapper">
+            <!-- Full Beauty Render (Base) -->
+            <img src="assets/images/project-3d-render.jpg" alt="Aurelia 3D Character Beauty Render" class="topology-image-base">
+            
+            <!-- Wireframe Overlay (Clipped) -->
+            <div class="topology-wire-clip" id="topologyClipContainer">
+              <img src="assets/images/project-3d-render.jpg" alt="Aurelia 3D Character Wireframe Topology" class="topology-image-wire">
+            </div>
+
+            <!-- Divider Line with Handle -->
+            <div class="topology-divider-line" id="topologyDivider">
+              <div class="topology-handle-pill">&harr; Slide</div>
+            </div>
+
+            <span class="topology-tag topology-tag-left">Shaded PBR Render</span>
+            <span class="topology-tag topology-tag-right">Quad Topology</span>
+          </div>
+        </div>
+
+        <!-- Technical Model Specs & Pipeline Breakdown -->
+        <div class="topology-details-grid">
+          
+          <div class="technical-overview-col">
+            <h3>Production Specifications</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.5rem;">
+              Sculpted in ZBrush, retopologized in Blender with edge loops tailored specifically for articulation across the shoulders, elbows, and hips. Textured in Substance 3D Painter with procedural armor oxidation.
+            </p>
+            <div class="spec-list" style="margin-bottom: 1.5rem;">
+              <span class="spec-term">Geometry</span>
+              <span class="spec-value">38,400 Triangles (Real-Time Game Ready)</span>
+              <span class="spec-term">Texture Sets</span>
+              <span class="spec-value">4K PBR UDIMs (Albedo, Normal, Roughness, Metalness, AO)</span>
+              <span class="spec-term">Software</span>
+              <span class="spec-value">ZBrush · Blender · Substance 3D Painter</span>
+            </div>
+            <div>
+              <button class="btn-primary" onclick="openLightbox('assets/images/project-3d-render.jpg', 'Aurelia: Imperial Vanguard 3D Render', 'ZBrush High-Poly / Blender Topology / Cycles Lighting', 'Feature game-ready 3D character asset in lacquered armor with clean edge loops around articulation joints for seamless deformation.', '2024', 'ZBrush / Blender / Substance Painter', '38.4k Tris / 4K PBR UDIMs', '#B91C2C,#D4A373,#1A1613')">
+                View full render details
+              </button>
+            </div>
+          </div>
+
+          <div class="pipeline-competencies-col">
+            <h4 class="tool-group-title">Pipeline Competencies</h4>
+            <ul class="pipeline-list">
+              <li><strong>Sculpting:</strong> Anatomical and hard-surface armor sculpting in ZBrush</li>
+              <li><strong>Retopology:</strong> Deformation-friendly quad retopology in Blender</li>
+              <li><strong>Texturing:</strong> Substance 3D Painter PBR material authoring</li>
+              <li><strong>Lighting:</strong> Studio 3-point setups in Blender Cycles</li>
+              <li><strong>Hair Cards:</strong> Curve-based hair generation with alpha opacity</li>
+              <li><strong>Rig Ready:</strong> Clean bone weighting and articulation test passes</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Section 06 · 3D Work</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('atelier')">&larr; Applied Goods</button>
+            <button class="btn-folio-step" onclick="navigateToPage('about')">Next: About Eunoia &rarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- =========================================================================
+         PAGE 8: ABOUT EUNOIA
+         ========================================================================= -->
+    <article class="webpage" id="page-about">
+      <div class="container">
+        
+        <header class="section-header">
+          <div class="section-label">07 · Background &amp; Process</div>
+          <h1 class="section-title">About Eunoia</h1>
+          <p class="section-statement">
+            Animation and visual arts studio working across 2D animation, illustration, and 3D modeling.
+          </p>
+        </header>
+
+        <div class="about-split-layout">
+          
+          <!-- Sticky Artist Bio Column -->
+          <aside class="about-bio-sticky">
+            <div class="artist-portrait-frame">
+              <img src="assets/images/hero-art.jpg" alt="Eunoia visual direction study" class="artist-portrait-img" style="object-position: center top;">
+            </div>
+
+            <h2 class="artist-name">Eunoia Studio</h2>
+            <div class="artist-title-sub">Animation &amp; Visual Direction</div>
+            <p class="artist-bio-text">
+              Eunoia combines the tactile discipline of physical painting with modern digital animation pipelines. The studio focuses on weight, fluid timing, and clear silhouette design across independent and commercial productions.
+            </p>
+            <p class="artist-bio-text" style="font-family: var(--font-serif); font-size: 1.05rem; color: var(--text-primary); border-left: 2px solid var(--accent); padding-left: 1rem; margin-bottom: 2rem;">
+              "Motion communicates before color or detail does. Understanding gravity, inertia, and line tension is what gives any drawing its life."
+            </p>
+            <div>
+              <button class="btn-primary" onclick="openCommissionModal()" style="width: 100%; justify-content: center;">
+                Inquire about projects
+              </button>
+            </div>
+          </aside>
+
+          <!-- Interactive Scrubber & Timeline Column -->
+          <div class="about-content-col">
+            
+            <!-- 24fps Light Table Flipbook Scrubber -->
+            <div class="scrubber-block">
+              <div class="scrubber-header">
+                <div>
+                  <h3 class="scrubber-title">24fps Animation Keyframe Scrubber</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
+                    Inspect frame spacing and secondary motion across a 24-frame silk cycle.
+                  </p>
+                </div>
+                <button class="btn-scrub-play" id="playAnimationBtn">&#9658; Play</button>
+              </div>
+
+              <div class="scrubber-canvas-box">
+                <canvas id="keyframeCanvas" width="600" height="220" style="width: 100%; height: 100%;"></canvas>
+              </div>
+
+              <div class="scrubber-ui-row">
+                <span class="frame-badge" id="frameCounter">FRAME 01 / 24</span>
+                <input type="range" min="1" max="24" value="1" class="scrubber-slider" id="scrubberSlider" aria-label="Animation Frame Slider">
+                <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 500;">24 FPS TIMING</span>
+              </div>
+            </div>
+
+            <!-- Chronological Milestones Timeline -->
+            <div class="timeline-block">
+              <h3 class="timeline-section-title">Background &amp; Milestones</h3>
+
+              <div class="timeline-list">
+                
+                <div class="timeline-entry">
+                  <div class="timeline-year-tag">2018</div>
+                  <div>
+                    <h4 class="timeline-entry-title">Foundations in Drawing &amp; Pigments</h4>
+                    <p class="timeline-entry-desc">
+                      Began with sketchbooks filled with sumi ink gestures, human anatomy studies, and watercolor washes. Developed an understanding of gravity, line confidence, and the tactile friction of brush on paper.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-entry">
+                  <div class="timeline-year-tag">2020</div>
+                  <div>
+                    <h4 class="timeline-entry-title">2D Keyframe Animation &amp; Timing Arcs</h4>
+                    <p class="timeline-entry-desc">
+                      Adopted digital display tablets and industry animation software. Mastered core principles of animation: squash and stretch, timing, anticipation, and secondary action across dynamic combat sequences.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-entry">
+                  <div class="timeline-year-tag">2022</div>
+                  <div>
+                    <h4 class="timeline-entry-title">Applied Print &amp; Physical Goods</h4>
+                    <p class="timeline-entry-desc">
+                      Produced limited physical goods including dye-sublimated desk mats, woven jacquard lanyards, and hot-stamped stationery for international art conventions.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-entry">
+                  <div class="timeline-year-tag">2024</div>
+                  <div>
+                    <h4 class="timeline-entry-title">3D Character Modeling &amp; Quad Topology</h4>
+                    <p class="timeline-entry-desc">
+                      Expanded into 3D sculpting with ZBrush and Blender. Bridged 2D character silhouette design with production-ready quad topology for real-time and cinematic engines.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline-entry">
+                  <div class="timeline-year-tag">PRESENT</div>
+                  <div>
+                    <h4 class="timeline-entry-title">Independent Studio Work &amp; Direction</h4>
+                    <p class="timeline-entry-desc">
+                      Available for freelance 2D animation, keyframe direction, character design, and 3D modeling for film productions, game studios, and creative teams.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Production Tools Matrix -->
+            <div class="tools-block">
+              <h3 class="timeline-section-title">Production Tools</h3>
+
+              <div class="tools-grid">
+                <div>
+                  <h4 class="tool-group-title">2D Animation</h4>
+                  <ul class="tool-items-list">
+                    <li>Clip Studio Paint EX</li>
+                    <li>Adobe Photoshop</li>
+                    <li>TVPaint Animation</li>
+                    <li>Storyboard Pro</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="tool-group-title">3D &amp; Topology</h4>
+                  <ul class="tool-items-list">
+                    <li>Pixologic ZBrush</li>
+                    <li>Blender (Cycles/Eevee)</li>
+                    <li>Substance 3D Painter</li>
+                    <li>PBR UDIM Texturing</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="tool-group-title">Traditional</h4>
+                  <ul class="tool-items-list">
+                    <li>Holbein Acryla Gouache</li>
+                    <li>Japanese Sumi Ink</li>
+                    <li>Arches 300gsm Rag</li>
+                    <li>24k Gold Leafing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Folio Pagination -->
+        <div class="folio-pagination-bar">
+          <span class="folio-status-label">Section 07 · About</span>
+          <div class="folio-nav-actions">
+            <button class="btn-folio-step" onclick="navigateToPage('three-d')">&larr; 3D Projects</button>
+            <button class="btn-folio-step" onclick="navigateToPage('cover')">Back to Overview &uarr;</button>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <!-- =========================================================================
+       LIGHTBOX INSPECTOR MODAL (Clean, functional)
+       ========================================================================= -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Artwork View">
+    <div class="lightbox-dialog">
+      <button class="modal-close-btn" id="lightboxCloseBtn" aria-label="Close View">&times;</button>
+      
+      <div class="lightbox-media-pane">
+        <img src="" alt="" class="lightbox-image-target" id="lightboxImage">
+      </div>
+
+      <div class="lightbox-info-pane">
+        <div>
+          <div class="lightbox-discipline-tag" id="lightboxTag">Selected Work</div>
+          <h2 class="lightbox-header-title" id="lightboxTitle">Artwork Title</h2>
+          <p class="lightbox-caption-text" id="lightboxDesc">Description of piece.</p>
+
+          <div class="lightbox-details-grid">
+            <div>
+              <div class="detail-cell-label">Year</div>
+              <div class="detail-cell-val" id="lightboxYear">2024</div>
+            </div>
+            <div>
+              <div class="detail-cell-label">Primary Medium</div>
+              <div class="detail-cell-val" id="lightboxMedium">Clip Studio Paint EX</div>
+            </div>
+            <div>
+              <div class="detail-cell-label">Canvas Dimensions</div>
+              <div class="detail-cell-val" id="lightboxDims">3840 × 2160 px</div>
+            </div>
+            <div>
+              <div class="detail-cell-label">Color Palette</div>
+              <div class="palette-chips" id="lightboxPalette"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <button class="btn-primary" onclick="openCommissionModal()" style="width: 100%; justify-content: center;">
+            Inquire about this piece
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       COMMISSION INQUIRY MODAL (Clean, functional)
+       ========================================================================= -->
+  <div class="commission-modal" id="commissionModal" role="dialog" aria-modal="true" aria-label="Inquiry Dialog">
+    <div class="commission-dialog">
+      <button class="modal-close-btn" id="commissionCloseBtn" aria-label="Close Inquiry">&times;</button>
+      
+      <h2 class="commission-header-title">Inquire</h2>
+      <p class="commission-statement">
+        Available for 2D animation, keyframe direction, character design, 3D modeling, and applied print projects.
+      </p>
+
+      <form class="commission-form" id="commissionForm">
+        <div class="form-field">
+          <label class="field-label" for="clientName">Name or Studio</label>
+          <input type="text" id="clientName" name="name" class="field-input" placeholder="Your name or studio" required>
+        </div>
+
+        <div class="form-field">
+          <label class="field-label" for="clientEmail">Email</label>
+          <input type="email" id="clientEmail" name="email" class="field-input" placeholder="email@studio.com" required>
+        </div>
+
+        <div class="form-field">
+          <label class="field-label" for="projectType">Project Scope</label>
+          <select id="projectType" name="project_scope" class="field-select" required>
+            <option value="animation">2D Keyframe Animation &amp; VisDev</option>
+            <option value="character">Character Design &amp; Model Sheets</option>
+            <option value="3d">3D Character Modeling &amp; Quad Topology</option>
+            <option value="print">Applied Print &amp; Physical Goods</option>
+            <option value="other">General Inquiries / Direction</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="field-label" for="projectBrief">Project Summary &amp; Timeline</label>
+          <textarea id="projectBrief" name="message" class="field-textarea" rows="4" placeholder="Brief description of the project, deadlines, and deliverables..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-form-submit" id="formSubmitBtn">Send Inquiry</button>
+      </form>
+
+      <div class="form-confirmation" id="formStatusMsg" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- Site Footer: Clean Colophon -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col-brand">
+          <div class="footer-brand-header">
+            <svg class="brand-logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="14.5" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"/>
+              <path d="M22 10.5C20.5 8.8 18.4 8 16 8C11.58 8 8 11.58 8 16C8 20.42 11.58 24 16 24C18.6 24 20.8 23 22.2 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M11 16H20.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="21" cy="16" r="1.6" fill="#b82e3b"/>
+            </svg>
+            <span class="brand-name">Eunoia</span>
+          </div>
+          <p>
+            An independent visual arts and animation studio exploring 2D keyframe animation, traditional works on paper, character visual development, and 3D modeling.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><button onclick="navigateToPage('cover')">Overview</button></li>
+            <li><button onclick="navigateToPage('digital')">2D &amp; Animation</button></li>
+            <li><button onclick="navigateToPage('traditional')">Traditional Works</button></li>
+            <li><button onclick="navigateToPage('character')">Character Design</button></li>
+            <li><button onclick="navigateToPage('three-d')">3D Modeling &amp; Topology</button></li>
+            <li><button onclick="navigateToPage('photography')">Photography &amp; Light</button></li>
+            <li><button onclick="navigateToPage('atelier')">Applied Print &amp; Goods</button></li>
+            <li><button onclick="navigateToPage('about')">About Eunoia</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Channels</h4>
+          <ul class="footer-nav-list">
+            <li><a href="https://artstation.com" target="_blank" rel="noopener">ArtStation</a></li>
+            <li><a href="https://cara.app" target="_blank" rel="noopener">Cara</a></li>
+            <li><a href="https://vimeo.com" target="_blank" rel="noopener">Vimeo</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>&copy; 2024–2026 Eunoia. All rights reserved.</div>
+        <div>Based in the Philippines · Available for Select Commissions</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       PAGE NAVIGATION, 3D SLIDER, SCRUBBER & LIGHTBOX SCRIPT
+       Clean, direct, zero novelty gimmicks
+       ========================================================================= -->
+  <script>
+    /* Navigation & Page Switching */
+    const allWebpages = document.querySelectorAll('.webpage');
+    const allNavLinks = document.querySelectorAll('.site-header .nav-link, .mobile-nav-drawer .nav-link');
+
+    // Map each page ID to its parent category in the consolidated nav
+    const pageToNavMap = {
+      'cover': 'overview',
+      'digital': 'animation',
+      'traditional': 'animation',
+      'character': 'concept',
+      'three-d': 'concept',
+      'photography': 'applied',
+      'atelier': 'applied',
+      'about': 'about'
+    };
+
+    function navigateToPage(pageKey, skipHistory = false) {
+      const targetArticle = document.getElementById(`page-${pageKey}`);
+      if (!targetArticle) return;
+
+      // Close mobile drawer if open
+      const drawer = document.getElementById('mobileDrawer');
+      if (drawer && drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+      }
+
+      // Update pages
+      allWebpages.forEach(page => {
+        if (page.id === `page-${pageKey}`) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      });
+
+      // Update active nav link
+      const targetNavCategory = pageToNavMap[pageKey] || 'overview';
+      allNavLinks.forEach(link => {
+        if (link.dataset.nav === targetNavCategory) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      // Update URL hash
+      if (!skipHistory) {
+        if (history.pushState) {
+          history.pushState(null, null, `#${pageKey}`);
+        } else {
+          location.hash = `#${pageKey}`;
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Handle Browser History Back / Forward
+    window.addEventListener('popstate', () => {
+      const hash = location.hash.replace('#', '') || 'cover';
+      navigateToPage(hash, true);
+    });
+
+    // Check initial hash on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const initialHash = location.hash.replace('#', '') || 'cover';
+      if (initialHash && document.getElementById(`page-${initialHash}`)) {
+        navigateToPage(initialHash, true);
+      }
+    });
+
+    // Mobile Menu Button
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (mobileMenuBtn && mobileDrawer) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileDrawer.classList.toggle('open');
+      });
+    }
+
+    /* ==========================================================================
+       3D Wireframe / Topology Interactive Slider
+       ========================================================================= */
+    const topologyWrapper = document.getElementById('topologySliderWrapper');
+    const topologyClip = document.getElementById('topologyClipContainer');
+    const topologyDivider = document.getElementById('topologyDivider');
+
+    if (topologyWrapper && topologyClip && topologyDivider) {
+      let isDraggingTopology = false;
+
+      function updateTopologyPosition(clientX) {
+        const rect = topologyWrapper.getBoundingClientRect();
+        let percentage = ((clientX - rect.left) / rect.width) * 100;
+        percentage = Math.max(0, Math.min(100, percentage));
+        
+        topologyClip.style.width = `${percentage}%`;
+        topologyDivider.style.left = `${percentage}%`;
+      }
+
+      topologyWrapper.addEventListener('mousedown', (e) => {
+        isDraggingTopology = true;
+        updateTopologyPosition(e.clientX);
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDraggingTopology) return;
+        updateTopologyPosition(e.clientX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDraggingTopology = false;
+      });
+
+      topologyWrapper.addEventListener('touchstart', (e) => {
+        isDraggingTopology = true;
+        if (e.touches[0]) updateTopologyPosition(e.touches[0].clientX);
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDraggingTopology) return;
+        if (e.touches[0]) updateTopologyPosition(e.touches[0].clientX);
+      });
+
+      window.addEventListener('touchend', () => {
+        isDraggingTopology = false;
+      });
+    }
+
+    /* ==========================================================================
+       24fps Animation Light-Table Keyframe Scrubber
+       Clean canvas demonstration of frame spacing & secondary motion
+       ========================================================================= */
+    const keyframeCanvas = document.getElementById('keyframeCanvas');
+    const scrubberSlider = document.getElementById('scrubberSlider');
+    const frameCounter = document.getElementById('frameCounter');
+    const playAnimationBtn = document.getElementById('playAnimationBtn');
+
+    if (keyframeCanvas && scrubberSlider && frameCounter) {
+      const ctx = keyframeCanvas.getContext('2d');
+      let currentFrame = 1;
+      let isPlaying = false;
+      let playInterval = null;
+
+      function drawKeyframe(frame) {
+        ctx.clearRect(0, 0, keyframeCanvas.width, keyframeCanvas.height);
+        
+        const w = keyframeCanvas.width;
+        const h = keyframeCanvas.height;
+        const progress = (frame - 1) / 23;
+
+        // Subtle background grid
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+        ctx.lineWidth = 1;
+        for (let x = 0; x < w; x += 40) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, h);
+          ctx.stroke();
+        }
+        for (let y = 0; y < h; y += 40) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(w, y);
+          ctx.stroke();
+        }
+
+        // Onion skinning (ghost of previous frame)
+        if (frame > 1) {
+          drawRibbonWave(progress - 0.04, 'rgba(184, 46, 59, 0.2)', 'rgba(255, 255, 255, 0.1)');
+        }
+
+        // Active keyframe ribbon
+        drawRibbonWave(progress, '#b82e3b', 'rgba(255, 255, 255, 0.85)');
+
+        // Small airborne ember particles
+        ctx.fillStyle = '#b82e3b';
+        for (let i = 0; i < 14; i++) {
+          const px = ((i * 42) + progress * 180) % w;
+          const py = (h * 0.5) + Math.sin(progress * Math.PI * 4 + i) * 38;
+          ctx.beginPath();
+          ctx.arc(px, py, 1.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function drawRibbonWave(prog, primaryColor, strokeColor) {
+        const w = keyframeCanvas.width;
+        const h = keyframeCanvas.height;
+        const waveOffset = prog * Math.PI * 2;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(60, h * 0.5 + Math.sin(waveOffset) * 18);
+
+        for (let x = 60; x <= w - 60; x += 10) {
+          const normX = (x - 60) / (w - 120);
+          const y = (h * 0.5) + Math.sin(waveOffset + normX * Math.PI * 3) * (30 + Math.sin(prog * Math.PI) * 18);
+          ctx.lineTo(x, y);
+        }
+
+        ctx.lineTo(w - 60, h * 0.5 + 16);
+        for (let x = w - 60; x >= 60; x -= 10) {
+          const normX = (x - 60) / (w - 120);
+          const y = (h * 0.5 + 14) + Math.sin(waveOffset + normX * Math.PI * 3 + 0.3) * (30 + Math.sin(prog * Math.PI) * 18);
+          ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+
+        ctx.fillStyle = primaryColor;
+        ctx.fill();
+
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      function setFrame(val) {
+        currentFrame = parseInt(val, 10);
+        scrubberSlider.value = currentFrame;
+        frameCounter.textContent = `FRAME ${currentFrame < 10 ? '0' + currentFrame : currentFrame} / 24`;
+        drawKeyframe(currentFrame);
+      }
+
+      scrubberSlider.addEventListener('input', (e) => {
+        setFrame(e.target.value);
+      });
+
+      if (playAnimationBtn) {
+        playAnimationBtn.addEventListener('click', () => {
+          if (isPlaying) {
+            clearInterval(playInterval);
+            isPlaying = false;
+            playAnimationBtn.innerHTML = '&#9658; Play';
+          } else {
+            isPlaying = true;
+            playAnimationBtn.innerHTML = '&#10074;&#10074; Pause';
+            playInterval = setInterval(() => {
+              currentFrame = currentFrame >= 24 ? 1 : currentFrame + 1;
+              setFrame(currentFrame);
+            }, 1000 / 24);
+          }
+        });
+      }
+
+      setFrame(1);
+    }
+
+    /* ==========================================================================
+       Lightbox Inspector Modal
+       ========================================================================= */
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxTag = document.getElementById('lightboxTag');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxYear = document.getElementById('lightboxYear');
+    const lightboxMedium = document.getElementById('lightboxMedium');
+    const lightboxDims = document.getElementById('lightboxDims');
+    const lightboxPalette = document.getElementById('lightboxPalette');
+    const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+
+    function openLightbox(imgSrc, title, tag, desc, year, medium, dims, paletteHexes) {
+      if (!lightboxModal) return;
+
+      lightboxImage.src = imgSrc;
+      lightboxImage.alt = title;
+      lightboxTitle.textContent = title;
+      lightboxTag.textContent = tag;
+      lightboxDesc.textContent = desc;
+      lightboxYear.textContent = year || '2024';
+      lightboxMedium.textContent = medium || 'Visual Development';
+      lightboxDims.textContent = dims || 'High Resolution';
+
+      lightboxPalette.innerHTML = '';
+      if (paletteHexes) {
+        const hexList = paletteHexes.split(',');
+        hexList.forEach(hex => {
+          const chip = document.createElement('span');
+          chip.className = 'palette-chip';
+          chip.style.backgroundColor = hex.trim();
+          chip.title = hex.trim();
+          lightboxPalette.appendChild(chip);
+        });
+      }
+
+      lightboxModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (lightboxModal) {
+        lightboxModal.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) closeLightbox();
+      });
+    }
+
+    /* ==========================================================================
+       Commission Inquiry Modal
+       ========================================================================= */
+    const commissionModal = document.getElementById('commissionModal');
+    const commissionCloseBtn = document.getElementById('commissionCloseBtn');
+    const commissionForm = document.getElementById('commissionForm');
+    const formStatusMsg = document.getElementById('formStatusMsg');
+
+    function openCommissionModal() {
+      if (commissionModal) {
+        commissionModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      closeLightbox();
+    }
+
+    function closeCommissionModal() {
+      if (commissionModal) {
+        commissionModal.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    if (commissionCloseBtn) commissionCloseBtn.addEventListener('click', closeCommissionModal);
+    if (commissionModal) {
+      commissionModal.addEventListener('click', (e) => {
+        if (e.target === commissionModal) closeCommissionModal();
+      });
+    }
+
+    if (commissionForm) {
+      commissionForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('formSubmitBtn');
+        const originalLabel = submitBtn.textContent;
+
+        // Loading state
+        submitBtn.textContent = 'Sending…';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(commissionForm);
+
+        try {
+          const res = await fetch('https://formspree.io/f/mrpeqnle', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            // Success
+            commissionForm.style.display = 'none';
+            formStatusMsg.innerHTML = '✓ Message sent. We’ll be in touch soon.';
+            formStatusMsg.style.display = 'block';
+            formStatusMsg.style.color = 'var(--accent)';
+            setTimeout(() => {
+              closeCommissionModal();
+              setTimeout(() => {
+                commissionForm.reset();
+                commissionForm.style.display = 'flex';
+                formStatusMsg.style.display = 'none';
+                submitBtn.textContent = originalLabel;
+                submitBtn.disabled = false;
+              }, 400);
+            }, 2800);
+          } else {
+            const data = await res.json();
+            const errMsg = (data.errors && data.errors.map(e => e.message).join(', ')) || 'Something went wrong. Please try again.';
+            formStatusMsg.innerHTML = '⚠ ' + errMsg;
+            formStatusMsg.style.display = 'block';
+            formStatusMsg.style.color = '#c0392b';
+            submitBtn.textContent = originalLabel;
+            submitBtn.disabled = false;
+          }
+        } catch (err) {
+          formStatusMsg.innerHTML = '⚠ Network error. Please check your connection and try again.';
+          formStatusMsg.style.display = 'block';
+          formStatusMsg.style.color = '#c0392b';
+          submitBtn.textContent = originalLabel;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+
+    // Keyboard ESC listener
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeCommissionModal();
+      }
+    });
+
+  </script>
+</body>
+</html>
