@@ -337,26 +337,28 @@
     .chip:hover { border-color: var(--gold); color: var(--ivory); }
     .chip.active { background: rgba(230, 175, 46, .18); border-color: var(--gold); color: var(--gold-bright); }
     .catalog-grid {
-      flex: 1; overflow-y: auto; padding: 20px 34px 40px;
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; align-content: start;
+      flex: 1; overflow-y: auto; padding: 24px 34px 48px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; align-content: start;
       scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent;
     }
     .card {
-      border-radius: 16px; overflow: hidden; border: 1px solid rgba(251, 255, 254, .08); background: rgba(251, 255, 254, .025);
-      display: flex; flex-direction: column; transition: transform .3s var(--ease), border-color .3s;
-      animation: rise .6s var(--ease) both;
+      border-radius: 16px; overflow: hidden; border: 1px solid rgba(251, 255, 254, .10);
+      background: linear-gradient(180deg, rgba(251, 255, 254, .04) 0%, rgba(0, 21, 20, .6) 100%), #001413;
+      display: flex; flex-direction: column; min-height: 390px;
+      transition: transform .3s var(--ease), border-color .3s, box-shadow .3s;
+      animation: rise .5s var(--ease) both;
     }
-    .card:hover { transform: translateY(-4px); border-color: rgba(230, 175, 46, .6); box-shadow: 0 12px 30px -10px rgba(230, 175, 46, .35); }
-    .card-thumb { position: relative; aspect-ratio: 4 / 3; background: #001514; overflow: hidden; cursor: pointer; }
-    .card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+    .card:hover { transform: translateY(-4px); border-color: rgba(230, 175, 46, .65); box-shadow: 0 16px 36px -10px rgba(0, 0, 0, .85), 0 0 22px rgba(230, 175, 46, .22); }
+    .card-thumb { position: relative; width: 100%; aspect-ratio: 4 / 3; background: #001514; overflow: hidden; cursor: pointer; flex-shrink: 0; }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s var(--ease); }
     .card:hover .card-thumb img { transform: scale(1.05); }
-    .card-thumb .no { position: absolute; left: 12px; top: 10px; font-family: var(--serif); font-size: .95rem; letter-spacing: .16em; color: #fff; text-shadow: 0 2px 8px #000; }
-    .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-    .card-wing { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
-    .card-title { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; line-height: 1.1; margin: 0; }
-    .card-meta { font-size: .76rem; color: var(--muted); }
-    .card-actions { display: flex; gap: 8px; margin-top: auto; padding-top: 12px; }
-    .card-actions .btn { flex: 1; }
+    .card-thumb .no { position: absolute; left: 12px; top: 10px; font-family: var(--serif); font-size: .84rem; letter-spacing: .12em; color: #fff; text-shadow: 0 2px 8px #000; padding: 3px 8px; border-radius: 4px; background: rgba(0, 21, 20, .75); backdrop-filter: blur(4px); }
+    .card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto; }
+    .card-wing { font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+    .card-title { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; line-height: 1.2; margin: 0; color: var(--ivory); }
+    .card-meta { font-size: .78rem; color: var(--muted); }
+    .card-actions { display: flex; gap: 8px; margin-top: auto; padding-top: 14px; }
+    .card-actions .btn { flex: 1; padding: 10px 14px; text-align: center; }
 
     /* ---------- Concierge Telephone & 3D Flip Card Modals ---------- */
     .concierge-overlay {
@@ -410,24 +412,69 @@
     .phone-status-msg.success { color: #52c41a; display: block; }
     .phone-status-msg.error { color: #f5222d; display: block; }
 
-    /* 3D Dossier Card Viewport in Modal */
+    /* 3D Dossier Card Viewport in Modal - Click to Flip */
     .dossier-card-container {
-      perspective: 1200px; width: 100%; height: 280px; display: flex; align-items: center; justify-content: center;
-      margin: 18px 0 22px; cursor: grab; user-select: none;
+      perspective: 1200px; width: 100%; height: 310px; display: flex; align-items: center; justify-content: center;
+      margin: 14px 0 18px; cursor: pointer; user-select: none;
     }
-    .dossier-card-container:active { cursor: grabbing; }
     .dossier-3d-card {
-      width: min(88vw, 460px); height: 260px; position: relative;
-      transform-style: preserve-3d; transition: transform .2s cubic-bezier(.2, .8, .2, 1);
+      width: min(90vw, 480px); height: 285px; position: relative;
+      transform-style: preserve-3d;
+      transition: transform .65s cubic-bezier(.22, 1, .36, 1);
+    }
+    .dossier-3d-card:hover {
+      box-shadow: 0 24px 55px rgba(0, 0, 0, .9), 0 0 35px rgba(230, 175, 46, .25);
+    }
+    .dossier-3d-card.is-flipped {
+      transform: rotateY(180deg);
     }
     .dossier-face {
-      position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 12px;
+      position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 14px;
       backface-visibility: hidden; -webkit-backface-visibility: hidden;
       box-shadow: 0 18px 45px rgba(0, 0, 0, .8), 0 0 20px rgba(230, 175, 46, .2);
       overflow: hidden; border: 1px solid rgba(230, 175, 46, .45); background-size: cover; background-position: center;
     }
     .dossier-face.front { background-color: #001514; }
     .dossier-face.back { background-color: #001514; transform: rotateY(180deg); }
+
+    /* Centered curatorial back layout safely cleared from corner filigree borders */
+    .dossier-back-content {
+      padding: 32px 52px 38px; color: #fbfffe; height: 100%; box-sizing: border-box;
+      display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
+      position: relative; z-index: 2; text-shadow: 0 1px 4px rgba(0,0,0,.9);
+    }
+    .dossier-back-sub {
+      font-size: .62rem; letter-spacing: .24em; color: var(--gold); text-transform: uppercase; margin-bottom: 2px;
+    }
+    .dossier-back-name {
+      font-family: var(--serif); font-size: 1.45rem; color: #fbfffe; margin: 2px 0 3px; letter-spacing: .04em;
+    }
+    .dossier-back-title {
+      font-size: .70rem; color: #dbe4e2; font-style: italic; letter-spacing: .02em;
+    }
+    .dossier-back-statement {
+      max-width: 340px; margin: 4px auto;
+    }
+    .dossier-quote {
+      font-family: var(--serif); font-size: .84rem; color: var(--gold-bright); font-style: italic;
+      line-height: 1.35; margin: 0 0 4px;
+    }
+    .dossier-bio {
+      font-size: .68rem; line-height: 1.42; color: #b8c8c5; margin: 0;
+    }
+    .dossier-back-disciplines {
+      font-size: .62rem; letter-spacing: .05em; color: var(--gold);
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 6px;
+      max-width: 340px; margin: 2px auto;
+    }
+    .dossier-back-disciplines span { color: #dbe4e2; }
+    .dossier-back-bottom {
+      width: 100%; max-width: 280px; display: flex; flex-direction: column; gap: 3px; align-items: center; text-align: center;
+      font-size: .66rem; border-top: 1px solid rgba(230,175,46,.35); padding-top: 7px; margin: 0 auto;
+    }
+    .dossier-status { color: var(--gold); font-size: .64rem; }
+    .dossier-email { color: #fbfffe; font-family: monospace; font-size: .66rem; }
+
     .dossier-flip-hint {
       text-align: center; font-size: .76rem; letter-spacing: .12em; color: var(--gold);
       text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -528,11 +575,11 @@
       <div class="lobby-actions">
         <button class="btn btn-gold" id="btnEnter">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/></svg>
-          <span id="btnEnterLabel">Enter Exhibition (3D Walk)</span>
+          <span id="btnEnterLabel">Enter Exhibition</span>
         </button>
         <button class="btn btn-ghost" id="btnCatalog">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          Browse 2D Catalog
+          Browse Catalog
         </button>
       </div>
       <div class="touch-note hidden" id="touchNote">The 3D walk needs a mouse &amp; keyboard. On this device, the 2D catalog offers the full collection.</div>
@@ -610,42 +657,42 @@
     <div class="concierge-card-wrap" style="width:min(94vw, 580px)">
       <button class="concierge-close" id="btnCloseCard" aria-label="Close Dossier Modal">&times;</button>
       <div style="text-align:center; margin-bottom: 8px;">
-        <div class="overline" style="color:var(--gold); font-size:.70rem; letter-spacing:.3em;">CURATORIAL DOSSIER · NO. 01</div>
-        <h2 id="cardModalTitle" class="phone-modal-title" style="font-size:1.8rem; margin:4px 0 0;">Eunoia Atelier</h2>
-        <div style="font-size:.82rem; color:var(--muted); margin-top:4px;">Drag to inspect &amp; flip card · 360° Gyroscopic Dossier</div>
+        <div class="overline" style="color:var(--gold); font-size:.70rem; letter-spacing:.3em;">CURATORIAL DOSSIER · EUNOIA ARCHIVE</div>
+        <h2 id="cardModalTitle" class="phone-modal-title" style="font-size:1.8rem; margin:4px 0 0;">Sarah Mae Mangilaya</h2>
+        <div style="font-size:.82rem; color:var(--muted); margin-top:4px;">Click card to flip · Exploring the intersection of animation, virtual worlds &amp; classical art</div>
       </div>
 
       <div class="dossier-flip-hint">
-        <span>Click or Drag to Flip</span>
-        <button type="button" class="dossier-flip-btn" id="btnFlipCardManual">
+        <span>Click Card to Flip</span>
+        <button type="button" class="dossier-flip-btn" id="btnFlipCardManual" aria-label="Flip Card">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v-3a9 9 0 0 1 15-5.3L22 6"/><path d="M20 12v3a9 9 0 0 1-15 5.3L2 18"/><polyline points="16 6 22 6 22 12"/><polyline points="8 18 2 18 2 12"/></svg>
           Flip Card
         </button>
       </div>
 
-      <div class="dossier-card-container" id="dossierCardContainer">
+      <div class="dossier-card-container" id="dossierCardContainer" title="Click card to flip">
         <div class="dossier-3d-card" id="dossier3dCard">
           <div class="dossier-face front" id="dossierFaceFront"></div>
           <div class="dossier-face back" id="dossierFaceBack">
-            <div style="padding: 24px 28px; color: #fbfffe; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; position: relative; z-index: 2; text-shadow: 0 1px 4px rgba(0,0,0,0.9);">
+            <div class="dossier-back-content">
               <div>
-                <div style="font-size: .66rem; letter-spacing: .25em; color: var(--gold); text-transform: uppercase;">Curatorial Dossier · No. 01</div>
-                <h3 style="font-family: var(--serif); font-size: 1.45rem; color: #fbfffe; margin: 4px 0 2px;">Mangilaya</h3>
-                <div style="font-size: .74rem; color: #dbe4e2; font-style: italic;">2D Animator · 3D Generalist · Visual Development Artist</div>
+                <div class="dossier-back-sub">CURATORIAL DOSSIER · NO. 01</div>
+                <h3 class="dossier-back-name">Sarah Mae Mangilaya</h3>
+                <div class="dossier-back-title">Visual Development Artist · 2D Animator · 3D Generalist</div>
               </div>
-              <div style="font-size: .72rem; line-height: 1.45; color: #c4d1ce; margin: 8px 0;">
-                <p style="margin: 0 0 6px; font-size: .70rem; color: #9ab0ac;">Specializing in expressive 2D keyframe animation, atmospheric 3D environments, Blender VFX simulations, and observational photography.</p>
-                <div style="display:flex; flex-wrap:wrap; gap:4px 8px; font-size:.66rem; color:var(--gold-bright);">
-                  <span>• 2D Keyframe Animation</span>
-                  <span>• 3D ArchViz &amp; Worlds</span>
-                  <span>• Blender VFX</span>
-                  <span>• Character Design</span>
-                  <span>• Observational Photography</span>
-                </div>
+              
+              <div class="dossier-back-statement">
+                <p class="dossier-quote">“Beautiful thinking, made visible through movement, light, and architectural form.”</p>
+                <p class="dossier-bio">Bridging expressive 2D keyframe animation with atmospheric 3D environments, Blender VFX simulations, and observational studies across 205 curated museum exhibits.</p>
               </div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-end; font-size: .68rem; border-top: 1px solid rgba(230,175,46,0.3); padding-top: 8px;">
-                <span style="color: var(--gold);">Available for Studio Roles &amp; Collaborations</span>
-                <span style="color: #fbfffe; font-family: monospace;">hello@eunoia.studio</span>
+
+              <div class="dossier-back-disciplines">
+                <span>2D Keyframe Animation</span> · <span>3D ArchViz &amp; Worlds</span> · <span>Blender VFX</span> · <span>Observational Studies</span>
+              </div>
+
+              <div class="dossier-back-bottom">
+                <span class="dossier-status">Open for Studio Roles, Commissions &amp; Collaborations</span>
+                <span class="dossier-email">hello@eunoia.studio</span>
               </div>
             </div>
           </div>
@@ -6688,7 +6735,7 @@ function buildConciergeStand(root) {
     ctx.fillStyle = '#e6af2e'; ctx.font = `600 18px ${SANS}`;
     spacedText(ctx, "CURATOR'S DOSSIER", w / 2, 42, 3);
     ctx.fillStyle = '#fbfffe'; ctx.font = `italic 20px ${SERIF}`; ctx.textAlign = 'center';
-    ctx.fillText('Click to Inspect & Flip 3D Card', w / 2, 85);
+    ctx.fillText('Click to Examine & Flip Dossier', w / 2, 85);
   });
   const cardPlaque = new THREE.Mesh(
     new THREE.PlaneGeometry(0.18, 0.05),
@@ -9830,9 +9877,9 @@ function updateRaycast() {
     $('reticle').classList.add('active');
     $('prompt').classList.add('show');
     if (hit.userData.isPhone) {
-      $('promptTitle').textContent = "Curator's Rotary Phone [Ring Line]";
+      $('promptTitle').textContent = "Curator's Direct Line [Call Studio]";
     } else if (hit.userData.isCard) {
-      $('promptTitle').textContent = "Curator's Dossier [Inspect & Flip]";
+      $('promptTitle').textContent = "Curator's Dossier · Mangilaya [Examine]";
     } else {
       const exhibit = hit.userData.exhibit;
       $('promptTitle').textContent = exhibit ? (exhibit.title || exhibit.category || '') : '';
@@ -10600,8 +10647,7 @@ function openCardModal() {
   const backEl = $('dossierFaceBack');
   if (frontEl && assets.cardFront) frontEl.style.backgroundImage = `url("${assets.cardFront}")`;
   if (backEl && assets.cardBack) backEl.style.backgroundImage = `url("${assets.cardBack}")`;
-  cardRotX = 0; cardRotY = 0; isCardFlipped = false;
-  updateCardTransform();
+  setCardFlipped(false);
 }
 
 function closeCardModal() {
@@ -10613,71 +10659,36 @@ function closeCardModal() {
   }
 }
 
-// 3D Card Gyroscopic Drag & Flip Interaction
-let cardRotX = 0, cardRotY = 0;
+// 3D Dossier Card Click-to-Flip Interaction (Pure Click, No Dragging)
 let isCardFlipped = false;
-let isDraggingCard = false;
-let startCardX = 0, startCardY = 0;
-let baseCardRotX = 0, baseCardRotY = 0;
 
-function updateCardTransform() {
+function setCardFlipped(flipped) {
+  isCardFlipped = flipped;
   const card = $('dossier3dCard');
-  if (!card) return;
-  const targetY = cardRotY + (isCardFlipped ? 180 : 0);
-  card.style.transform = `rotateX(${cardRotX}deg) rotateY(${targetY}deg)`;
+  if (card) {
+    if (isCardFlipped) {
+      card.classList.add('is-flipped');
+    } else {
+      card.classList.remove('is-flipped');
+    }
+  }
+}
+
+function toggleCardFlip() {
+  setCardFlipped(!isCardFlipped);
 }
 
 const cardContainer = $('dossierCardContainer');
 if (cardContainer) {
-  cardContainer.addEventListener('mousedown', (e) => {
-    isDraggingCard = true;
-    startCardX = e.clientX;
-    startCardY = e.clientY;
-    baseCardRotX = cardRotX;
-    baseCardRotY = cardRotY;
-  });
-  window.addEventListener('mousemove', (e) => {
-    if (!isDraggingCard) return;
-    const dx = e.clientX - startCardX;
-    const dy = e.clientY - startCardY;
-    cardRotY = baseCardRotY + dx * 0.45;
-    cardRotX = Math.max(-45, Math.min(45, baseCardRotX - dy * 0.35));
-    updateCardTransform();
-  });
-  window.addEventListener('mouseup', () => {
-    if (isDraggingCard) {
-      isDraggingCard = false;
-      cardRotX *= 0.4;
-      updateCardTransform();
-    }
-  });
-
-  // Touch support for mobile / tablets
-  cardContainer.addEventListener('touchstart', (e) => {
-    if (e.touches.length > 0) {
-      isDraggingCard = true;
-      startCardX = e.touches[0].clientX;
-      startCardY = e.touches[0].clientY;
-      baseCardRotX = cardRotX;
-      baseCardRotY = cardRotY;
-    }
-  }, { passive: true });
-  window.addEventListener('touchmove', (e) => {
-    if (!isDraggingCard || !e.touches.length) return;
-    const dx = e.touches[0].clientX - startCardX;
-    const dy = e.touches[0].clientY - startCardY;
-    cardRotY = baseCardRotY + dx * 0.45;
-    cardRotX = Math.max(-45, Math.min(45, baseCardRotX - dy * 0.35));
-    updateCardTransform();
-  }, { passive: true });
-  window.addEventListener('touchend', () => {
-    isDraggingCard = false;
+  // Click anywhere on the card or container to flip
+  cardContainer.addEventListener('click', () => {
+    toggleCardFlip();
   });
 
   // Manual Flip Button
-  $('btnFlipCardManual')?.addEventListener('click', () => {
-    isCardFlipped = !isCardFlipped;
-    updateCardTransform();
+  $('btnFlipCardManual')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleCardFlip();
   });
 
   // Ring Rotary Phone from inside Card Modal
