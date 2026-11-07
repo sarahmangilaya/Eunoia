@@ -1,0 +1,262 @@
+{
+  "totalMeshes": 32,
+  "totalConfig": 96,
+  "exhibits": [
+    {
+      "id": "project-35-character-design-draft-png",
+      "title": "Character Concept Iteration & Drafts",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Character Designs/character design draft.png",
+      "isImg": true,
+      "naturalW": 3508
+    },
+    {
+      "id": "project-36-drawing-2-plate-8-character-png",
+      "title": "Drawing II: Plate 8 — Character Anatomy",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Character Designs/DRAWING 2 PLATE 8 CHARACTER.png",
+      "isImg": true,
+      "naturalW": 2480
+    },
+    {
+      "id": "project-37-plate01-mangilaya-png",
+      "title": "Mangilaya: Master Character Lineup",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Character Designs/Plate01_Mangilaya.png",
+      "isImg": true,
+      "naturalW": 1920
+    },
+    {
+      "id": "project-38-illustration-png",
+      "title": "Eunoia: The Radiant Hall",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Digital Illustrations/Illustration.png",
+      "isImg": true,
+      "naturalW": 2700
+    },
+    {
+      "id": "project-39-mascara-festival-jpg",
+      "title": "MassKara: The Smiling City",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Digital Illustrations/Mascara Festival.jpg",
+      "isImg": true,
+      "naturalW": 1078
+    },
+    {
+      "id": "project-40-park-jihyo-vector-art-png",
+      "title": "Portrait of Park Jihyo",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Digital Illustrations/Park Jihyo (Vector Art).png",
+      "isImg": true,
+      "naturalW": 1060
+    },
+    {
+      "id": "project-41-still-here-jpeg",
+      "title": "Still Here: Solitude",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Digital Illustrations/Still Here.jpeg",
+      "isImg": true,
+      "naturalW": 1143
+    },
+    {
+      "id": "project-95-camscanner-12-07-2023-23-14-1-jpg",
+      "title": "Traditional Study on Paper (CamScanner)",
+      "wing": "I",
+      "imagePath": "./assets/Projects/Traditional Illustrations/CamScanner_12-07-2023_23.14_1.jpg",
+      "isImg": true,
+      "naturalW": 2200
+    },
+    {
+      "id": "project-5-e0127cd9-original-jpg",
+      "title": "Virtual Environment Study (e0127cd9)",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/3D Environment/e0127cd9_original.jpg",
+      "isImg": true,
+      "naturalW": 1440
+    },
+    {
+      "id": "project-7-f3c21f13-original-jpg",
+      "title": "Virtual Environment Study (f3c21f13)",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/3D Environment/f3c21f13_original.jpg",
+      "isImg": true,
+      "naturalW": 1440
+    },
+    {
+      "id": "project-8-modern-house-design-png",
+      "title": "Contemporary Residential Sanctuary",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/3D Environment/Modern House Design.png",
+      "isImg": true,
+      "naturalW": 2667
+    },
+    {
+      "id": "project-14-mangilaya-interior-submission-2-jpg",
+      "title": "Mangilaya Interior Architecture (2)",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/3D Interior/Mangilaya_Interior Submission_2.jpg",
+      "isImg": true,
+      "naturalW": 1920
+    },
+    {
+      "id": "project-15-mangilaya-interior-submission-3-jpg",
+      "title": "Mangilaya Interior Architecture (3)",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/3D Interior/Mangilaya_Interior Submission_3.jpg",
+      "isImg": true,
+      "naturalW": 1920
+    },
+    {
+      "id": "project-16-mangilaya-object-submission-1-jpg",
+      "title": "Mangilaya Prop & Object Asset (1)",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/3D Interior/MANGILAYA_Object Submission_1.jpg",
+      "isImg": true,
+      "naturalW": 1920
+    },
+    {
+      "id": "project-17-mangilaya-object-submission-2-jpg",
+      "title": "Mangilaya Prop & Object Asset (2)",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/3D Interior/MANGILAYA_Object Submission_2.jpg",
+      "isImg": true,
+      "naturalW": 1920
+    },
+    {
+      "id": "project-27-db3a0f57-07e8-4cdc-8080-b36d2a9a15be-jpg",
+      "title": "Digital Character Turnaround (db3a0f57)",
+      "wing": "II",
+      "imagePath": "./assets/Projects/3D Works/Character Design/db3a0f57-07e8-4cdc-8080-b36d2a9a15be.jpg",
+      "isImg": true,
+      "naturalW": 1919
+    },
+    {
+      "id": "project-51-20250917-125348-100kb-jpg",
+      "title": "Fauna Observational Study (20250917)",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Animal Photography/20250917_125348-100kb.jpg",
+      "isImg": true,
+      "naturalW": 1200
+    },
+    {
+      "id": "project-59-20260302-205738-jpg",
+      "title": "Selenography: Lunar Detail (2026.03.02)",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Lunar Photography/20260302_205738.jpg",
+      "isImg": true,
+      "naturalW": 3000
+    },
+    {
+      "id": "project-64-20260403-200433-jpg",
+      "title": "Selenography: Lunar Detail (2026.04.03)",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Lunar Photography/20260403_200433.jpg",
+      "isImg": true,
+      "naturalW": 3000
+    },
+    {
+      "id": "project-67-20261004-005117-jpg",
+      "title": "Selenography: Lunar Detail (2026.10.04)",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Lunar Photography/20261004_005117.jpg",
+      "isImg": true,
+      "naturalW": 3000
+    },
+    {
+      "id": "project-71-xan05934-jpg",
+      "title": "Nocturne Portrait: In Search of Form",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Model Photography/XAN05934.jpg",
+      "isImg": true,
+      "naturalW": 4000
+    },
+    {
+      "id": "project-72-object-photograph-jpg",
+      "title": "Sculptural Object Study",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Object Photography/Object Photograph.jpg",
+      "isImg": true,
+      "naturalW": 3300
+    },
+    {
+      "id": "project-75-20250628-174425-100kb-jpg",
+      "title": "Observational Table Study (20250628)",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Still Life Photography/20250628_174425-100kb.jpg",
+      "isImg": true,
+      "naturalW": 1200
+    },
+    {
+      "id": "project-77-up-oblation-male-version-with-lgtb-flag-jpg",
+      "title": "UP Oblation: Pride & Identity",
+      "wing": "III",
+      "imagePath": "./assets/Projects/Photography/Street Photography/UP Oblation (Male Version) with LGTB Flag.jpg",
+      "isImg": true,
+      "naturalW": 1542
+    },
+    {
+      "id": "project-1-jump-animation-mp4",
+      "title": "Jump Cycle: Momentum & Weight",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/2D Animation/Jump Animation.mp4",
+      "isImg": false,
+      "naturalW": 0
+    },
+    {
+      "id": "project-34-ec39dc14-original-jpg",
+      "title": "Atelier Jacquard Lanyard Edition (ec39dc14)",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/Atelier Lanyard Designs/ec39dc14_original.jpg",
+      "isImg": true,
+      "naturalW": 1440
+    },
+    {
+      "id": "project-42-chess-que-png",
+      "title": "CHESS QUE",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/Graphic Design/Chess Que.png",
+      "isImg": true,
+      "naturalW": 595
+    },
+    {
+      "id": "project-79-cinematography-and-screen-direction-2-png",
+      "title": "Screen Direction & Spatial Axis (Plate 2)",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/Storyboarding/Cinematography and Screen Direction/Cinematography and Screen Direction-2.png",
+      "isImg": true,
+      "naturalW": 2200
+    },
+    {
+      "id": "project-85-continuity-board-4-png",
+      "title": "Narrative Continuity (Board 4)",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/Storyboarding/Continuity Board/Continuity Board-4.png",
+      "isImg": true,
+      "naturalW": 2200
+    },
+    {
+      "id": "project-88-paneling-3-png",
+      "title": "Panel Architecture & Rhythm (Plate 3)",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/Storyboarding/Paneling/Paneling-3.png",
+      "isImg": true,
+      "naturalW": 2200
+    },
+    {
+      "id": "project-89-the-wind-rises-story-boarding-3-png",
+      "title": "The Wind Rises: Sequence Breakdown (Sheet 3)",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-3.png",
+      "isImg": true,
+      "naturalW": 7085
+    },
+    {
+      "id": "project-90-the-wind-rises-story-boarding-4-png",
+      "title": "The Wind Rises: Sequence Breakdown (Sheet 4)",
+      "wing": "IV",
+      "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-4.png",
+      "isImg": true,
+      "naturalW": 7085
+    }
+  ]
+}
