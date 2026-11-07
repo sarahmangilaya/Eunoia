@@ -1,0 +1,10284 @@
+
+/* ==========================================================================
+   §3  EUNOIA_CONFIG — edit this block to customise the museum.
+   --------------------------------------------------------------------------
+   • site      : title, tagline, curator details shown in the lobby & HUD.
+   • links     : social / contact buttons (lobby footer). Any number allowed.
+   • wings     : display names for the three gallery wings (keys I, II, III).
+                 The architecture/lighting theme of each wing is fixed:
+                   I  = Classical (burgundy walls, gilded frames, herringbone)
+                   II = Modernist (olive-alabaster, wood & brass, track lights)
+                   III= Nocturne  (charcoal-slate, dramatic spotlights)
+   • exhibits  : 6–8 works. Each entry:
+       id            unique string
+       title, subtitle, year, category, tags[], description
+       imagePath     relative path to the artwork (PNG/JPG). Leave "" to use
+                     the procedural canvas painting only.
+       wing          "I" | "II" | "III"  — works are auto-hung along that wing
+       orientation   "landscape" | "portrait" (frame proportions)
+       fallbackStyle procedural painting used instantly / if the file is
+                     missing: courtyard | seascape | abstract | stilllife |
+                     gallery | sculpture | geometric | nocturne
+       links[]       { label, url } external buttons on the curator plaque
+   ========================================================================== */
+const EUNOIA_CONFIG = {
+  site: {
+    title: "EUNOIA",
+    overline: "A Museum of Animation & Visual Art",
+    tagline: "Let all that you do be done in love",
+    intro: "Step into the Grand Rotunda and explore four museum wings. Inspect any work to read curatorial notes, watch kinematic animation playback, or study high-resolution plates.",
+    curator: "Mangilaya",
+    curatorRole: "2D Animator · 3D Generalist · Visual Development Artist",
+    contactEmail: "hello@eunoia.studio",
+    copyright: "© 2024–2026 Mangilaya · Eunoia Museum. All rights reserved.",
+    formspreeEndpoint: "https://formspree.io/f/mrpeqnle",
+    conciergeAssets: {
+      walnutWood: "./assets/concierge/walnut_wood.png",
+      rotaryDial: "./assets/concierge/rotary_dial_face.png",
+      phoneHero:  "./assets/concierge/red_telephone_hero.png",
+      cardFront:  "./assets/concierge/eunoia_card_front.png",
+      cardBack:   "./assets/concierge/eunoia_card_back.png"
+    },
+    card: {
+      front: {
+        title: "EUNOIA",
+        monogram: "E",
+        curator: "Mangilaya",
+        role: "2D Animator · 3D Generalist · Visual Development Artist",
+        tagline: "Beautiful thinking, made visible.",
+        stamp: "Curatorial Dossier · No. 01"
+      },
+      back: {
+        bio: "A multidisciplinary animator, 3D generalist, and visual development artist specializing in expressive 2D keyframe animation, atmospheric 3D environments, dynamic VFX simulations, and observational photography.",
+        specialties: [
+          "2D Hand-Drawn Animation",
+          "3D ArchViz & Environments",
+          "Blender VFX & Simulations",
+          "Character Design & Storyboarding",
+          "Editorial & Lunar Photography"
+        ],
+        education: "B.S. in Entertainment & Multimedia Computing / Fine Arts & Animation",
+        status: "Available for Studio Roles, Commissions & Creative Collaborations",
+        email: "hello@eunoia.studio"
+      }
+    }
+  },
+  links: [
+    { label: "Facebook",  url: "https://www.facebook.com/baebiebabs#" },
+    { label: "LinkedIn",  url: "https://www.linkedin.com/in/sarahmaemangilaya/" },
+    { label: "Instagram", url: "https://www.instagram.com/babsiyayiyo.o_?cplk=M2F0dWNreTNmMm1n" },
+    { label: "Cara",      url: "https://cara.app/babsilogarts" }
+  ],
+  wings: {
+    I:   { name: "The Classical & Fine Arts Wing", blurb: "Traditional life drawings, character model sheets & digital paintings." },
+    II:  { name: "The 3D Virtual Worlds Wing", blurb: "Spatial architecture, interior visualization & character topology." },
+    III: { name: "The Nocturne & Light Gallery", blurb: "Lunar astrophotography, observational optics & street portraits." },
+    IV:  { name: "The Kinematic Pavilion", blurb: "2D hand-drawn animation, masterwork storyboards & applied design." }
+  },
+  textures: {
+    floorWood:   "./assets/textures/herringbone_wood.png",
+    floorMarble: "./assets/textures/checkered_marble.png"
+  },
+  exhibits: [
+  {
+    "id": "project-1-jump-animation",
+    "title": "Jump Animation",
+    "subtitle": "2D Animation",
+    "year": "2025",
+    "category": "2D Keyframe Animation",
+    "tags": [
+      "2D Animation",
+      "Hand-Drawn",
+      "Kinematics",
+      "Frame-by-Frame",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/2D Animation/Jump Animation.mp4",
+    "mediaType": "video",
+    "wing": "IV",
+    "room": "cinema",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 150757,
+    "isHung": true
+  },
+  {
+    "id": "project-2-the-shadows-of-a-secret-cuaderno-mangilaya-quimson",
+    "title": "The Shadows of a Secret",
+    "subtitle": "2D Animation",
+    "year": "2025\u20132026",
+    "category": "2D Keyframe Animation",
+    "tags": [
+      "2D Animation",
+      "Hand-Drawn",
+      "Kinematics",
+      "Frame-by-Frame",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/2D Animation/The Shadows of a Secret_Cuaderno. Mangilaya, Quimson.mp4",
+    "mediaType": "video",
+    "wing": "IV",
+    "room": "cinema",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 52152192,
+    "isHung": true
+  },
+  {
+    "id": "project-3-mangilaya-energyball",
+    "title": "Energy Ball",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D VFX/MANGILAYA_ENERGYBALL.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 3869138,
+    "isHung": true
+  },
+  {
+    "id": "project-4-mangilaya-finals-2-0",
+    "title": "VFX Finals",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D VFX/MANGILAYA_FINALS.2.0.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 70622212,
+    "isHung": true
+  },
+  {
+    "id": "project-5-mangilaya-bonfire",
+    "title": "Bonfire",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D VFX/Mangilaya_Bonfire.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 2917473,
+    "isHung": true
+  },
+  {
+    "id": "project-6-mangilaya-ice-cream-bar",
+    "title": "Ice Cream Bar",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D VFX/Mangilaya_Ice Cream Bar.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 9721073,
+    "isHung": true
+  },
+  {
+    "id": "project-7-1st-camera-shot-1",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/1st camera shot-1.png",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1485,
+    "height": 810,
+    "size": 2391927,
+    "isHung": true
+  },
+  {
+    "id": "project-8-1st-camera-shot",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/1st_camera_shot.png",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1485,
+    "height": 810,
+    "size": 2628693,
+    "isHung": true
+  },
+  {
+    "id": "project-9-673437ba-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/673437ba_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1079,
+    "size": 136262,
+    "isHung": true
+  },
+  {
+    "id": "project-10-87f030ef-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/87f030ef_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 766,
+    "size": 225355,
+    "isHung": true
+  },
+  {
+    "id": "project-11-modern-house-design",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/Modern House Design.png",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 2667,
+    "height": 1500,
+    "size": 953420,
+    "isHung": true
+  },
+  {
+    "id": "project-12-d447352d-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/d447352d_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 213046,
+    "isHung": true
+  },
+  {
+    "id": "project-13-e0127cd9-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/e0127cd9_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 784,
+    "size": 284372,
+    "isHung": true
+  },
+  {
+    "id": "project-14-e8c29017-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/e8c29017_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1918,
+    "height": 1079,
+    "size": 169813,
+    "isHung": true
+  },
+  {
+    "id": "project-15-f3c21f13-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Environment & ArchViz",
+    "tags": [
+      "3D Environment",
+      "ArchViz",
+      "PBR",
+      "Lighting",
+      "Atmospheric",
+      "Blender"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Environment/f3c21f13_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "env",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 1051,
+    "size": 398111,
+    "isHung": true
+  },
+  {
+    "id": "project-16-1198435d-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/1198435d_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 809,
+    "size": 64320,
+    "isHung": true
+  },
+  {
+    "id": "project-17-423472130-275755438889463-206675416873562280-n",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/423472130_275755438889463_206675416873562280_n.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 87251,
+    "isHung": true
+  },
+  {
+    "id": "project-18-60633433-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/60633433_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1280,
+    "height": 720,
+    "size": 47982,
+    "isHung": true
+  },
+  {
+    "id": "project-19-8efbb9f4-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/8efbb9f4_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 810,
+    "size": 119156,
+    "isHung": true
+  },
+  {
+    "id": "project-20-8fed482e-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/8fed482e_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 810,
+    "size": 73775,
+    "isHung": true
+  },
+  {
+    "id": "project-21-mangilaya-object-submission-1",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/MANGILAYA_Object Submission_1.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 359455,
+    "isHung": true
+  },
+  {
+    "id": "project-22-mangilaya-object-submission-2",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/MANGILAYA_Object Submission_2.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 349772,
+    "isHung": true
+  },
+  {
+    "id": "project-23-mangilaya-object-submission-3",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/MANGILAYA_Object Submission_3.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 219576,
+    "isHung": true
+  },
+  {
+    "id": "project-24-mangilaya-interior-submission-2",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/Mangilaya_Interior Submission_2.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 595424,
+    "isHung": true
+  },
+  {
+    "id": "project-25-mangilaya-interior-submission-3",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Interior Architecture",
+    "tags": [
+      "3D Interior",
+      "ArchViz",
+      "Furniture Design",
+      "Raytracing",
+      "Materiality"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Interior/Mangilaya_Interior Submission_3.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "interior",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 412457,
+    "isHung": true
+  },
+  {
+    "id": "project-26-35e96165-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024\u20132025",
+    "category": "3D Still Life & Studio Render",
+    "tags": [
+      "3D Still Life",
+      "Studio Lighting",
+      "Materiality",
+      "CGI",
+      "Rendering"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Still Life Render/35e96165_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "stilllife",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 810,
+    "size": 59493,
+    "isHung": true
+  },
+  {
+    "id": "project-27-9c740ba9-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024\u20132025",
+    "category": "3D Still Life & Studio Render",
+    "tags": [
+      "3D Still Life",
+      "Studio Lighting",
+      "Materiality",
+      "CGI",
+      "Rendering"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Still Life Render/9c740ba9_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "stilllife",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 808,
+    "size": 93663,
+    "isHung": true
+  },
+  {
+    "id": "project-28-a04c379a-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024\u20132025",
+    "category": "3D Still Life & Studio Render",
+    "tags": [
+      "3D Still Life",
+      "Studio Lighting",
+      "Materiality",
+      "CGI",
+      "Rendering"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Still Life Render/a04c379a_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "stilllife",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 810,
+    "size": 56403,
+    "isHung": true
+  },
+  {
+    "id": "project-29-f9febe73-original",
+    "title": "",
+    "subtitle": "",
+    "year": "2024\u20132025",
+    "category": "3D Still Life & Studio Render",
+    "tags": [
+      "3D Still Life",
+      "Studio Lighting",
+      "Materiality",
+      "CGI",
+      "Rendering"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D Still Life Render/f9febe73_original.jpg",
+    "mediaType": "image",
+    "wing": "II",
+    "room": "stilllife",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 809,
+    "size": 88665,
+    "isHung": true
+  },
+  {
+    "id": "project-30-bonfire",
+    "title": "Bonfire",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "Blender",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D VFX/Bonfire.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 2917473,
+    "isHung": true
+  },
+  {
+    "id": "project-31-ice-cream-bar",
+    "title": "Ice Cream Bar",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "Blender",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D VFX/Ice Cream Bar.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 9721073,
+    "isHung": true
+  },
+  {
+    "id": "project-32-magical-night",
+    "title": "Magical Night",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "Blender",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D VFX/Magical Night.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 70622212,
+    "isHung": true
+  },
+  {
+    "id": "project-33-will-o-wisp",
+    "title": "Will O Wisp",
+    "subtitle": "3D VFX",
+    "year": "2025",
+    "category": "3D VFX & Dynamic Simulations",
+    "tags": [
+      "3D VFX",
+      "Simulation",
+      "Particles",
+      "Dynamics",
+      "Blender",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/3D VFX/Will O Wisp.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "vfx",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 3869138,
+    "isHung": true
+  },
+  {
+    "id": "project-37-finals-mangilaya",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "3D Character Rigging & Motion",
+    "tags": [
+      "3D Character",
+      "Topology",
+      "Turnaround",
+      "Subdivision",
+      "Rigging"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/3D Works/Character Design/Finals_Mangilaya.mp4",
+    "mediaType": "video",
+    "wing": "II",
+    "room": "char3d",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 6492832,
+    "isHung": true
+  },
+  {
+    "id": "project-41-21349538-original",
+    "title": "A Place to Grow",
+    "subtitle": "Atelier Lanyard Design",
+    "year": "2024\u20132025",
+    "category": "Textile & Jacquard Applied Design",
+    "tags": [
+      "Textile Design",
+      "Jacquard",
+      "Merchandise",
+      "Applied Art"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Atelier Lanyard Designs/21349538_original.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 1074,
+    "size": 170070,
+    "isHung": true
+  },
+  {
+    "id": "project-42-4a6f98af-original",
+    "title": "A Little Celebration",
+    "subtitle": "Atelier Lanyard Design",
+    "year": "2024\u20132025",
+    "category": "Textile & Jacquard Applied Design",
+    "tags": [
+      "Textile Design",
+      "Jacquard",
+      "Merchandise",
+      "Applied Art"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Atelier Lanyard Designs/4a6f98af_original.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 1080,
+    "size": 240897,
+    "isHung": true
+  },
+  {
+    "id": "project-43-6b6e2336-original",
+    "title": "Little Things, Big Joy",
+    "subtitle": "Atelier Lanyard Design",
+    "year": "2024\u20132025",
+    "category": "Textile & Jacquard Applied Design",
+    "tags": [
+      "Textile Design",
+      "Jacquard",
+      "Merchandise",
+      "Applied Art"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Atelier Lanyard Designs/6b6e2336_original.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 960,
+    "size": 122840,
+    "isHung": true
+  },
+  {
+    "id": "project-44-c9d3cd71-original",
+    "title": "The Animal Parade",
+    "subtitle": "Atelier Lanyard Design",
+    "year": "2024\u20132025",
+    "category": "Textile & Jacquard Applied Design",
+    "tags": [
+      "Textile Design",
+      "Jacquard",
+      "Merchandise",
+      "Applied Art"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Atelier Lanyard Designs/c9d3cd71_original.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 1078,
+    "size": 174700,
+    "isHung": true
+  },
+  {
+    "id": "project-45-d64bd39f-original",
+    "title": "Heartlier",
+    "subtitle": "Atelier Lanyard Design",
+    "year": "2024\u20132025",
+    "category": "Textile & Jacquard Applied Design",
+    "tags": [
+      "Textile Design",
+      "Jacquard",
+      "Merchandise",
+      "Applied Art"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Atelier Lanyard Designs/d64bd39f_original.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 1077,
+    "size": 239095,
+    "isHung": true
+  },
+  {
+    "id": "project-46-ec39dc14-original",
+    "title": "Playground Adventures",
+    "subtitle": "Atelier Lanyard Design",
+    "year": "2024\u20132025",
+    "category": "Textile & Jacquard Applied Design",
+    "tags": [
+      "Textile Design",
+      "Jacquard",
+      "Merchandise",
+      "Applied Art"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Atelier Lanyard Designs/ec39dc14_original.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "landscape",
+    "width": 1440,
+    "height": 1078,
+    "size": 238142,
+    "isHung": true
+  },
+  {
+    "id": "project-47-drawing-2-plate-8-character",
+    "title": "Michael",
+    "subtitle": "Character Design",
+    "year": "2024",
+    "category": "2D Character Design & Model Sheet",
+    "tags": [
+      "Character Design",
+      "Model Sheet",
+      "Turnaround",
+      "Digital Ink",
+      "Anatomy"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Character Designs/DRAWING 2 PLATE 8 CHARACTER.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_character",
+    "orientation": "portrait",
+    "width": 2480,
+    "height": 3508,
+    "size": 957286,
+    "isHung": true
+  },
+  {
+    "id": "project-48-pah",
+    "title": "Rise of the Phoenix",
+    "subtitle": "Creature Design",
+    "year": "2024",
+    "category": "2D Character Design & Model Sheet",
+    "tags": [
+      "Character Design",
+      "Model Sheet",
+      "Turnaround",
+      "Digital Ink",
+      "Anatomy"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Character Designs/PAH.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_character",
+    "orientation": "landscape",
+    "width": 3508,
+    "height": 2480,
+    "size": 4247165,
+    "isHung": true
+  },
+  {
+    "id": "project-49-plate01-mangilaya",
+    "title": "Me, in Another Dimension",
+    "subtitle": "Self-Character Design | Rick and Morty-Inspired Style",
+    "year": "2024",
+    "category": "2D Character Design & Model Sheet",
+    "tags": [
+      "Character Design",
+      "Model Sheet",
+      "Turnaround",
+      "Digital Ink",
+      "Anatomy"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Character Designs/Plate01_Mangilaya.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_character",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 111326,
+    "isHung": true
+  },
+  {
+    "id": "project-50-character-design-draft",
+    "title": "Matilda",
+    "subtitle": "Character Design",
+    "year": "2024",
+    "category": "2D Character Design & Model Sheet",
+    "tags": [
+      "Character Design",
+      "Model Sheet",
+      "Turnaround",
+      "Digital Ink",
+      "Anatomy"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Character Designs/character design draft.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_character",
+    "orientation": "landscape",
+    "width": 3508,
+    "height": 2480,
+    "size": 753659,
+    "isHung": true
+  },
+  {
+    "id": "project-51-character-design-facial-expressions",
+    "title": "A Little More of Me",
+    "subtitle": "Self-Character Design | Facial Expressions",
+    "year": "2024",
+    "category": "2D Character Design & Model Sheet",
+    "tags": [
+      "Character Design",
+      "Model Sheet",
+      "Turnaround",
+      "Digital Ink",
+      "Anatomy"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Character Designs/character design facial expressions.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_character",
+    "orientation": "landscape",
+    "width": 3508,
+    "height": 2480,
+    "size": 1911163,
+    "isHung": true
+  },
+  {
+    "id": "project-52-character-design-poses",
+    "title": "Me in Motion",
+    "subtitle": "Self-Character Design | Body Poses",
+    "year": "2024",
+    "category": "2D Character Design & Model Sheet",
+    "tags": [
+      "Character Design",
+      "Model Sheet",
+      "Turnaround",
+      "Digital Ink",
+      "Anatomy"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Character Designs/character design poses.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_character",
+    "orientation": "landscape",
+    "width": 3508,
+    "height": 2480,
+    "size": 2786429,
+    "isHung": true
+  },
+  {
+    "id": "project-53-character-design",
+    "title": "A Study of Myself",
+    "subtitle": "Self-Character Design | Character Sheet and Different Angles",
+    "year": "2024",
+    "category": "2D Character Design & Model Sheet",
+    "tags": [
+      "Character Design",
+      "Model Sheet",
+      "Turnaround",
+      "Digital Ink",
+      "Anatomy"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Character Designs/character design.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_character",
+    "orientation": "landscape",
+    "width": 3508,
+    "height": 2480,
+    "size": 2734939,
+    "isHung": true
+  },
+  {
+    "id": "project-54-01-kontiliwaya",
+    "title": "01 - Kontiliwaya",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/01 - Kontiliwaya.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 1884865,
+    "isHung": true
+  },
+  {
+    "id": "project-55-01-himig-rosa-valmora",
+    "title": "01 HIMIG - Rosa Valmora",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/01 HIMIG - Rosa Valmora.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 1941871,
+    "isHung": true
+  },
+  {
+    "id": "project-56-02-duyanara",
+    "title": "02 - Duyanara",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/02 - Duyanara.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 2120786,
+    "isHung": true
+  },
+  {
+    "id": "project-57-02-himig-celestia-liranya",
+    "title": "02 HIMIG - Celestia Liranya",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/02 HIMIG - Celestia Liranya.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 1873811,
+    "isHung": true
+  },
+  {
+    "id": "project-58-03-singsinia",
+    "title": "03 - Singsinia",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/03 - Singsinia.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 1975455,
+    "isHung": true
+  },
+  {
+    "id": "project-59-03-himig-beatrix-veyrona",
+    "title": "03 HIMIG - Beatrix Veyrona",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/03 HIMIG - Beatrix Veyrona.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 1809305,
+    "isHung": true
+  },
+  {
+    "id": "project-60-04-pipitigam",
+    "title": "04 - Pipitigam",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/04 - Pipitigam.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 2225686,
+    "isHung": true
+  },
+  {
+    "id": "project-61-04-himig-talia-orvida",
+    "title": "04 HIMIG - Talia Orvida",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/04 HIMIG - Talia Orvida.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 2049080,
+    "isHung": true
+  },
+  {
+    "id": "project-62-05-pasconia",
+    "title": "05 - Pasconia",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/05 - Pasconia.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 2057954,
+    "isHung": true
+  },
+  {
+    "id": "project-63-05-himig-jovienne-yulehart",
+    "title": "05 HIMIG - Jovienne Yulehart",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/05 HIMIG - Jovienne Yulehart.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1055,
+    "height": 1491,
+    "size": 1720791,
+    "isHung": true
+  },
+  {
+    "id": "project-64-ang-pambihirang-sombrero-color-temperature",
+    "title": "Ang Pambihirang Sombrero_color temperature",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/Ang Pambihirang Sombrero_color temperature.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "landscape",
+    "width": 2700,
+    "height": 1800,
+    "size": 1676157,
+    "isHung": true
+  },
+  {
+    "id": "project-65-illustration",
+    "title": "Illustration",
+    "subtitle": "Digital Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/Illustration.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "landscape",
+    "width": 2700,
+    "height": 1800,
+    "size": 807731,
+    "isHung": true
+  },
+  {
+    "id": "project-66-mascara-festival",
+    "title": "Masquerade of Smiles",
+    "subtitle": "Cultural Feature | Color Temperature Study",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "Behind every bright mask is a story of culture, joy, and people coming together. Inspired by the MassKara Festival in Bacolod, this piece is filled with warm colors and festive details. It shows a city that keeps smiling, even through hard times, and shares that joy with everyone.",
+    "imagePath": "./assets/Projects/Digital Illustrations/Mascara Festival.jpg",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1078,
+    "height": 1440,
+    "size": 187670,
+    "isHung": true
+  },
+  {
+    "id": "project-67-park-jihyo-vector-art",
+    "title": "Park Jihyo",
+    "subtitle": "Vector Art",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Digital Illustrations/Park Jihyo (Vector Art).png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1060,
+    "height": 1500,
+    "size": 313022,
+    "isHung": true
+  },
+  {
+    "id": "project-68-still-here",
+    "title": "Still Here",
+    "subtitle": "Personal Manifesto",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "Every scar holds a story of something I survived. Through fire, pain, and change, I found strength in the parts of me I once thought were broken. This piece is my promise to keep going, to keep creating, and to always stay true to who I am.",
+    "imagePath": "./assets/Projects/Digital Illustrations/Still Here.jpeg",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 1143,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-69-what-the-heart-invents",
+    "title": "What the Heart Invents",
+    "subtitle": "Concept Illustration",
+    "year": "2024",
+    "category": "Digital Concept Art & Painting",
+    "tags": [
+      "Digital Art",
+      "Concept Art",
+      "Folklore",
+      "Illustration",
+      "Photoshop"
+    ],
+    "description": "Some dreams never really go away. They just change shape and live inside us in new ways. This piece is where two versions of me finally meet: the musician I once dreamed of becoming, and the artist I am today. I think they would be proud of each other.",
+    "imagePath": "./assets/Projects/Digital Illustrations/What the Heart Invents.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_promenade",
+    "orientation": "portrait",
+    "width": 2480,
+    "height": 3508,
+    "size": 7004036,
+    "isHung": true
+  },
+  {
+    "id": "project-70-chess-que",
+    "title": "Chess Que",
+    "subtitle": "Editorial Magazine Cover Design",
+    "year": "2024\u20132025",
+    "category": "Applied Graphic Design & Poster Art",
+    "tags": [
+      "Graphic Design",
+      "Poster Art",
+      "Typography",
+      "Visual Identity"
+    ],
+    "description": "A playful blend of fashion, personality, and chess-inspired visuals. Bold typography, striking imagery, and creative layouts come together to capture the charm of an editorial magazine, where every detail makes its own statement.",
+    "imagePath": "./assets/Projects/Graphic Design/Chess Que.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "portrait",
+    "width": 595,
+    "height": 842,
+    "size": 538101,
+    "isHung": true
+  },
+  {
+    "id": "project-71-feast-of-power",
+    "title": "Feast of Power",
+    "subtitle": "Conceptual Poster Design",
+    "year": "2024\u20132025",
+    "category": "Applied Graphic Design & Poster Art",
+    "tags": [
+      "Graphic Design",
+      "Poster Art",
+      "Typography",
+      "Visual Identity"
+    ],
+    "description": "While some sit at the table, others are left with nothing but the pieces of what was taken from them. Behind every feast of power are voices left unheard and lives slowly drained. Through surrealism, expressionism, and symbolism, this piece reflects the painful reality of corruption and the people who suffer from it.",
+    "imagePath": "./assets/Projects/Graphic Design/Feast of Power.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "portrait",
+    "width": 2480,
+    "height": 3508,
+    "size": 14727088,
+    "isHung": true
+  },
+  {
+    "id": "project-72-in-between",
+    "title": "In Between",
+    "subtitle": "Music-Inspired Visual Design",
+    "year": "2024\u20132025",
+    "category": "Applied Graphic Design & Poster Art",
+    "tags": [
+      "Graphic Design",
+      "Poster Art",
+      "Typography",
+      "Visual Identity"
+    ],
+    "description": "Somewhere between stillness and movement, there is a place where everything feels at peace. Inspired by the song's gentle melody, this artwork captures the feeling of being caught between two worlds. Like a swan resting between warm and cool waters, it reminds us that there is beauty in finding balance within ourselves.",
+    "imagePath": "./assets/Projects/Graphic Design/In Between.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "landscape",
+    "width": 3508,
+    "height": 2480,
+    "size": 12305104,
+    "isHung": true
+  },
+  {
+    "id": "project-73-annotated-mangilaya-sarah-20mae-pl1-1",
+    "title": "High and Mighty",
+    "subtitle": "Mixed Media Poster Design",
+    "year": "2024\u20132025",
+    "category": "Applied Graphic Design & Poster Art",
+    "tags": [
+      "Graphic Design",
+      "Poster Art",
+      "Typography",
+      "Visual Identity"
+    ],
+    "description": "A story of ambition, growth, and the desire to reach greater heights. Beneath the layers of images, colors, and words is a reminder that no dream is too big for someone willing to rise. A visual celebration of beginnings, possibilities, and everything we hope to become.",
+    "imagePath": "./assets/Projects/Graphic Design/annotated-Mangilaya_Sarah_20Mae-PL1-1.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "portrait",
+    "width": 1648,
+    "height": 2111,
+    "size": 1720442,
+    "isHung": true
+  },
+  {
+    "id": "project-74-aev-logo",
+    "title": "AEV",
+    "subtitle": "Personal Art Brand | 2025",
+    "year": "2024\u20132025",
+    "category": "Identity & Visual Brand Design",
+    "tags": [
+      "Branding",
+      "Logo Design",
+      "Vector",
+      "Identity"
+    ],
+    "description": "Made for Aevantra, my very first art account and the start of my creative dream. This logo is where my journey began. It turns my own name into a symbol of who I was becoming, small and shy, but full of hope.",
+    "imagePath": "./assets/Projects/Logos/aev logo.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "square",
+    "width": 432,
+    "height": 398,
+    "size": 82005,
+    "isHung": true
+  },
+  {
+    "id": "project-75-asg-logo",
+    "title": "Aesthylegia: The Monogram",
+    "subtitle": "Brand Identity | 2025",
+    "year": "2024\u20132025",
+    "category": "Identity & Visual Brand Design",
+    "tags": [
+      "Branding",
+      "Logo Design",
+      "Vector",
+      "Identity"
+    ],
+    "description": "Many letters, joined together as one. Their curves hold on to each other like old memories that never let go. The monogram feels soft, graceful, and timeless, just like the brand\u2019s love for beauty and the past.",
+    "imagePath": "./assets/Projects/Logos/asg logo.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "square",
+    "width": 546,
+    "height": 545,
+    "size": 28392,
+    "isHung": true
+  },
+  {
+    "id": "project-76-asthyles",
+    "title": "Aesthylegia: The Wordmark",
+    "subtitle": "Brand Identity | 2025",
+    "year": "2024\u20132025",
+    "category": "Identity & Visual Brand Design",
+    "tags": [
+      "Branding",
+      "Logo Design",
+      "Vector",
+      "Identity"
+    ],
+    "description": "Born from two words, Aesthetic and Nostalgia, Aesthylegia holds beauty and memories close. Its decorative letters give the brand a heart and a voice of its own. They bring back the warm feeling of old things we miss, wrapped in a fresh new look.",
+    "imagePath": "./assets/Projects/Logos/asthyles.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "applied_graphic",
+    "orientation": "square",
+    "width": 617,
+    "height": 617,
+    "size": 42459,
+    "isHung": true
+  },
+  {
+    "id": "project-77-20250901-144004-100kb",
+    "title": "Animal Photography",
+    "subtitle": "Photography",
+    "year": "2025",
+    "category": "Wildlife & Animal Photography",
+    "tags": [
+      "Animal Photography",
+      "Wildlife",
+      "Telephoto",
+      "Natural Light"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Animal Photography/20250901_144004-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "wildlife",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-78-20250901-144006-100kb",
+    "title": "Animal Photography",
+    "subtitle": "Photography",
+    "year": "2025",
+    "category": "Wildlife & Animal Photography",
+    "tags": [
+      "Animal Photography",
+      "Wildlife",
+      "Telephoto",
+      "Natural Light"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Animal Photography/20250901_144006-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "wildlife",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-79-20250917-125307-100kb",
+    "title": "Animal Photography",
+    "subtitle": "Photography",
+    "year": "2025",
+    "category": "Wildlife & Animal Photography",
+    "tags": [
+      "Animal Photography",
+      "Wildlife",
+      "Telephoto",
+      "Natural Light"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Animal Photography/20250917_125307-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "wildlife",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-81-20250917-125333-100kb",
+    "title": "Animal Photography",
+    "subtitle": "Photography",
+    "year": "2025",
+    "category": "Wildlife & Animal Photography",
+    "tags": [
+      "Animal Photography",
+      "Wildlife",
+      "Telephoto",
+      "Natural Light"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Animal Photography/20250917_125333-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "wildlife",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-83-20250917-125401-100kb",
+    "title": "Animal Photography",
+    "subtitle": "Photography",
+    "year": "2025",
+    "category": "Wildlife & Animal Photography",
+    "tags": [
+      "Animal Photography",
+      "Wildlife",
+      "Telephoto",
+      "Natural Light"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Animal Photography/20250917_125401-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "wildlife",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-84-20251219-182544",
+    "title": "Animal Photography",
+    "subtitle": "Photography",
+    "year": "2025",
+    "category": "Wildlife & Animal Photography",
+    "tags": [
+      "Animal Photography",
+      "Wildlife",
+      "Telephoto",
+      "Natural Light"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Animal Photography/20251219_182544.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "wildlife",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3255275,
+    "isHung": true
+  },
+  {
+    "id": "project-87-20251219-182554",
+    "title": "Animal Photography",
+    "subtitle": "Photography",
+    "year": "2025",
+    "category": "Wildlife & Animal Photography",
+    "tags": [
+      "Animal Photography",
+      "Wildlife",
+      "Telephoto",
+      "Natural Light"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Animal Photography/20251219_182554.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "wildlife",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3364455,
+    "isHung": true
+  },
+  {
+    "id": "project-90-20260302-205445",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20260302_205445.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 282574,
+    "isHung": true
+  },
+  {
+    "id": "project-93-20260302-205540",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20260302_205540.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 331096,
+    "isHung": true
+  },
+  {
+    "id": "project-94-20260302-205610",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20260302_205610.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 4365159,
+    "isHung": true
+  },
+  {
+    "id": "project-97-20260302-205738",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20260302_205738.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 634094,
+    "isHung": true
+  },
+  {
+    "id": "project-100-20260403-200150",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20260403_200150.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 358788,
+    "isHung": true
+  },
+  {
+    "id": "project-102-20260403-200433",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20260403_200433.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 471698,
+    "isHung": true
+  },
+  {
+    "id": "project-103-20261004-005102",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20261004_005102.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 357386,
+    "isHung": true
+  },
+  {
+    "id": "project-107-20261004-005148",
+    "title": "Lunar Photography",
+    "subtitle": "Photography",
+    "year": "2026",
+    "category": "Lunar Astrophotography",
+    "tags": [
+      "Astrophotography",
+      "Lunar",
+      "Telephoto",
+      "Craters",
+      "Nocturne"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Lunar Photography/20261004_005148.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "lunar",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 245823,
+    "isHung": true
+  },
+  {
+    "id": "project-109-20240624-171910-final",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/20240624_171910_FINAL.png",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "landscape",
+    "width": 4521,
+    "height": 3005,
+    "size": 3272779,
+    "isHung": true
+  },
+  {
+    "id": "project-110-free-street-photography-edited",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/Free Street Photography (EDITED).jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "portrait",
+    "width": 3072,
+    "height": 4080,
+    "size": 4576535,
+    "isHung": true
+  },
+  {
+    "id": "project-111-img-3259-final",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/IMG_3259_ FINAL.png",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "portrait",
+    "width": 3456,
+    "height": 5184,
+    "size": 5696030,
+    "isHung": true
+  },
+  {
+    "id": "project-112-img-3266-final",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/IMG_3266_FINAL.png",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "landscape",
+    "width": 5184,
+    "height": 3456,
+    "size": 5040078,
+    "isHung": true
+  },
+  {
+    "id": "project-113-mangilaya-sarah-mae-light-streaks-2023",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/Mangilaya_Sarah Mae_Light Streaks_2023.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "portrait",
+    "width": 3300,
+    "height": 5100,
+    "size": 1217366,
+    "isHung": true
+  },
+  {
+    "id": "project-114-mangilaya-sarah-mae-portrait-plate-2023",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/Mangilaya_Sarah Mae_Portrait Plate_2023.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "portrait",
+    "width": 4000,
+    "height": 6000,
+    "size": 1600285,
+    "isHung": true
+  },
+  {
+    "id": "project-115-xan05934",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/XAN05934.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "portrait",
+    "width": 4000,
+    "height": 6000,
+    "size": 753831,
+    "isHung": true
+  },
+  {
+    "id": "project-116-xan05943",
+    "title": "Model Photography",
+    "subtitle": "Photography",
+    "year": "2023\u20132024",
+    "category": "Portrait & Model Photography",
+    "tags": [
+      "Portrait Photography",
+      "Studio Lighting",
+      "Model",
+      "Editorial"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Model Photography/XAN05943.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "portrait",
+    "orientation": "portrait",
+    "width": 4000,
+    "height": 6000,
+    "size": 1071043,
+    "isHung": true
+  },
+  {
+    "id": "project-117-20241105-124512",
+    "title": "Object Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Observational Object Study",
+    "tags": [
+      "Object Photography",
+      "Product",
+      "Studio",
+      "Texture"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Object Photography/20241105_124512.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1722444,
+    "isHung": true
+  },
+  {
+    "id": "project-118-20260209-141959",
+    "title": "Object Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Observational Object Study",
+    "tags": [
+      "Object Photography",
+      "Product",
+      "Studio",
+      "Texture"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Object Photography/20260209_141959.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 7631994,
+    "isHung": true
+  },
+  {
+    "id": "project-119-20260209-142003",
+    "title": "Object Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Observational Object Study",
+    "tags": [
+      "Object Photography",
+      "Product",
+      "Studio",
+      "Texture"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Object Photography/20260209_142003.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3913361,
+    "isHung": true
+  },
+  {
+    "id": "project-120-20260209-142053",
+    "title": "Object Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Observational Object Study",
+    "tags": [
+      "Object Photography",
+      "Product",
+      "Studio",
+      "Texture"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Object Photography/20260209_142053.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 7217727,
+    "isHung": true
+  },
+  {
+    "id": "project-121-object-photograph",
+    "title": "Object Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Observational Object Study",
+    "tags": [
+      "Object Photography",
+      "Product",
+      "Studio",
+      "Texture"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Object Photography/Object Photograph.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "portrait",
+    "width": 3300,
+    "height": 5100,
+    "size": 335599,
+    "isHung": true
+  },
+  {
+    "id": "project-122-object-photography",
+    "title": "Object Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Observational Object Study",
+    "tags": [
+      "Object Photography",
+      "Product",
+      "Studio",
+      "Texture"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Object Photography/Object Photography.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "portrait",
+    "width": 3300,
+    "height": 5100,
+    "size": 1112463,
+    "isHung": true
+  },
+  {
+    "id": "project-123-20250419-195909",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/20250419_195909.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1846357,
+    "isHung": true
+  },
+  {
+    "id": "project-124-20250419-200140",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/20250419_200140.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1740428,
+    "isHung": true
+  },
+  {
+    "id": "project-125-20250503-183223-100kb",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/20250503_183223-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-126-20250515-122341-100kb",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/20250515_122341-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-127-20250628-174425-100kb",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/20250628_174425-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-128-20250917-223817-100kb",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/20250917_223817-100kb.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "size": 100352,
+    "isHung": true
+  },
+  {
+    "id": "project-129-20260917-122729",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/20260917_122729.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1090766,
+    "isHung": true
+  },
+  {
+    "id": "project-130-img-20240519-054410",
+    "title": "Still Life Photography",
+    "subtitle": "Photography",
+    "year": "2024\u20132026",
+    "category": "Still Life Photographic Study",
+    "tags": [
+      "Still Life",
+      "Photography",
+      "Studio Lighting",
+      "Composition"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Still Life Photography/IMG_20240519_054410.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "stilllife_object",
+    "orientation": "portrait",
+    "width": 2288,
+    "height": 4080,
+    "size": 5637515,
+    "isHung": true
+  },
+  {
+    "id": "project-131-20250503-182656",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20250503_182656.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2073527,
+    "isHung": true
+  },
+  {
+    "id": "project-132-20250503-182712",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20250503_182712.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2204798,
+    "isHung": true
+  },
+  {
+    "id": "project-133-20251222-192036",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20251222_192036.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2963008,
+    "isHung": true
+  },
+  {
+    "id": "project-134-20251222-192224",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20251222_192224.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2673993,
+    "isHung": true
+  },
+  {
+    "id": "project-135-20251222-192410",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20251222_192410.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2142110,
+    "isHung": true
+  },
+  {
+    "id": "project-136-20251222-192518",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20251222_192518.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1814827,
+    "isHung": true
+  },
+  {
+    "id": "project-137-20260227-184914",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_184914.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1625365,
+    "isHung": true
+  },
+  {
+    "id": "project-138-20260227-184930",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_184930.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1603766,
+    "isHung": true
+  },
+  {
+    "id": "project-139-20260227-184943",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_184943.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2228398,
+    "isHung": true
+  },
+  {
+    "id": "project-140-20260227-185013",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185013.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2374098,
+    "isHung": true
+  },
+  {
+    "id": "project-141-20260227-185025",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185025.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2463653,
+    "isHung": true
+  },
+  {
+    "id": "project-142-20260227-185043",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185043.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2425372,
+    "isHung": true
+  },
+  {
+    "id": "project-143-20260227-185056",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185056.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2408144,
+    "isHung": true
+  },
+  {
+    "id": "project-144-20260227-185057",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185057.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2397778,
+    "isHung": true
+  },
+  {
+    "id": "project-145-20260227-185116",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185116.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2254344,
+    "isHung": true
+  },
+  {
+    "id": "project-146-20260227-185521",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185521.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2381308,
+    "isHung": true
+  },
+  {
+    "id": "project-147-20260227-185530",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185530.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1959869,
+    "isHung": true
+  },
+  {
+    "id": "project-148-20260227-185536",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185536.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2066250,
+    "isHung": true
+  },
+  {
+    "id": "project-149-20260227-185545",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_185545.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1957748,
+    "isHung": true
+  },
+  {
+    "id": "project-150-20260227-194735",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_194735.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2978120,
+    "isHung": true
+  },
+  {
+    "id": "project-151-20260227-194740",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_194740.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2913624,
+    "isHung": true
+  },
+  {
+    "id": "project-152-20260227-194808",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_194808.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2869097,
+    "isHung": true
+  },
+  {
+    "id": "project-153-20260227-194813",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_194813.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2962047,
+    "isHung": true
+  },
+  {
+    "id": "project-154-20260227-194836",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_194836.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3031012,
+    "isHung": true
+  },
+  {
+    "id": "project-155-20260227-194847",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260227_194847.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 2752563,
+    "isHung": true
+  },
+  {
+    "id": "project-156-20260930-134908",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20260930_134908.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 1300517,
+    "isHung": true
+  },
+  {
+    "id": "project-157-20261004-004808",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/20261004_004808.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3712238,
+    "isHung": true
+  },
+  {
+    "id": "project-158-carillon-bell-edited",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/Carillon Bell (EDITED).jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "portrait",
+    "width": 3072,
+    "height": 4080,
+    "size": 4660703,
+    "isHung": true
+  },
+  {
+    "id": "project-159-female-version-of-oblation-edited",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/Female Version of Oblation (EDITED).jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "portrait",
+    "width": 3072,
+    "height": 4080,
+    "size": 4636833,
+    "isHung": true
+  },
+  {
+    "id": "project-160-free-street-photography-02",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/Free Street Photography 02.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "portrait",
+    "width": 3072,
+    "height": 4080,
+    "size": 2382054,
+    "isHung": true
+  },
+  {
+    "id": "project-161-greens-edited",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/Greens (EDITED).jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "portrait",
+    "width": 3072,
+    "height": 4080,
+    "size": 3703997,
+    "isHung": true
+  },
+  {
+    "id": "project-162-up-oblation-male-version-with-lgtb-flag",
+    "title": "Street Photography",
+    "subtitle": "Photography",
+    "year": "2025\u20132026",
+    "category": "Observational Street Photography",
+    "tags": [
+      "Street Photography",
+      "Documentary",
+      "Campus",
+      "Observational",
+      "Urban"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Photography/Street Photography/UP Oblation (Male Version) with LGTB Flag.jpg",
+    "mediaType": "image",
+    "wing": "III",
+    "room": "street",
+    "orientation": "portrait",
+    "width": 1542,
+    "height": 2048,
+    "size": 348026,
+    "isHung": true
+  },
+  {
+    "id": "project-163-cedilla-mangilaya-plate2",
+    "title": "",
+    "subtitle": "",
+    "year": "2025",
+    "category": "Foley & Sound Design Synchronization",
+    "tags": [
+      "Post-Production",
+      "Foley",
+      "Sound Design",
+      "Audio Sync",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Post-Production/Foley/Cedilla_Mangilaya_Plate2.mp4",
+    "mediaType": "video",
+    "wing": "IV",
+    "room": "cinema",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 509034345,
+    "isHung": true
+  },
+  {
+    "id": "project-164-case-file-no-27",
+    "title": "Case File No. 27",
+    "subtitle": "Motion Graphics",
+    "year": "2025",
+    "category": "Motion Graphics & Kinetic Title Sequence",
+    "tags": [
+      "Motion Graphics",
+      "Kinetic Typography",
+      "Title Sequence",
+      "After Effects",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Post-Production/Motion Graphics/Case File No. 27.mp4",
+    "mediaType": "video",
+    "wing": "IV",
+    "room": "cinema",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 59858735,
+    "isHung": true
+  },
+  {
+    "id": "project-165-weekend-at-ernies-nori-productions-teasers",
+    "title": "Weekend at Ernie's",
+    "subtitle": "Short Film",
+    "year": "2025",
+    "category": "Cinematic Visual Storytelling",
+    "tags": [
+      "Short Film",
+      "No-Dialogue",
+      "Cinematography",
+      "Nori Productions",
+      "MP4"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Post-Production/No-Dialogue Short Film/Weekend at Ernies (Nori Productions) Teasers.mp4",
+    "mediaType": "video",
+    "wing": "IV",
+    "room": "cinema",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 80549065,
+    "isHung": true
+  },
+  {
+    "id": "project-166-20260327-135538",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_135538.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 4764341,
+    "isHung": true
+  },
+  {
+    "id": "project-167-20260327-135541",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_135541.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3997042,
+    "isHung": true
+  },
+  {
+    "id": "project-168-20260327-142041",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_142041.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 4162863,
+    "isHung": true
+  },
+  {
+    "id": "project-169-20260327-143226",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_143226.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3986346,
+    "isHung": true
+  },
+  {
+    "id": "project-170-20260327-143242",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_143242.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 4444502,
+    "isHung": true
+  },
+  {
+    "id": "project-171-20260327-143253",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_143253.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 4267809,
+    "isHung": true
+  },
+  {
+    "id": "project-172-20260327-161200",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_161200.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3432960,
+    "isHung": true
+  },
+  {
+    "id": "project-173-20260327-161211",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_161211.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 4595913,
+    "isHung": true
+  },
+  {
+    "id": "project-174-20260327-164234",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_164234.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3860422,
+    "isHung": true
+  },
+  {
+    "id": "project-175-20260327-164237",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_164237.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 4181673,
+    "isHung": true
+  },
+  {
+    "id": "project-176-20260327-164245",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_164245.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3578107,
+    "isHung": true
+  },
+  {
+    "id": "project-177-20260327-164248",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_164248.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3629818,
+    "isHung": true
+  },
+  {
+    "id": "project-178-20260327-164253",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_164253.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3712554,
+    "isHung": true
+  },
+  {
+    "id": "project-179-20260327-164255",
+    "title": "Oi Marichin Marukoy! \u2013 Fancy Kitchen",
+    "subtitle": "Production Design | 10-Member Crew",
+    "year": "2026",
+    "category": "Production Design & Art Direction",
+    "tags": [
+      "Production Design",
+      "Art Direction",
+      "Set Photography",
+      "Film Set",
+      "Stills"
+    ],
+    "description": "Oi Marichin Marukoy! is an eco-fantasy stop-motion animation project and bilingual Cebuano-English children's storybook (Mangayo Ko'g Asin / May I Have Some Salt), created by filmmaker and writer Ara Chawdhury. As part of a 10-member crew, I collaborated with the team on the production design of Fancy Kitchen, contributing to the visual development of the project.",
+    "imagePath": "./assets/Projects/Production Design (Oi Marichin Marukoy!, Fancy Kitchen)/20260327_164255.jpg",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "production_design",
+    "orientation": "landscape",
+    "width": 4000,
+    "height": 3000,
+    "size": 3857254,
+    "isHung": true
+  },
+  {
+    "id": "project-180-cinematography-and-screen-direction-1",
+    "title": "Cinematography and Screen Direction",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Cinematography & Screen Direction",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Cinematography and Screen Direction/Cinematography and Screen Direction-1.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 24442,
+    "isHung": true
+  },
+  {
+    "id": "project-181-cinematography-and-screen-direction-2",
+    "title": "Cinematography and Screen Direction",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Cinematography & Screen Direction",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Cinematography and Screen Direction/Cinematography and Screen Direction-2.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 176559,
+    "isHung": true
+  },
+  {
+    "id": "project-182-cinematography-and-screen-direction-3",
+    "title": "Cinematography and Screen Direction",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Cinematography & Screen Direction",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Cinematography and Screen Direction/Cinematography and Screen Direction-3.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 193016,
+    "isHung": true
+  },
+  {
+    "id": "project-183-cinematography-and-screen-direction-4",
+    "title": "Cinematography and Screen Direction",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Cinematography & Screen Direction",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Cinematography and Screen Direction/Cinematography and Screen Direction-4.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 157955,
+    "isHung": true
+  },
+  {
+    "id": "project-184-continuity-board-1",
+    "title": "Continuity Board",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Continuity & Narrative Sequence",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Continuity Board/Continuity Board-1.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 14942,
+    "isHung": true
+  },
+  {
+    "id": "project-185-continuity-board-2",
+    "title": "Continuity Board",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Continuity & Narrative Sequence",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Continuity Board/Continuity Board-2.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 188714,
+    "isHung": true
+  },
+  {
+    "id": "project-186-continuity-board-3",
+    "title": "Continuity Board",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Continuity & Narrative Sequence",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Continuity Board/Continuity Board-3.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 157506,
+    "isHung": true
+  },
+  {
+    "id": "project-187-continuity-board-4",
+    "title": "Continuity Board",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Continuity & Narrative Sequence",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Continuity Board/Continuity Board-4.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 198364,
+    "isHung": true
+  },
+  {
+    "id": "project-188-paneling-1",
+    "title": "Paneling",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Paneling & Dynamic Framing",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Paneling/Paneling-1.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 10984,
+    "isHung": true
+  },
+  {
+    "id": "project-189-paneling-2",
+    "title": "Paneling",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Paneling & Dynamic Framing",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Paneling/Paneling-2.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 202517,
+    "isHung": true
+  },
+  {
+    "id": "project-190-paneling-3",
+    "title": "Paneling",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Paneling & Dynamic Framing",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Paneling/Paneling-3.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 2200,
+    "height": 1700,
+    "size": 121054,
+    "isHung": true
+  },
+  {
+    "id": "project-191-patterns",
+    "title": "Patterns",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Motion Sequences & Animatics",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Patterns/Patterns.mov",
+    "mediaType": "video",
+    "wing": "IV",
+    "room": "cinema",
+    "orientation": "landscape",
+    "width": 1920,
+    "height": 1080,
+    "size": 54152201,
+    "isHung": true
+  },
+  {
+    "id": "project-192-shot-composition",
+    "title": "Shot Composition",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Cinematic Shot Composition",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/Shot Composition/Shot Composition.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "landscape",
+    "width": 1672,
+    "height": 941,
+    "size": 1726004,
+    "isHung": true
+  },
+  {
+    "id": "project-193-the-wind-rises-story-boarding-1",
+    "title": "The Wind Rises Story Boarding",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Master Storyboard Adaptation",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-1.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "portrait",
+    "width": 7085,
+    "height": 9169,
+    "size": 1267546,
+    "isHung": true
+  },
+  {
+    "id": "project-194-the-wind-rises-story-boarding-2",
+    "title": "The Wind Rises Story Boarding",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Master Storyboard Adaptation",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-2.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "portrait",
+    "width": 7085,
+    "height": 9169,
+    "size": 1443896,
+    "isHung": true
+  },
+  {
+    "id": "project-195-the-wind-rises-story-boarding-3",
+    "title": "The Wind Rises Story Boarding",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Master Storyboard Adaptation",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-3.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "portrait",
+    "width": 7085,
+    "height": 9169,
+    "size": 862917,
+    "isHung": true
+  },
+  {
+    "id": "project-196-the-wind-rises-story-boarding-4",
+    "title": "The Wind Rises Story Boarding",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Master Storyboard Adaptation",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-4.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "portrait",
+    "width": 7085,
+    "height": 9169,
+    "size": 919741,
+    "isHung": true
+  },
+  {
+    "id": "project-197-the-wind-rises-story-boarding-5",
+    "title": "The Wind Rises Story Boarding",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Master Storyboard Adaptation",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-5.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "portrait",
+    "width": 7085,
+    "height": 9169,
+    "size": 973902,
+    "isHung": true
+  },
+  {
+    "id": "project-198-the-wind-rises-story-boarding-6",
+    "title": "The Wind Rises Story Boarding",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Master Storyboard Adaptation",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-6.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "portrait",
+    "width": 7085,
+    "height": 9169,
+    "size": 1240680,
+    "isHung": true
+  },
+  {
+    "id": "project-199-the-wind-rises-story-boarding-7",
+    "title": "The Wind Rises Story Boarding",
+    "subtitle": "Storyboarding",
+    "year": "2024",
+    "category": "Master Storyboard Adaptation",
+    "tags": [
+      "Storyboarding",
+      "Pre-vis",
+      "Cinematography",
+      "Animation",
+      "Visual Narrative"
+    ],
+    "description": "",
+    "imagePath": "./assets/Projects/Storyboarding/The Wind Rises Story Boarding/The Wind Rises Story Boarding-7.png",
+    "mediaType": "image",
+    "wing": "IV",
+    "room": "storyboard",
+    "orientation": "portrait",
+    "width": 7085,
+    "height": 9169,
+    "size": 1098430,
+    "isHung": true
+  },
+  {
+    "id": "project-200-camscanner-11-07-2023-17-05-1",
+    "title": "Thorned Devotion",
+    "subtitle": "Traditional Illustration",
+    "year": "2023",
+    "category": "Traditional Fine Art & Life Study",
+    "tags": [
+      "Traditional Art",
+      "Graphite",
+      "Ink",
+      "Perspective",
+      "Life Drawing"
+    ],
+    "description": "Love can feel like the most beautiful thing in the world, and still hurt the most. Like a rose with sharp thorns, we hold on tight to the things that make us feel alive, even when it makes us bleed. Because sometimes, the pain is worth it.",
+    "imagePath": "./assets/Projects/Traditional Illustrations/CamScanner_11-07-2023_17.05_1.jpg",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_traditional",
+    "orientation": "portrait",
+    "width": 1568,
+    "height": 2368,
+    "size": 222616,
+    "isHung": true
+  },
+  {
+    "id": "project-201-camscanner-12-05-2023-18-06-1",
+    "title": "The Watchful",
+    "subtitle": "Traditional Illustration",
+    "year": "2023",
+    "category": "Traditional Fine Art & Life Study",
+    "tags": [
+      "Traditional Art",
+      "Graphite",
+      "Ink",
+      "Perspective",
+      "Life Drawing"
+    ],
+    "description": "Quiet does not always mean calm. Behind those watching eyes is a heart full of words never said and feelings kept locked away. They see everything, yet share so little. The ones who watch the most are often the ones carrying the heaviest load.",
+    "imagePath": "./assets/Projects/Traditional Illustrations/CamScanner_12-05-2023_18.06_1.jpg",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_traditional",
+    "orientation": "portrait",
+    "width": 2340,
+    "height": 3572,
+    "size": 567374,
+    "isHung": true
+  },
+  {
+    "id": "project-202-camscanner-12-07-2023-23-14-1",
+    "title": "Where the Moon Embraces the Sun",
+    "subtitle": "Traditional Illustration",
+    "year": "2023",
+    "category": "Traditional Fine Art & Life Study",
+    "tags": [
+      "Traditional Art",
+      "Graphite",
+      "Ink",
+      "Perspective",
+      "Life Drawing"
+    ],
+    "description": "Even the brightest light needs a place to rest. The moon and the sun come from different worlds, yet they find each other and hold on. Theirs is a love between opposites. It tells us that being different does not mean we can\u2019t belong. Like yin and yang, they make each other whole.",
+    "imagePath": "./assets/Projects/Traditional Illustrations/CamScanner_12-07-2023_23.14_1.jpg",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_traditional",
+    "orientation": "portrait",
+    "width": 2200,
+    "height": 3372,
+    "size": 721896,
+    "isHung": true
+  },
+  {
+    "id": "project-203-camscanner-12-09-2023-15-30-1",
+    "title": "The Unusual Gentleman",
+    "subtitle": "Traditional Illustration",
+    "year": "2023",
+    "category": "Traditional Fine Art & Life Study",
+    "tags": [
+      "Traditional Art",
+      "Graphite",
+      "Ink",
+      "Perspective",
+      "Life Drawing"
+    ],
+    "description": "He sits among familiar things, dressed for a world that seems to understand him. But his unusual look carries a gentle truth: we don\u2019t have to fit in to find where we belong. Maybe he was never meant to hide. Maybe being different is the very thing that makes him shine.",
+    "imagePath": "./assets/Projects/Traditional Illustrations/CamScanner_12-09-2023_15.30_1.jpg",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_traditional",
+    "orientation": "portrait",
+    "width": 2084,
+    "height": 3200,
+    "size": 623788,
+    "isHung": true
+  },
+  {
+    "id": "project-204-annotated-mangilaya-sarah-20mae-pl1-3",
+    "title": "High and Mighty",
+    "subtitle": "Traditional Illustration",
+    "year": "2023",
+    "category": "Traditional Fine Art & Life Study",
+    "tags": [
+      "Traditional Art",
+      "Graphite",
+      "Ink",
+      "Perspective",
+      "Life Drawing"
+    ],
+    "description": "Somewhere between dreams and real life, we keep reaching for something more. Even the biggest dreams start with a tiny bit of hope. Growing into who we want to be is hard. It asks us to be brave, to be patient, and to keep rising, even when we\u2019re scared.",
+    "imagePath": "./assets/Projects/Traditional Illustrations/annotated-Mangilaya_Sarah_20Mae-PL1-3.png",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_traditional",
+    "orientation": "portrait",
+    "width": 1649,
+    "height": 2129,
+    "size": 2046368,
+    "isHung": true
+  },
+  {
+    "id": "project-205-b859c124-original",
+    "title": "A Face in Fragments",
+    "subtitle": "Traditional Illustration",
+    "year": "2023",
+    "category": "Traditional Fine Art & Life Study",
+    "tags": [
+      "Traditional Art",
+      "Graphite",
+      "Ink",
+      "Perspective",
+      "Life Drawing"
+    ],
+    "description": "We wear so many faces that sometimes we forget which one is really us. Behind every smile are quiet fears, heavy thoughts, and broken pieces we are still trying to understand. It\u2019s okay to feel lost. Home is something we can find again, one piece at a time.",
+    "imagePath": "./assets/Projects/Traditional Illustrations/b859c124_original.jpg",
+    "mediaType": "image",
+    "wing": "I",
+    "room": "finearts_traditional",
+    "orientation": "portrait",
+    "width": 1019,
+    "height": 1440,
+    "size": 303514,
+    "isHung": true
+  }
+]
+};
+
+/* ==========================================================================
+   §4  ENGINE — nothing below needs editing to customise content.
+   ========================================================================== */
+import * as THREE from 'three';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+
+/* --------------------------------------------------------------------------
+   4.1  Small math / random helpers
+   -------------------------------------------------------------------------- */
+const TAU = Math.PI * 2;
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const V3 = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
+const $ = (id) => document.getElementById(id);
+
+function rng(seed) {
+  let s = (seed >>> 0) || 0x9e3779b9;
+  return () => {
+    s ^= s << 13; s >>>= 0;
+    s ^= s >>> 17;
+    s ^= s << 5; s >>>= 0;
+    return s / 4294967296;
+  };
+}
+function hashString(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) h = Math.imul(h ^ str.charCodeAt(i), 16777619);
+  return h >>> 0;
+}
+/** Periodic (tileable) value noise + fBm. Period p is in lattice units. */
+function makeNoise(seed) {
+  const r = rng(seed), N = 256, g = new Float32Array(N * N);
+  for (let i = 0; i < N * N; i++) g[i] = r();
+  const at = (x, y, p) => { x = ((x % p) + p) % p; y = ((y % p) + p) % p; return g[(y & 255) * N + (x & 255)]; };
+  function noise(x, y, p = 256) {
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    const a = at(xi, yi, p), b = at(xi + 1, yi, p), c = at(xi, yi + 1, p), d = at(xi + 1, yi + 1, p);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function fbm(x, y, oct = 4, p = 256) {
+    let s = 0, amp = 0.5, f = 1, norm = 0;
+    for (let o = 0; o < oct; o++) { s += amp * noise(x * f, y * f, p * f); norm += amp; amp *= 0.5; f *= 2; }
+    return s / norm;
+  }
+  return { noise, fbm };
+}
+function makeCanvas(w, h) {
+  const c = document.createElement('canvas');
+  c.width = w; c.height = h;
+  return [c, c.getContext('2d')];
+}
+const rgba = (r, g, b, a = 1) => `rgba(${r | 0},${g | 0},${b | 0},${a})`;
+
+/* --------------------------------------------------------------------------
+   4.2  Procedural canvas textures (instant fallbacks for every image asset)
+   -------------------------------------------------------------------------- */
+const ProcTex = {
+  /** Neoclassical checkered marble — darkened by 0.38x for moody, sleek gallery floors. */
+  checkeredMarble(S = 512) {
+    const [c, ctx] = makeCanvas(S, S);
+    const img = ctx.createImageData(S, S), d = img.data;
+    const { fbm } = makeNoise(1337);
+    const tiles = 4, ts = S / tiles;
+    const cream = [225, 220, 212], terra = [95, 68, 54];
+    const tileRnd = [];
+    const tr = rng(77);
+    for (let i = 0; i < tiles * tiles; i++) tileRnd.push([tr(), tr(), tr()]);
+    for (let y = 0; y < S; y++) {
+      for (let x = 0; x < S; x++) {
+        const tx = (x / ts) | 0, ty = (y / ts) | 0, odd = (tx + ty) & 1;
+        const base = odd ? terra : cream, tRand = tileRnd[ty * tiles + tx];
+        const u = x / S, v = y / S;
+        const t = fbm(u * 8, v * 8, 4, 8);
+        const ang = tRand[0] * Math.PI;
+        const m = Math.abs(Math.sin((u * Math.cos(ang) + v * Math.sin(ang)) * 14 + t * 9 + tRand[1] * 10));
+        const vein = Math.pow(1 - m, 9) * 0.9 + Math.pow(1 - Math.abs(Math.sin(u * 40 + t * 22)), 30) * 0.25;
+        const cloud = 0.9 + fbm(u * 16 + tRand[2] * 3, v * 16, 3, 16) * 0.2;
+        let r, g, b;
+        if (odd) { r = base[0] * cloud + vein * 45; g = base[1] * cloud + vein * 38; b = base[2] * cloud + vein * 30; }
+        else { const k = 1 - vein * 0.38; r = base[0] * cloud * k; g = base[1] * cloud * k; b = base[2] * cloud * k; }
+        const ex = Math.min(x % ts, ts - 1 - (x % ts)), ey = Math.min(y % ts, ts - 1 - (y % ts));
+        const edge = Math.min(ex, ey);
+        if (edge < 1.2) { r = 18; g = 18; b = 18; }
+        else if (edge < 3) { r *= 1.04; g *= 1.04; b *= 1.04; }
+        // Multiply base RGB by 0.38 for dark, sleek reflective gallery floor
+        r *= 0.38; g *= 0.38; b *= 0.38;
+        const i = (y * S + x) * 4;
+        d[i] = clamp(r, 0, 255); d[i + 1] = clamp(g, 0, 255); d[i + 2] = clamp(b, 0, 255); d[i + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+    return c;
+  },
+
+  /** Dark polished herringbone parquet — RGB multiplied by 0.38 so floor is dark and understated. */
+  herringbone(S = 512) {
+    const [c, ctx] = makeCanvas(S, S);
+    const W = 32, n = 4, L = W * n, P = S / W;
+    ctx.fillStyle = '#0b0a09'; ctx.fillRect(0, 0, S, S);
+    const rawPalette = [[150, 92, 54], [134, 80, 46], [168, 104, 62], [122, 72, 42], [158, 96, 56], [142, 86, 50]];
+    const palette = rawPalette.map(([r, g, b]) => [r * 0.38, g * 0.38, b * 0.38]);
+    const plank = (px, py, horizontal) => {
+      const kx = ((px % P) + P) % P, ky = ((py % P) + P) % P;
+      const r = rng(hashString(`${kx}:${ky}:${horizontal}`));
+      const x = px * W, y = py * W, w = horizontal ? L : W, h = horizontal ? W : L;
+      if (x > S || y > S || x + w < 0 || y + h < 0) return;
+      const col = palette[(r() * palette.length) | 0], k = 0.88 + r() * 0.2;
+      ctx.save();
+      ctx.beginPath(); ctx.rect(x + 0.8, y + 0.8, w - 1.6, h - 1.6); ctx.clip();
+      const g = horizontal ? ctx.createLinearGradient(x, y, x + w, y) : ctx.createLinearGradient(x, y, x, y + h);
+      g.addColorStop(0, rgba(col[0] * k * 0.92, col[1] * k * 0.92, col[2] * k * 0.92));
+      g.addColorStop(0.5, rgba(col[0] * k * 1.06, col[1] * k * 1.06, col[2] * k * 1.06));
+      g.addColorStop(1, rgba(col[0] * k * 0.95, col[1] * k * 0.95, col[2] * k * 0.95));
+      ctx.fillStyle = g; ctx.fillRect(x, y, w, h);
+      for (let i = 0; i < 12; i++) {
+        const off = r() * (horizontal ? h : w), amp = 0.6 + r() * 1.6, freq = 0.02 + r() * 0.05, ph = r() * TAU;
+        ctx.strokeStyle = r() > 0.5 ? 'rgba(0,0,0,0.32)' : 'rgba(120,95,65,0.12)';
+        ctx.lineWidth = 0.6 + r() * 1.0;
+        ctx.beginPath();
+        for (let s = 0; s <= (horizontal ? w : h); s += 4) {
+          const o = off + Math.sin(s * freq + ph) * amp;
+          if (horizontal) (s === 0 ? ctx.moveTo(x + s, y + o) : ctx.lineTo(x + s, y + o));
+          else (s === 0 ? ctx.moveTo(x + o, y + s) : ctx.lineTo(x + o, y + s));
+        }
+        ctx.stroke();
+      }
+      ctx.restore();
+    };
+    for (let j = -8; j <= 8; j++) {
+      for (let i = -24; i <= 40; i++) {
+        const px = i + n * j, py = i - n * j;
+        if (px < -n - 1 || px > P + 1 || py < -n - 1 || py > P + 1) continue;
+        plank(px, py, true);
+        plank(px, py + 1, false);
+      }
+    }
+    return c;
+  },
+
+  /** Matte Black Industrial Louvered/Slatted Ceiling (base #0a0b0c with #16181a fine parallel slats). */
+  blackLouverCeiling(S = 512) {
+    const [c, ctx] = makeCanvas(S, S);
+    ctx.fillStyle = '#0a0b0c';
+    ctx.fillRect(0, 0, S, S);
+    // Fine parallel louver blades
+    const step = 8;
+    for (let y = 0; y < S; y += step) {
+      ctx.fillStyle = '#16181a';
+      ctx.fillRect(0, y, S, 3);
+      ctx.fillStyle = '#1f2226';
+      ctx.fillRect(0, y, S, 1);
+    }
+    // Cross-grid structural channels every 64px
+    for (let x = 0; x < S; x += 64) {
+      ctx.fillStyle = '#060708';
+      ctx.fillRect(x, 0, 5, S);
+      ctx.fillStyle = '#1b1d20';
+      ctx.fillRect(x + 1, 0, 2, S);
+    }
+    return c;
+  },
+
+  /**
+   * Moody Gallery Wall with Lower Wainscot Dado Rail & Recessed Panels along bottom 0.95m (22.6% of 4.2m wall).
+   * Base color in shadow: #383633 (neutral taupe/slate) or #3a1816 (Wing I).
+   */
+  galleryWallWithDado(S = 512, baseRGB = [56, 54, 51]) {
+    const [c, ctx] = makeCanvas(S, S);
+    const img = ctx.createImageData(S, S), d = img.data;
+    const { fbm } = makeNoise(42);
+    const dadoY = Math.round(S * (1.0 - 0.95 / 4.2)); // y = 396 (0.95m from floor)
+    const skirtY = Math.round(S * (1.0 - 0.14 / 4.2)); // y = 495 (baseboard)
+
+    for (let y = 0; y < S; y++) {
+      const isDadoZone = y >= dadoY;
+      for (let x = 0; x < S; x++) {
+        const grain = 0.95 + fbm((x / S) * 10, (y / S) * 10, 4, 10) * 0.10;
+        // Lower wainscot zone is slightly deeper in tone
+        const zoneMul = y >= skirtY ? 0.58 : (isDadoZone ? 0.88 : 1.0);
+        const i = (y * S + x) * 4;
+        d[i]     = clamp(baseRGB[0] * grain * zoneMul, 0, 255);
+        d[i + 1] = clamp(baseRGB[1] * grain * zoneMul, 0, 255);
+        d[i + 2] = clamp(baseRGB[2] * grain * zoneMul, 0, 255);
+        d[i + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+
+    // Subtle vertical architectural wall panel seams above the dado rail (like reference photo)
+    for (let x = 0; x < S; x += 128) {
+      ctx.fillStyle = 'rgba(0,0,0,0.32)';
+      ctx.fillRect(x, 0, 1.5, dadoY);
+      ctx.fillStyle = 'rgba(255,248,235,0.05)';
+      ctx.fillRect(x + 1.5, 0, 1, dadoY);
+    }
+    // Horizontal upper picture-rail seam near ceiling
+    ctx.fillStyle = 'rgba(0,0,0,0.35)';
+    ctx.fillRect(0, 16, S, 2);
+    ctx.fillStyle = 'rgba(255,248,235,0.07)';
+    ctx.fillRect(0, 18, S, 1.5);
+
+    // Wainscot Dado Rail (horizontal chair-rail molding at 0.95m height)
+    ctx.fillStyle = rgba(baseRGB[0] * 1.48, baseRGB[1] * 1.46, baseRGB[2] * 1.42, 0.95);
+    ctx.fillRect(0, dadoY - 4, S, 4); // bright top bevel of dado rail catch-light
+    ctx.fillStyle = rgba(baseRGB[0] * 1.22, baseRGB[1] * 1.20, baseRGB[2] * 1.18, 0.95);
+    ctx.fillRect(0, dadoY, S, 6);     // dado rail face
+    ctx.fillStyle = 'rgba(0,0,0,0.55)';
+    ctx.fillRect(0, dadoY + 6, S, 4); // crisp underside shadow below dado rail
+
+    // Recessed rectangular architectural panels inside the lower wainscot zone
+    const panelTop = dadoY + 18, panelH = skirtY - panelTop - 12;
+    const panels = [[22, 234], [278, 490]];
+    panels.forEach(([x0, x1]) => {
+      const pw = x1 - x0;
+      // Slightly darker recessed interior
+      ctx.fillStyle = 'rgba(0,0,0,0.16)';
+      ctx.fillRect(x0, panelTop, pw, panelH);
+      // Fine vertical radiator/louver grooves inside recessed panel
+      ctx.fillStyle = 'rgba(0,0,0,0.12)';
+      for (let gx = x0 + 8; gx < x1 - 6; gx += 6) {
+        ctx.fillRect(gx, panelTop + 5, 2, panelH - 10);
+      }
+      // Crisp light trim border around recessed panel (matching reference photo)
+      ctx.strokeStyle = rgba(baseRGB[0] * 1.42, baseRGB[1] * 1.40, baseRGB[2] * 1.36, 0.85);
+      ctx.lineWidth = 2.2;
+      ctx.strokeRect(x0 + 1, panelTop + 1, pw - 2, panelH - 2);
+      // Inner shadow line
+      ctx.strokeStyle = 'rgba(0,0,0,0.45)';
+      ctx.lineWidth = 1.2;
+      ctx.strokeRect(x0 + 3, panelTop + 3, pw - 6, panelH - 6);
+    });
+
+    // Top bevel on baseboard skirting
+    ctx.fillStyle = rgba(baseRGB[0] * 1.15, baseRGB[1] * 1.15, baseRGB[2] * 1.12, 0.7);
+    ctx.fillRect(0, skirtY, S, 2);
+    return c;
+  },
+
+  /** Soft plaster (grayscale, multiplied by each wing's wall colour). */
+  plaster(S = 256) {
+    const [c, ctx] = makeCanvas(S, S);
+    const img = ctx.createImageData(S, S), d = img.data, { fbm } = makeNoise(42);
+    for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
+      const v = 0.86 + fbm(x / S * 8, y / S * 8, 4, 8) * 0.14;
+      const i = (y * S + x) * 4; d[i] = d[i + 1] = d[i + 2] = v * 255; d[i + 3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    return c;
+  },
+
+  /** Subtle damask wall-silk for the Classical Wing. */
+  damask(S = 512) {
+    return ProcTex.galleryWallWithDado(S, [58, 24, 22]);
+  },
+
+  /** Polished white statuary marble (sculptures, pedestals). */
+  whiteMarble(S = 512, tint = [251, 255, 254], veinColor = [190, 155, 100]) {
+    const [c, ctx] = makeCanvas(S, S);
+    const img = ctx.createImageData(S, S), d = img.data, { fbm } = makeNoise(9001);
+    for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
+      const u = x / S, v = y / S;
+      const t = fbm(u * 6, v * 6, 5, 6);
+      const m = Math.abs(Math.sin((u * 3 + v * 2) * TAU + t * 10));
+      const vein = Math.pow(1 - m, 14);
+      const cloud = 0.93 + fbm(u * 12, v * 12, 3, 12) * 0.1;
+      const i = (y * S + x) * 4;
+      for (let k = 0; k < 3; k++) d[i + k] = clamp(lerp(tint[k] * cloud, veinColor[k], vein * 0.7), 0, 255);
+      d[i + 3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    return c;
+  },
+
+  /** Coffered ceiling panel (recessed square with rosette). */
+  coffer(S = 512, base = [251, 255, 254], rosette = '#e6af2e') {
+    return ProcTex.blackLouverCeiling(S);
+  }
+};
+
+/* --------------------------------------------------------------------------
+   4.3  Procedural paintings — each config fallbackStyle has a painter
+   -------------------------------------------------------------------------- */
+function painterlyPass(ctx, w, h, r, { count, len, width, jitter, alpha = 0.55, angle = null }) {
+  const src = ctx.getImageData(0, 0, w, h).data;
+  ctx.lineCap = 'round';
+  for (let i = 0; i < count; i++) {
+    const px = r() * w, py = r() * h;
+    const idx = ((py | 0) * w + (px | 0)) * 4;
+    const j = 1 + (r() - 0.5) * jitter;
+    ctx.strokeStyle = rgba(src[idx] * j, src[idx + 1] * j, src[idx + 2] * j, alpha);
+    ctx.lineWidth = width * (0.5 + r());
+    const a = angle === null ? r() * Math.PI : angle + (r() - 0.5) * 0.6;
+    const l = len * (0.5 + r());
+    ctx.beginPath();
+    ctx.moveTo(px - Math.cos(a) * l / 2, py - Math.sin(a) * l / 2);
+    ctx.lineTo(px + Math.cos(a) * l / 2, py + Math.sin(a) * l / 2);
+    ctx.stroke();
+  }
+}
+function canvasFinish(ctx, w, h, vignette = 0.45) {
+  const g = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.3, w / 2, h / 2, Math.max(w, h) * 0.75);
+  g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(8,5,2,${vignette})`);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  ctx.globalAlpha = 0.035; ctx.fillStyle = '#fff';
+  for (let x = 0; x < w; x += 3) ctx.fillRect(x, 0, 1, h);
+  ctx.fillStyle = '#000';
+  for (let y = 0; y < h; y += 3) ctx.fillRect(0, y, w, 1);
+  ctx.globalAlpha = 1;
+}
+function softGlow(ctx, x, y, rad, color, alpha = 1) {
+  const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
+  g.addColorStop(0, color); g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'lighter';
+  ctx.fillStyle = g; ctx.fillRect(x - rad, y - rad, rad * 2, rad * 2); ctx.restore();
+}
+const Painters = {
+  courtyard(ctx, w, h, r) {
+    let g = ctx.createLinearGradient(0, 0, 0, h * 0.6);
+    g.addColorStop(0, '#f8e2a8'); g.addColorStop(1, '#d4913f');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#7d4f28'; ctx.fillRect(0, h * 0.2, w, h * 0.5);
+    for (let i = 0; i < 5; i++) {
+      const ax = w * (0.1 + i * 0.2), aw = w * 0.11, top = h * 0.36, bot = h * 0.7;
+      ctx.fillStyle = '#2e1b0e';
+      ctx.beginPath(); ctx.moveTo(ax - aw / 2, bot); ctx.lineTo(ax - aw / 2, top);
+      ctx.arc(ax, top, aw / 2, Math.PI, 0); ctx.lineTo(ax + aw / 2, bot); ctx.fill();
+      softGlow(ctx, ax, top + h * 0.12, aw * 0.6, 'rgba(255,190,110,0.35)');
+    }
+    g = ctx.createLinearGradient(0, h * 0.68, 0, h);
+    g.addColorStop(0, '#7a5530'); g.addColorStop(1, '#22150b');
+    ctx.fillStyle = g; ctx.fillRect(0, h * 0.68, w, h * 0.32);
+    ctx.strokeStyle = 'rgba(30,18,8,0.35)'; ctx.lineWidth = 2;
+    for (let i = -6; i <= 6; i++) { ctx.beginPath(); ctx.moveTo(w / 2 + i * w * 0.02, h * 0.68); ctx.lineTo(w / 2 + i * w * 0.2, h); ctx.stroke(); }
+    for (let i = 0; i < 6; i++) {
+      const cx = w * (0.02 + i * 0.192), cw = w * 0.055;
+      const cg = ctx.createLinearGradient(cx - cw / 2, 0, cx + cw / 2, 0);
+      cg.addColorStop(0, '#f3dcb0'); cg.addColorStop(0.45, '#d9b37a'); cg.addColorStop(1, '#5a3a1c');
+      ctx.fillStyle = cg; ctx.fillRect(cx - cw / 2, h * 0.14, cw, h * 0.6);
+      ctx.fillStyle = '#e8cc96'; ctx.fillRect(cx - cw * 0.8, h * 0.12, cw * 1.6, h * 0.03); ctx.fillRect(cx - cw * 0.75, h * 0.72, cw * 1.5, h * 0.03);
+    }
+    ctx.fillStyle = '#3c2814'; ctx.beginPath(); ctx.ellipse(w * 0.5, h * 0.84, w * 0.16, h * 0.045, 0, 0, TAU); ctx.fill();
+    ctx.fillStyle = '#c9a26a'; ctx.beginPath(); ctx.ellipse(w * 0.5, h * 0.825, w * 0.15, h * 0.035, 0, 0, TAU); ctx.fill();
+    ctx.fillStyle = '#d6b27a'; ctx.fillRect(w * 0.49, h * 0.7, w * 0.02, h * 0.12);
+    ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 6; i++) {
+      const x0 = w * (0.05 + r() * 0.2), spread = w * (0.04 + r() * 0.05), x1 = w * (0.35 + i * 0.11);
+      const rg = ctx.createLinearGradient(x0, 0, x1, h);
+      rg.addColorStop(0, 'rgba(255,214,140,0.30)'); rg.addColorStop(1, 'rgba(255,200,120,0)');
+      ctx.fillStyle = rg; ctx.beginPath(); ctx.moveTo(x0, -10); ctx.lineTo(x0 + spread, -10); ctx.lineTo(x1 + spread * 2.5, h); ctx.lineTo(x1, h); ctx.fill();
+    }
+    ctx.restore();
+    const vg = ctx.createRadialGradient(w * 0.42, h * 0.45, w * 0.1, w * 0.5, h * 0.5, w * 0.7);
+    vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(10,5,2,0.8)');
+    ctx.fillStyle = vg; ctx.fillRect(0, 0, w, h);
+  },
+  seascape(ctx, w, h, r) {
+    const hz = h * 0.58;
+    let g = ctx.createLinearGradient(0, 0, 0, hz);
+    g.addColorStop(0, '#26303e'); g.addColorStop(0.55, '#6b5a58'); g.addColorStop(1, '#eaa75a');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, hz);
+    for (let i = 0; i < 26; i++) {
+      ctx.fillStyle = r() > 0.5 ? 'rgba(240,170,110,0.12)' : 'rgba(60,64,80,0.18)';
+      ctx.beginPath(); ctx.ellipse(r() * w, hz * (0.15 + r() * 0.6), w * (0.08 + r() * 0.2), h * (0.01 + r() * 0.03), 0, 0, TAU); ctx.fill();
+    }
+    softGlow(ctx, w * 0.6, hz, w * 0.45, 'rgba(255,190,110,0.85)');
+    softGlow(ctx, w * 0.6, hz, w * 0.08, 'rgba(255,240,200,1)');
+    g = ctx.createLinearGradient(0, hz, 0, h);
+    g.addColorStop(0, '#4a4648'); g.addColorStop(0.3, '#2a2e36'); g.addColorStop(1, '#10141b');
+    ctx.fillStyle = g; ctx.fillRect(0, hz, w, h - hz);
+    for (let i = 0; i < 160; i++) {
+      const y = hz + Math.pow(r(), 1.6) * (h - hz), spread = 0.04 + (y - hz) / (h - hz) * 0.25;
+      const x = w * 0.6 + (r() - 0.5) * w * spread * 2;
+      ctx.strokeStyle = `rgba(255,${180 + r() * 50},${100 + r() * 50},${0.5 * (1 - (y - hz) / (h - hz))})`;
+      ctx.lineWidth = 1 + r() * 2.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w * (0.01 + r() * 0.04), y); ctx.stroke();
+    }
+    ctx.fillStyle = 'rgba(90,80,90,0.7)'; ctx.beginPath(); ctx.moveTo(0, hz);
+    for (let x = 0; x <= w * 0.35; x += w * 0.02) ctx.lineTo(x, hz - Math.sin(x / w * 9) * h * 0.02 - h * 0.025 * (1 - x / (w * 0.35)));
+    ctx.lineTo(w * 0.35, hz); ctx.fill();
+    ctx.fillStyle = '#181c22'; ctx.beginPath(); ctx.moveTo(w * 0.66, h);
+    let y = h * 0.75;
+    for (let x = w * 0.66; x <= w; x += w * 0.015) { y = Math.max(h * 0.24, y - r() * h * 0.05 + h * 0.012); ctx.lineTo(x, y); }
+    ctx.lineTo(w, h); ctx.fill();
+    ctx.strokeStyle = 'rgba(240,160,90,0.35)'; ctx.lineWidth = 3; ctx.stroke();
+  },
+  abstract(ctx, w, h, r) {
+    ctx.fillStyle = '#1e1c1b'; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#2c2a29'; ctx.fillRect(w * 0.55, 0, w * 0.45, h * 0.62);
+    ctx.fillStyle = '#b5532e'; ctx.fillRect(w * 0.1, h * 0.38, w * 0.52, h * 0.5);
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, h * 0.38); ctx.clip();
+    ctx.fillStyle = '#cf6c3d'; ctx.beginPath(); ctx.arc(w * 0.36, h * 0.38, w * 0.26, 0, TAU); ctx.fill(); ctx.restore();
+    ctx.fillStyle = '#e9dcc4'; ctx.fillRect(w * 0.66, h * 0.66, w * 0.2, h * 0.04);
+    ctx.fillStyle = '#121110'; ctx.fillRect(w * 0.62, h * 0.38, w * 0.06, h * 0.5);
+    const gx = w * 0.7, gw = w * 0.05;
+    const gg = ctx.createLinearGradient(gx, 0, gx + gw, 0);
+    gg.addColorStop(0, '#b88a3a'); gg.addColorStop(0.5, '#f4d690'); gg.addColorStop(1, '#a87a2c');
+    ctx.fillStyle = gg; ctx.fillRect(gx, h * 0.08, gw, h * 0.52);
+    for (let i = 0; i < 300; i++) { ctx.fillStyle = `rgba(${200 + r() * 55},${160 + r() * 60},${80 + r() * 40},${0.3 + r() * 0.5})`; ctx.fillRect(gx + r() * gw, h * 0.08 + r() * h * 0.52, 1 + r() * 4, 1 + r() * 3); }
+    ctx.strokeStyle = 'rgba(233,220,196,0.4)'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(w * 0.08, h * 0.92); ctx.lineTo(w * 0.92, h * 0.92); ctx.moveTo(w * 0.86, h * 0.06); ctx.lineTo(w * 0.86, h * 0.95); ctx.stroke();
+    const img = ctx.getImageData(0, 0, w, h), d = img.data;
+    for (let i = 0; i < d.length; i += 4) { const n = (r() - 0.5) * 14; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+    ctx.putImageData(img, 0, 0);
+  },
+  stilllife(ctx, w, h, r) {
+    ctx.fillStyle = '#0c0907'; ctx.fillRect(0, 0, w, h);
+    softGlow(ctx, w * 0.45, h * 0.42, w * 0.6, 'rgba(120,78,38,0.55)');
+    let g = ctx.createLinearGradient(0, h * 0.72, 0, h);
+    g.addColorStop(0, '#4a2e18'); g.addColorStop(0.08, '#2a190d'); g.addColorStop(1, '#0d0805');
+    ctx.fillStyle = g; ctx.fillRect(0, h * 0.72, w, h * 0.28);
+    const vx = w * 0.46;
+    g = ctx.createLinearGradient(vx - w * 0.12, 0, vx + w * 0.12, 0);
+    g.addColorStop(0, '#11160d'); g.addColorStop(0.35, '#55664a'); g.addColorStop(1, '#0c0f08');
+    ctx.fillStyle = g; ctx.beginPath();
+    ctx.moveTo(vx - w * 0.05, h * 0.73); ctx.bezierCurveTo(vx - w * 0.16, h * 0.66, vx - w * 0.14, h * 0.5, vx - w * 0.05, h * 0.47);
+    ctx.lineTo(vx + w * 0.05, h * 0.47); ctx.bezierCurveTo(vx + w * 0.14, h * 0.5, vx + w * 0.16, h * 0.66, vx + w * 0.05, h * 0.73); ctx.fill();
+    for (let i = 0; i < 16; i++) {
+      ctx.save(); ctx.translate(vx + (r() - 0.5) * w * 0.5, h * (0.3 + r() * 0.25)); ctx.rotate(r() * TAU);
+      ctx.fillStyle = r() > 0.5 ? '#2f4a26' : '#1f3318';
+      ctx.beginPath(); ctx.ellipse(0, 0, w * 0.06, w * 0.018, 0, 0, TAU); ctx.fill(); ctx.restore();
+    }
+    const pal = [[232, 199, 181], [196, 90, 74], [241, 227, 200], [155, 47, 53], [231, 168, 106]];
+    for (let i = 0; i < 15; i++) {
+      const fx = vx + (r() + r() - 1) * w * 0.22, fy = h * 0.3 + (r() + r() - 1) * h * 0.13, fr = w * (0.035 + r() * 0.05);
+      const c = pal[(r() * pal.length) | 0];
+      const fg = ctx.createRadialGradient(fx - fr * 0.3, fy - fr * 0.3, fr * 0.1, fx, fy, fr);
+      fg.addColorStop(0, rgba(c[0] * 1.1, c[1] * 1.1, c[2] * 1.1)); fg.addColorStop(1, rgba(c[0] * 0.35, c[1] * 0.35, c[2] * 0.35));
+      ctx.fillStyle = fg; ctx.beginPath(); ctx.arc(fx, fy, fr, 0, TAU); ctx.fill();
+      ctx.strokeStyle = rgba(c[0] * 0.5, c[1] * 0.5, c[2] * 0.5, 0.6); ctx.lineWidth = 1.5;
+      for (let p = 0; p < 6; p++) { const a = r() * TAU; ctx.beginPath(); ctx.arc(fx, fy, fr * (0.3 + r() * 0.6), a, a + 1.2); ctx.stroke(); }
+    }
+    const fruit = (x, y, rad, c) => {
+      const fg = ctx.createRadialGradient(x - rad * 0.35, y - rad * 0.35, rad * 0.1, x, y, rad);
+      fg.addColorStop(0, c[0]); fg.addColorStop(1, c[1]); ctx.fillStyle = fg;
+      ctx.beginPath(); ctx.arc(x, y, rad, 0, TAU); ctx.fill();
+    };
+    fruit(w * 0.72, h * 0.76, w * 0.05, ['#8a3a52', '#2a0f18']);
+    fruit(w * 0.8, h * 0.78, w * 0.04, ['#9a4a5e', '#2a0f18']);
+    fruit(w * 0.22, h * 0.77, w * 0.055, ['#f2c35a', '#5a3a0a']);
+  },
+  gallery(ctx, w, h, r) {
+    const vx = w * 0.5, vy = h * 0.5;
+    let g = ctx.createLinearGradient(0, 0, 0, vy);
+    g.addColorStop(0, '#6a4a2c'); g.addColorStop(1, '#d9b98a');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#e6d2ae'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(vx - w * 0.08, vy - h * 0.12); ctx.lineTo(vx - w * 0.08, vy + h * 0.08); ctx.lineTo(0, h); ctx.fill();
+    ctx.fillStyle = '#cfb48a'; ctx.beginPath(); ctx.moveTo(w, 0); ctx.lineTo(vx + w * 0.08, vy - h * 0.12); ctx.lineTo(vx + w * 0.08, vy + h * 0.08); ctx.lineTo(w, h); ctx.fill();
+    g = ctx.createLinearGradient(0, vy, 0, h);
+    g.addColorStop(0, '#b47a40'); g.addColorStop(1, '#6a3e1c');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(0, h); ctx.lineTo(vx - w * 0.08, vy + h * 0.08); ctx.lineTo(vx + w * 0.08, vy + h * 0.08); ctx.lineTo(w, h); ctx.fill();
+    softGlow(ctx, vx, vy - h * 0.02, w * 0.12, 'rgba(255,236,190,1)');
+    for (let i = 0; i < 6; i++) {
+      const t = Math.pow(0.72, i), x0 = vx - (vx) * t, top = vy - (vy * 0.85) * t, bot = vy + (h - vy) * 0.55 * t;
+      ctx.fillStyle = 'rgba(70,40,20,0.75)'; ctx.fillRect(x0 + w * 0.03 * t, top + (bot - top) * 0.3, w * 0.07 * t, (bot - top) * 0.35);
+      ctx.strokeStyle = 'rgba(214,170,90,0.9)'; ctx.lineWidth = 2 * t + 0.5; ctx.strokeRect(x0 + w * 0.03 * t, top + (bot - top) * 0.3, w * 0.07 * t, (bot - top) * 0.35);
+      const x1 = w - x0 - w * 0.1 * t;
+      ctx.fillStyle = 'rgba(255,230,170,0.85)'; ctx.fillRect(x1, top + (bot - top) * 0.15, w * 0.06 * t, (bot - top) * 0.55);
+    }
+    ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 5; i++) {
+      const t = Math.pow(0.72, i), x1 = w - (vx) * (1 - (1 - t)) * 0.9;
+      const sg = ctx.createLinearGradient(x1, 0, x1 - w * 0.3 * t, h);
+      sg.addColorStop(0, 'rgba(255,214,150,0.22)'); sg.addColorStop(1, 'rgba(255,214,150,0)');
+      ctx.fillStyle = sg; ctx.beginPath(); ctx.moveTo(x1, vy - h * 0.2 * t); ctx.lineTo(x1 + w * 0.04 * t, vy - h * 0.2 * t); ctx.lineTo(x1 - w * 0.25 * t, h); ctx.lineTo(x1 - w * 0.36 * t, h); ctx.fill();
+    }
+    ctx.restore();
+  },
+  sculpture(ctx, w, h, r) {
+    const g = ctx.createRadialGradient(w * 0.5, h * 0.4, w * 0.05, w * 0.5, h * 0.5, w * 0.8);
+    g.addColorStop(0, '#5f5a54'); g.addColorStop(1, '#141210');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#25221f'; ctx.fillRect(w * 0.25, h * 0.84, w * 0.5, h * 0.16);
+    ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(w * 0.56, h * 0.84, w * 0.3, h * 0.025, 0, 0, TAU); ctx.fill();
+    const bust = () => {
+      ctx.beginPath(); ctx.ellipse(w * 0.5, h * 0.36, w * 0.17, h * 0.17, 0, 0, TAU);
+      ctx.moveTo(w * 0.42, h * 0.5); ctx.lineTo(w * 0.58, h * 0.5); ctx.lineTo(w * 0.6, h * 0.62); ctx.lineTo(w * 0.4, h * 0.62); ctx.closePath();
+      ctx.moveTo(w * 0.2, h * 0.84); ctx.bezierCurveTo(w * 0.2, h * 0.66, w * 0.34, h * 0.6, w * 0.5, h * 0.6);
+      ctx.bezierCurveTo(w * 0.66, h * 0.6, w * 0.8, h * 0.66, w * 0.8, h * 0.84); ctx.closePath();
+    };
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w * 0.5, h); ctx.clip(); bust();
+    let ag = ctx.createRadialGradient(w * 0.38, h * 0.3, w * 0.02, w * 0.45, h * 0.5, w * 0.45);
+    ag.addColorStop(0, '#fbf6ec'); ag.addColorStop(0.6, '#d8d0c2'); ag.addColorStop(1, '#8c8478');
+    ctx.fillStyle = ag; ctx.fill(); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(w * 0.5, 0, w * 0.5, h); ctx.clip(); bust();
+    ag = ctx.createLinearGradient(w * 0.5, 0, w * 0.8, 0);
+    ag.addColorStop(0, '#d9a45a'); ag.addColorStop(0.3, '#8a5a28'); ag.addColorStop(0.7, '#3a220e'); ag.addColorStop(1, '#1a0f06');
+    ctx.fillStyle = ag; ctx.fill(); ctx.clip();
+    ctx.strokeStyle = 'rgba(255,220,160,0.25)'; ctx.lineWidth = 1;
+    for (let i = 0; i < 80; i++) { const y = r() * h; ctx.beginPath(); ctx.moveTo(w * 0.5, y); ctx.lineTo(w * 0.9, y + (r() - 0.5) * 6); ctx.stroke(); }
+    ctx.restore();
+    ctx.fillStyle = 'rgba(60,50,40,0.25)';
+    ctx.beginPath(); ctx.ellipse(w * 0.44, h * 0.33, w * 0.03, h * 0.012, 0, 0, TAU); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(w * 0.47, h * 0.42, w * 0.03, h * 0.008, 0, 0, TAU); ctx.fill();
+    ctx.strokeStyle = '#e8c27a'; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(w * 0.5, h * 0.18); ctx.lineTo(w * 0.5, h * 0.84); ctx.stroke();
+  },
+  geometric(ctx, w, h, r) {
+    ctx.fillStyle = '#efe6d4'; ctx.fillRect(0, 0, w, h);
+    const cols = 6, rows = 4, cw = w / cols, ch = h / rows;
+    const pal = ['#c9542f', '#1f3a5a', '#d9a432', '#1a1a1a', '#7a8c6e', '#efe6d4'];
+    ctx.strokeStyle = 'rgba(30,30,30,0.12)'; ctx.lineWidth = 1;
+    for (let i = 1; i < cols; i++) { ctx.beginPath(); ctx.moveTo(i * cw, 0); ctx.lineTo(i * cw, h); ctx.stroke(); }
+    for (let j = 1; j < rows; j++) { ctx.beginPath(); ctx.moveTo(0, j * ch); ctx.lineTo(w, j * ch); ctx.stroke(); }
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+      const x = i * cw, y = j * ch, type = (r() * 6) | 0, c = pal[(r() * 5) | 0];
+      ctx.fillStyle = c; ctx.save(); ctx.translate(x + cw / 2, y + ch / 2); ctx.rotate(((r() * 4) | 0) * Math.PI / 2);
+      const s = Math.min(cw, ch) * 0.42;
+      if (type === 0) { ctx.beginPath(); ctx.arc(0, 0, s, 0, TAU); ctx.fill(); }
+      else if (type === 1) { ctx.beginPath(); ctx.moveTo(-s, s); ctx.arc(-s, s, s * 2, -Math.PI / 2, 0); ctx.closePath(); ctx.fill(); }
+      else if (type === 2) { ctx.fillRect(-s, -s * 0.25, s * 2, s * 0.5); }
+      else if (type === 3) { ctx.beginPath(); ctx.arc(0, 0, s, 0, Math.PI); ctx.fill(); }
+      else if (type === 4) { ctx.lineWidth = s * 0.18; ctx.strokeStyle = c; ctx.beginPath(); ctx.arc(0, 0, s * 0.8, 0, TAU); ctx.stroke(); }
+      else { for (let k = 0; k < 3; k++) { ctx.beginPath(); ctx.arc(-s * 0.6 + k * s * 0.6, 0, s * 0.22, 0, TAU); ctx.fill(); } }
+      ctx.restore();
+    }
+    ctx.fillStyle = '#c9542f'; ctx.beginPath(); ctx.arc(w * 0.68, h * 0.42, h * 0.3, 0, TAU); ctx.globalAlpha = 0.85; ctx.fill(); ctx.globalAlpha = 1;
+    ctx.fillStyle = '#1a1a1a'; ctx.fillRect(w * 0.1, h * 0.78, w * 0.8, h * 0.015);
+  },
+  nocturne(ctx, w, h, r) {
+    const hz = h * 0.62;
+    let g = ctx.createLinearGradient(0, 0, 0, hz);
+    g.addColorStop(0, '#050914'); g.addColorStop(0.7, '#17264a'); g.addColorStop(1, '#2d3d62');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, hz);
+    for (let i = 0; i < 260; i++) { ctx.fillStyle = `rgba(255,250,230,${r() * 0.8})`; ctx.fillRect(r() * w, r() * hz * 0.85, r() * 2 + 0.5, r() * 2 + 0.5); }
+    softGlow(ctx, w * 0.68, h * 0.2, w * 0.35, 'rgba(160,180,230,0.55)');
+    ctx.fillStyle = '#f4ecd2'; ctx.beginPath(); ctx.arc(w * 0.68, h * 0.2, w * 0.06, 0, TAU); ctx.fill();
+    g = ctx.createLinearGradient(0, hz, 0, h);
+    g.addColorStop(0, '#16223e'); g.addColorStop(1, '#03060d');
+    ctx.fillStyle = g; ctx.fillRect(0, hz, w, h - hz);
+    ctx.fillStyle = '#070b16';
+    let x = 0;
+    while (x < w * 0.55) { const bw = w * (0.03 + r() * 0.06), bh = h * (0.03 + r() * 0.1); ctx.fillRect(x, hz - bh, bw, bh); for (let k = 0; k < 3; k++) if (r() > 0.5) { ctx.fillStyle = 'rgba(255,190,90,0.9)'; ctx.fillRect(x + r() * bw * 0.8, hz - bh + r() * bh * 0.8, 3, 4); ctx.fillStyle = '#070b16'; } x += bw; }
+    for (let i = 0; i < 110; i++) {
+      const y = hz + r() * (h - hz), xx = w * 0.68 + (r() - 0.5) * w * 0.12 * (1 + (y - hz) / (h - hz));
+      ctx.strokeStyle = `rgba(220,225,240,${0.45 * (1 - (y - hz) / (h - hz))})`; ctx.lineWidth = 1 + r() * 2;
+      ctx.beginPath(); ctx.moveTo(xx, y); ctx.lineTo(xx + w * 0.03, y); ctx.stroke();
+    }
+    ctx.fillStyle = '#05070d'; ctx.beginPath(); ctx.moveTo(w * 0.18, h * 0.7); ctx.lineTo(w * 0.42, h * 0.7); ctx.lineTo(w * 0.38, h * 0.74); ctx.lineTo(w * 0.22, h * 0.74); ctx.fill();
+    ctx.fillRect(w * 0.29, h * 0.52, 3, h * 0.18);
+    softGlow(ctx, w * 0.33, h * 0.67, w * 0.12, 'rgba(255,200,110,0.9)');
+    ctx.fillStyle = '#ffe2a0'; ctx.beginPath(); ctx.arc(w * 0.33, h * 0.67, 5, 0, TAU); ctx.fill();
+    for (let i = 0; i < 40; i++) { const y = h * 0.75 + r() * h * 0.22; ctx.strokeStyle = `rgba(255,190,100,${0.4 * (1 - (y - h * 0.75) / (h * 0.22))})`; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(w * 0.33 + (r() - 0.5) * 30, y); ctx.lineTo(w * 0.33 + (r() - 0.5) * 30 + 14, y); ctx.stroke(); }
+  }
+};
+const PainterlyOptions = {
+  courtyard: { count: 7000, len: 14, width: 4, jitter: 0.25 },
+  seascape: { count: 6000, len: 18, width: 4, jitter: 0.2, angle: 0 },
+  stilllife: { count: 5000, len: 10, width: 4, jitter: 0.2 },
+  gallery: { count: 11000, len: 9, width: 5, jitter: 0.35, alpha: 0.7 },
+  sculpture: { count: 2500, len: 8, width: 3, jitter: 0.12, alpha: 0.35 },
+  nocturne: { count: 4500, len: 12, width: 3.5, jitter: 0.3, angle: 0 }
+};
+function paintArtwork(style, orientation, seed) {
+  const w = orientation === 'portrait' ? 768 : 1024, h = orientation === 'portrait' ? 1024 : 768;
+  const [c, ctx] = makeCanvas(w, h);
+  const r = rng(seed);
+  (Painters[style] || Painters.abstract)(ctx, w, h, r);
+  if (PainterlyOptions[style]) painterlyPass(ctx, w, h, r, PainterlyOptions[style]);
+  canvasFinish(ctx, w, h, style === 'geometric' ? 0.18 : 0.4);
+  return c;
+}
+
+/* --------------------------------------------------------------------------
+   4.4  Renderer, scene, camera
+   -------------------------------------------------------------------------- */
+const stage = $('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.75;
+renderer.shadowMap.enabled = false; // perf: zero dynamic shadow maps
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+stage.appendChild(renderer.domElement);
+const MAX_ANISO = renderer.capabilities.getMaxAnisotropy();
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x001514);
+scene.fog = new THREE.Fog(0x120d08, 28, 85);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.05;
+
+const EYE_HEIGHT = 1.7;
+const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.15, 65.0);
+camera.position.set(0, 3, 6);
+
+/* --------------------------------------------------------------------------
+   4.5  Texture management — load files, fall back to canvases instantly
+   -------------------------------------------------------------------------- */
+const loadTracker = { total: 0, done: 0, ok: 0 };
+function updateLoadStatus() {
+  const el = $('loadStatus'), txt = $('loadText');
+  if (!el || !txt) return;
+  if (!el || !txt) return;
+  if (loadTracker.done < loadTracker.total) {
+    txt.textContent = `Hanging the collection… ${loadTracker.done}/${loadTracker.total}`;
+  } else {
+    el.classList.add('done');
+    const fallback = loadTracker.total - loadTracker.ok;
+    txt.textContent = fallback > 0
+      ? `Galleries open · ${fallback} work${fallback > 1 ? 's' : ''} rendered procedurally`
+      : 'Galleries open';
+  }
+}
+const texLoader = new THREE.TextureLoader();
+/**
+ * Creates a texture backed by a procedural canvas immediately, then swaps in
+ * the image file at `path` (if any) once it loads. Errors keep the fallback.
+ */
+function managedTexture(canvas, path, { repeat = false, onLoad = null } = {}) {
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = MAX_ANISO;
+  if (repeat) tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  if (path) {
+    loadTracker.total++;
+    texLoader.load(path, (loaded) => {
+      loaded.colorSpace = THREE.SRGBColorSpace;
+      loaded.anisotropy = MAX_ANISO;
+      if (repeat) {
+        loaded.wrapS = loaded.wrapT = THREE.RepeatWrapping;
+        loaded.repeat.copy(tex.repeat);
+      }
+      tex.image = loaded.image;
+      tex.needsUpdate = true;
+      loadTracker.done++; loadTracker.ok++;
+      if (onLoad) onLoad(loaded.image);
+      updateLoadStatus();
+    }, undefined, () => {
+      loadTracker.done++;
+      updateLoadStatus();
+    });
+  }
+  return tex;
+}
+
+/* Canvas text textures are re-drawn once the web fonts are available. */
+const textTextures = [];
+function textTexture(w, h, draw) {
+  const [c, ctx] = makeCanvas(w, h);
+  draw(ctx, w, h);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.anisotropy = MAX_ANISO;
+  textTextures.push({ ctx, w, h, draw, t });
+  return t;
+}
+function spacedText(ctx, text, x, y, spacing, align = 'center') {
+  const chars = [...text];
+  const widths = chars.map((ch) => ctx.measureText(ch).width);
+  const total = widths.reduce((a, b) => a + b, 0) + spacing * (chars.length - 1);
+  let cx = align === 'center' ? x - total / 2 : align === 'right' ? x - total : x;
+  const prev = ctx.textAlign; ctx.textAlign = 'left';
+  chars.forEach((ch, i) => { ctx.fillText(ch, cx, y); cx += widths[i] + spacing; });
+  ctx.textAlign = prev;
+  return total;
+}
+const SERIF = "'Cormorant Garamond', 'Times New Roman', serif";
+const SANS = "'Plus Jakarta Sans', 'Segoe UI', sans-serif";
+function wrapText(ctx, text, x, y, maxW, lineH) {
+  const words = text.split(' ');
+  let line = '';
+  for (const word of words) {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxW && line) { ctx.fillText(line, x, y); line = word; y += lineH; }
+    else line = test;
+  }
+  if (line) ctx.fillText(line, x, y);
+  return y;
+}
+
+/* --------------------------------------------------------------------------
+   4.6  Materials
+   -------------------------------------------------------------------------- */
+const M_CHECKER = managedTexture(ProcTex.checkeredMarble(512), EUNOIA_CONFIG.textures?.floorMarble, { repeat: true });
+M_CHECKER.repeat.set(7, 7);
+
+const M_HERRING = managedTexture(ProcTex.herringbone(512), EUNOIA_CONFIG.textures?.floorWood, { repeat: true });
+M_HERRING.repeat.set(6, 6);
+
+const T_PLASTER = new THREE.CanvasTexture(ProcTex.galleryWallWithDado(512, [56, 54, 51]));
+T_PLASTER.colorSpace = THREE.SRGBColorSpace;
+T_PLASTER.wrapS = THREE.RepeatWrapping;
+T_PLASTER.wrapT = THREE.ClampToEdgeWrapping;
+T_PLASTER.repeat.set(1, 1);
+T_PLASTER.anisotropy = MAX_ANISO;
+
+const T_DAMASK = new THREE.CanvasTexture(ProcTex.galleryWallWithDado(512, [58, 24, 22]));
+T_DAMASK.colorSpace = THREE.SRGBColorSpace;
+T_DAMASK.wrapS = THREE.RepeatWrapping;
+T_DAMASK.wrapT = THREE.ClampToEdgeWrapping;
+T_DAMASK.repeat.set(1, 1);
+T_DAMASK.anisotropy = MAX_ANISO;
+
+const T_WHITE_MARBLE = new THREE.CanvasTexture(ProcTex.whiteMarble(512, [150, 146, 140], [95, 85, 70]));
+T_WHITE_MARBLE.colorSpace = THREE.SRGBColorSpace;
+T_WHITE_MARBLE.wrapS = T_WHITE_MARBLE.wrapT = THREE.RepeatWrapping;
+T_WHITE_MARBLE.repeat.set(2, 2);
+T_WHITE_MARBLE.anisotropy = MAX_ANISO;
+
+const T_LOUVER_CEIL = new THREE.CanvasTexture(ProcTex.blackLouverCeiling(512));
+T_LOUVER_CEIL.colorSpace = THREE.SRGBColorSpace;
+T_LOUVER_CEIL.wrapS = T_LOUVER_CEIL.wrapT = THREE.RepeatWrapping;
+T_LOUVER_CEIL.repeat.set(10, 10);
+T_LOUVER_CEIL.anisotropy = MAX_ANISO;
+
+const T_COFFER_ROT = T_LOUVER_CEIL;
+
+const Mat = {
+  floorRotunda: new THREE.MeshStandardMaterial({ map: M_CHECKER, roughness: 0.20, metalness: 0.08 }),
+  floorWingI:   new THREE.MeshStandardMaterial({ map: M_HERRING, roughness: 0.20, metalness: 0.08 }),
+  floorWingII:  new THREE.MeshStandardMaterial({ map: M_CHECKER, roughness: 0.20, metalness: 0.08 }),
+  floorWingIII: new THREE.MeshStandardMaterial({ map: M_HERRING, roughness: 0.20, metalness: 0.08 }),
+
+  wallRotunda:  new THREE.MeshStandardMaterial({ color: 0x383633, map: T_PLASTER, emissive: 0xffffff, emissiveMap: T_PLASTER, emissiveIntensity: 0.85, roughness: 0.85 }),
+  ceilingRot:   new THREE.MeshStandardMaterial({ color: 0xffffff, map: T_LOUVER_CEIL, emissive: 0xffffff, emissiveMap: T_LOUVER_CEIL, emissiveIntensity: 0.85, roughness: 0.92 }),
+  archTrim:     new THREE.MeshStandardMaterial({ color: 0x282725, emissive: 0x1e1d1b, roughness: 0.55 }),
+
+  wallWingI:    new THREE.MeshStandardMaterial({ color: 0x3a1816, map: T_DAMASK, emissive: 0xffffff, emissiveMap: T_DAMASK, emissiveIntensity: 0.88, roughness: 0.78 }),
+  trimWingI:    new THREE.MeshStandardMaterial({ color: 0x240e0c, roughness: 0.5 }),
+  ceilingWingI: new THREE.MeshStandardMaterial({ color: 0xffffff, map: T_LOUVER_CEIL, emissive: 0xffffff, emissiveMap: T_LOUVER_CEIL, emissiveIntensity: 0.90, roughness: 0.92 }),
+
+  wallWingII:   new THREE.MeshStandardMaterial({ color: 0x383633, map: T_PLASTER, emissive: 0xffffff, emissiveMap: T_PLASTER, emissiveIntensity: 0.88, roughness: 0.88 }),
+  trimWingII:   new THREE.MeshStandardMaterial({ color: 0x181716, roughness: 0.45 }),
+  ceilingWingII:new THREE.MeshStandardMaterial({ color: 0xffffff, map: T_LOUVER_CEIL, emissive: 0xffffff, emissiveMap: T_LOUVER_CEIL, emissiveIntensity: 0.90, roughness: 0.92 }),
+
+  wallWingIII:  new THREE.MeshStandardMaterial({ color: 0x383633, map: T_PLASTER, emissive: 0xffffff, emissiveMap: T_PLASTER, emissiveIntensity: 0.82, roughness: 0.92 }),
+  trimWingIII:  new THREE.MeshStandardMaterial({ color: 0x141413, roughness: 0.5 }),
+  ceilingWingIII:new THREE.MeshStandardMaterial({ color: 0xffffff, map: T_LOUVER_CEIL, emissive: 0xffffff, emissiveMap: T_LOUVER_CEIL, emissiveIntensity: 0.90, roughness: 0.92 }),
+
+  flutedColumn: new THREE.MeshStandardMaterial({ color: 0x45423e, map: T_WHITE_MARBLE, emissive: 0x282623, roughness: 0.35, metalness: 0.05 }),
+  pedestal:     new THREE.MeshStandardMaterial({ color: 0x181715, emissive: 0x100f0e, roughness: 0.32, metalness: 0.15 }),
+  goldLeaf:     new THREE.MeshStandardMaterial({ color: 0x6e521b, emissive: 0x38280b, roughness: 0.32, metalness: 0.65 }),
+  darkWood:     new THREE.MeshStandardMaterial({ color: 0x382214, emissive: 0x1f120a, roughness: 0.45, metalness: 0.08 }),
+  bronze:       new THREE.MeshStandardMaterial({ color: 0x4a381c, emissive: 0x241b0c, roughness: 0.35, metalness: 0.65 }),
+  blackVelvet:  new THREE.MeshStandardMaterial({ color: 0x121212, roughness: 0.88 }),
+  crimsonVelvet:new THREE.MeshStandardMaterial({ color: 0x3a1010, roughness: 0.85 }),
+  alabaster:    new THREE.MeshStandardMaterial({ color: 0x4d4942, emissive: 0x2a2723, roughness: 0.40, metalness: 0.05 })
+};
+
+/* --------------------------------------------------------------------------
+   4.7  Collider system (AABB + Cylinder against player sphere)
+   -------------------------------------------------------------------------- */
+const Colliders = [];
+function addBoxCollider(cx, cz, hx, hz) {
+  Colliders.push({ type: 'box', minX: cx - hx, maxX: cx + hx, minZ: cz - hz, maxZ: cz + hz });
+}
+function addRotatedBoxCollider(cx, cz, hx, hz, rotY) {
+  Colliders.push({ type: 'obb', cx, cz, hx, hz, rotY, cos: Math.cos(rotY), sin: Math.sin(rotY) });
+}
+function addCylCollider(cx, cz, r) {
+  Colliders.push({ type: 'cyl', cx, cz, r });
+}
+function addWallSegment(x1, z1, x2, z2) {
+  Colliders.push({ type: 'segment', x1, z1, x2, z2 });
+}
+const PLAYER_R = 0.45;
+function resolveCollision(pos) {
+  for (let iter = 0; iter < 4; iter++) {
+    for (const c of Colliders) {
+      if (c.type === 'box') {
+        const nx = clamp(pos.x, c.minX, c.maxX), nz = clamp(pos.z, c.minZ, c.maxZ);
+        const dx = pos.x - nx, dz = pos.z - nz, d2 = dx * dx + dz * dz;
+        if (d2 < PLAYER_R * PLAYER_R) {
+          const d = Math.sqrt(d2);
+          if (d > 0.0001) {
+            pos.x = nx + (dx / d) * PLAYER_R;
+            pos.z = nz + (dz / d) * PLAYER_R;
+          } else {
+            const left = Math.abs(pos.x - c.minX), right = Math.abs(pos.x - c.maxX);
+            const top = Math.abs(pos.z - c.minZ), bot = Math.abs(pos.z - c.maxZ);
+            const m = Math.min(left, right, top, bot);
+            if (m === left) pos.x = c.minX - PLAYER_R;
+            else if (m === right) pos.x = c.maxX + PLAYER_R;
+            else if (m === top) pos.z = c.minZ - PLAYER_R;
+            else pos.z = c.maxZ + PLAYER_R;
+          }
+        }
+      } else if (c.type === 'obb') {
+        // Transform point to box local coordinates:
+        // Forward: [dx] = [cos  sin] [lx]
+        //          [dz]   [-sin cos] [lz]
+        // Inverse: lx = dx * cos - dz * sin
+        //          lz = dx * sin + dz * cos
+        const dx = pos.x - c.cx, dz = pos.z - c.cz;
+        const lx = dx * c.cos - dz * c.sin;
+        const lz = dx * c.sin + dz * c.cos;
+        const clx = clamp(lx, -c.hx, c.hx);
+        const clz = clamp(lz, -c.hz, c.hz);
+        const diffX = lx - clx, diffZ = lz - clz;
+        const d2 = diffX * diffX + diffZ * diffZ;
+        if (d2 < PLAYER_R * PLAYER_R) {
+          const d = Math.sqrt(d2);
+          let pushLX, pushLZ;
+          if (d > 0.0001) {
+            pushLX = clx + (diffX / d) * PLAYER_R;
+            pushLZ = clz + (diffZ / d) * PLAYER_R;
+          } else {
+            const dLeft = Math.abs(lx - (-c.hx)), dRight = Math.abs(lx - c.hx);
+            const dTop = Math.abs(lz - (-c.hz)), dBot = Math.abs(lz - c.hz);
+            const m = Math.min(dLeft, dRight, dTop, dBot);
+            pushLX = lx; pushLZ = lz;
+            if (m === dLeft) pushLX = -c.hx - PLAYER_R;
+            else if (m === dRight) pushLX = c.hx + PLAYER_R;
+            else if (m === dTop) pushLZ = -c.hz - PLAYER_R;
+            else pushLZ = c.hz + PLAYER_R;
+          }
+          // Transform local push back to world coordinates
+          pos.x = c.cx + pushLX * c.cos + pushLZ * c.sin;
+          pos.z = c.cz - pushLX * c.sin + pushLZ * c.cos;
+        }
+      } else if (c.type === 'cyl') {
+        const dx = pos.x - c.cx, dz = pos.z - c.cz, d2 = dx * dx + dz * dz;
+        const minD = c.r + PLAYER_R;
+        if (d2 < minD * minD) {
+          const d = Math.max(0.0001, Math.sqrt(d2));
+          pos.x = c.cx + (dx / d) * minD;
+          pos.z = c.cz + (dz / d) * minD;
+        }
+      } else if (c.type === 'segment') {
+        // Line segment collision test
+        const vx = c.x2 - c.x1, vz = c.z2 - c.z1;
+        const len2 = vx * vx + vz * vz;
+        let t = 0;
+        if (len2 > 0.00001) {
+          t = ((pos.x - c.x1) * vx + (pos.z - c.z1) * vz) / len2;
+          t = clamp(t, 0, 1);
+        }
+        const nx = c.x1 + t * vx, nz = c.z1 + t * vz;
+        const dx = pos.x - nx, dz = pos.z - nz;
+        const d2 = dx * dx + dz * dz;
+        if (d2 < PLAYER_R * PLAYER_R) {
+          const d = Math.sqrt(d2);
+          if (d > 0.0001) {
+            pos.x = nx + (dx / d) * PLAYER_R;
+            pos.z = nz + (dz / d) * PLAYER_R;
+          } else {
+            // Normal to segment
+            const normX = -vz / Math.sqrt(len2), normZ = vx / Math.sqrt(len2);
+            pos.x = nx + normX * PLAYER_R;
+            pos.z = nz + normZ * PLAYER_R;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4.8  Geometry builders (museum props & architectural features)
+   -------------------------------------------------------------------------- */
+function buildFlutedColumn(h = 6.0, r = 0.42) {
+  const g = new THREE.Group();
+  const plinth = new THREE.Mesh(new THREE.BoxGeometry(r * 2.7, 0.22, r * 2.7), Mat.archTrim);
+  plinth.position.y = 0.11; plinth.castShadow = true; plinth.receiveShadow = true;
+  const torus = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.25, r * 1.35, 0.2, 24), Mat.flutedColumn);
+  torus.position.y = 0.32;
+  const shaftH = h - 0.9;
+  const flutes = 20, curves = [];
+  for (let i = 0; i < flutes; i++) {
+    const a0 = (i / flutes) * TAU, a1 = ((i + 1) / flutes) * TAU, mid = (a0 + a1) / 2;
+    curves.push(new THREE.Vector2(Math.cos(a0) * r, Math.sin(a0) * r));
+    const flR = r * 0.94;
+    curves.push(new THREE.Vector2(Math.cos(mid) * flR, Math.sin(mid) * flR));
+  }
+  const shape = new THREE.Shape(curves);
+  const shaft = new THREE.Mesh(new THREE.ExtrudeGeometry(shape, { depth: shaftH, bevelEnabled: false }), Mat.flutedColumn);
+  shaft.rotation.x = -Math.PI / 2; shaft.position.y = 0.42; shaft.castShadow = true; shaft.receiveShadow = true;
+  const cap = new THREE.Mesh(new THREE.BoxGeometry(r * 2.7, 0.25, r * 2.7), Mat.archTrim);
+  cap.position.y = h - 0.125;
+  const echinus = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.3, r, 0.22, 24), Mat.flutedColumn);
+  echinus.position.y = h - 0.35;
+  g.add(plinth, torus, shaft, echinus, cap);
+  return g;
+}
+
+function buildMuseumBench(matWood = Mat.darkWood, matCushion = Mat.crimsonVelvet) {
+  const g = new THREE.Group();
+  const seatL = 3.4, seatW = 0.95, seatH = 0.48;
+  const base = new THREE.Mesh(new RoundedBoxGeometry(seatL, 0.08, seatW, 4, 0.02), matWood);
+  base.position.y = seatH - 0.12; base.castShadow = true; base.receiveShadow = true;
+  const cushion = new THREE.Mesh(new RoundedBoxGeometry(seatL - 0.1, 0.12, seatW - 0.1, 5, 0.04), matCushion);
+  cushion.position.y = seatH - 0.02; cushion.castShadow = true; cushion.receiveShadow = true;
+  const legG = new THREE.CylinderGeometry(0.04, 0.03, seatH - 0.16, 12);
+  const legPositions = [
+    [-seatL / 2 + 0.25, -seatW / 2 + 0.15],
+    [-seatL / 2 + 0.25,  seatW / 2 - 0.15],
+    [ seatL / 2 - 0.25, -seatW / 2 + 0.15],
+    [ seatL / 2 - 0.25,  seatW / 2 - 0.15]
+  ];
+  legPositions.forEach(([x, z]) => {
+    const leg = new THREE.Mesh(legG, Mat.bronze);
+    leg.position.set(x, (seatH - 0.16) / 2, z); leg.castShadow = true; g.add(leg);
+  });
+  const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, seatL - 0.5, 8), Mat.bronze);
+  rail.rotation.z = Math.PI / 2; rail.position.y = 0.14;
+  g.add(base, cushion, rail);
+  return g;
+}
+
+function buildTrackLight(len = 16) {
+  if (len && typeof len === 'object') return buildLightPools(len);
+  const g = new THREE.Group();
+  const trackMat = new THREE.MeshBasicMaterial({ color: 0xd8d6d0 });
+  const lensMat = new THREE.MeshBasicMaterial({ color: 0xfff2cc });
+  lensMat.toneMapped = false;
+  const railY = H_WING - 0.15;
+  const rail = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.04, len), trackMat);
+  rail.position.y = railY;
+  g.add(rail);
+  const heads = Math.floor(len / 2.6);
+  for (let i = 0; i <= heads; i++) {
+    const z = -len / 2 + 1.2 + i * 2.6;
+    const can = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.22, 12), trackMat);
+    can.rotation.x = Math.PI / 4; can.position.set(0, railY - 0.12, z);
+    const bulb = new THREE.Mesh(new THREE.CircleGeometry(0.052, 12), lensMat);
+    bulb.rotation.x = Math.PI / 4; bulb.position.set(0, railY - 0.20, z + 0.08);
+    g.add(can, bulb);
+  }
+  return g;
+}
+
+/* --------------------------------------------------------------------------
+   4.8.5  SHARED IES PARABOLIC LIGHT CONES & CANVAS LIGHTMAPS
+   -------------------------------------------------------------------------- */
+const IES_CONE_TEX = (() => {
+  const W = 512, H = 768;
+  const [c, ctx] = makeCanvas(W, H);
+  const img = ctx.createImageData(W, H);
+  const d = img.data;
+  for (let py = 0; py < H; py++) {
+    const v = py / (H - 1); // [0, 1] top to bottom
+    for (let px = 0; px < W; px++) {
+      const u = (px / (W - 1)) * 2.0 - 1.0; // [-1, 1] horizontally
+      let intensity = 0.0;
+      if (v > 0.02) {
+        const vNorm = Math.max(0.0001, (v - 0.065) / 0.935);
+        // Wider spotlight beam cone expansion (0.22 base + 1.25 span)
+        const coneWidth = 0.22 + Math.pow(vNorm, 0.70) * 1.25;
+        // Smoother, broader horizontal falloff
+        const hFalloff = Math.exp(-Math.pow(u / coneWidth, 2) * 2.1);
+        let vFalloff = 0.0;
+        if (v >= 0.065) {
+          vFalloff = Math.sin(Math.pow(vNorm, 0.48) * Math.PI) * (1.0 - 0.25 * v);
+        } else {
+          // Soft feather at apex
+          const ft = (v - 0.02) / 0.045;
+          vFalloff = ft * ft * (3.0 - 2.0 * ft) * 0.22;
+        }
+        // Seamless outer horizontal feather
+        const edgeFade = Math.abs(u) > 0.88 ? Math.max(0.0, 1.0 - (Math.abs(u) - 0.88) / 0.12) : 1.0;
+        intensity = clamp(hFalloff * vFalloff * edgeFade, 0.0, 1.0);
+      }
+      if (intensity > 0.001) {
+        const idx = (py * W + px) * 4;
+        d[idx]     = 255;
+        d[idx + 1] = 240;
+        d[idx + 2] = 212;
+        // Increased brightness: 0.95 peak alpha (was 0.72)
+        d[idx + 3] = Math.min(255, Math.round(intensity * 0.95 * 255));
+      }
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+})();
+
+const IES_CONE_MAT = new THREE.MeshBasicMaterial({
+  map: IES_CONE_TEX,
+  transparent: true,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false
+});
+IES_CONE_MAT.toneMapped = false;
+
+// Dimmer IES parabolic wall-wash cone material for hallways & architectural corridors
+const IES_CONE_DIM_MAT = new THREE.MeshBasicMaterial({
+  map: IES_CONE_TEX,
+  transparent: true,
+  opacity: 0.58,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false
+});
+IES_CONE_DIM_MAT.toneMapped = false;
+
+/* Top-down spotlight vignette baked onto canvases & wing signs */
+const ART_SPOT_LIGHTMAP = (() => {
+  const S = 256;
+  const [c, ctx] = makeCanvas(S, S);
+  const img = ctx.createImageData(S, S);
+  for (let y = 0; y < S; y++) {
+    const v = y / (S - 1);
+    for (let x = 0; x < S; x++) {
+      const u = (x / (S - 1)) * 2.0 - 1.0;
+      // Wider illumination on canvas (0.75 base + 0.85 expand)
+      const coneW = 0.75 + v * 0.85;
+      const hSpot = Math.exp(-Math.pow(u / coneW, 2) * 1.15);
+      const vSpot = Math.sin(Math.pow(clamp(v * 0.80 + 0.15, 0, 1), 0.60) * Math.PI) * (1.0 - 0.18 * v);
+      const vignette = 1.0 - 0.15 * Math.pow(Math.hypot(u, v - 0.45), 1.5);
+      // Increased multiplier range: 0.65 to 1.35 (brighter spotlight beam)
+      const mult = clamp((0.65 + 0.82 * hSpot * vSpot) * vignette, 0.45, 1.38);
+      const i = (y * S + x) * 4;
+      img.data[i]     = Math.min(255, Math.round(255 * mult));
+      img.data[i + 1] = Math.min(255, Math.round(246 * mult));
+      img.data[i + 2] = Math.min(255, Math.round(226 * mult));
+      img.data[i + 3] = 255;
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+})();
+const ART_SPOT_INTENSITY = Math.PI * 1.65;
+const SIGN_TINT = new THREE.Color(0.68, 0.64, 0.56);
+
+const DROP_SHADOW_TEX = (() => {
+  const S = 256;
+  const [c, ctx] = makeCanvas(S, S);
+  const img = ctx.createImageData(S, S);
+  const d = img.data;
+  for (let y = 0; y < S; y++) {
+    const ny = Math.abs(y / (S - 1) * 2.0 - 1.0);
+    for (let x = 0; x < S; x++) {
+      const nx = Math.abs(x / (S - 1) * 2.0 - 1.0);
+      const dx = Math.max(0.0, nx - 0.76) / 0.24;
+      const dy = Math.max(0.0, ny - 0.76) / 0.24;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 1.0) {
+        const a = 0.78 * Math.pow(0.5 + 0.5 * Math.cos(dist * Math.PI), 1.35);
+        const idx = (y * S + x) * 4;
+        d[idx] = 0; d[idx + 1] = 0; d[idx + 2] = 0;
+        d[idx + 3] = Math.min(255, Math.round(a * 255));
+      }
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+})();
+
+const DROP_SHADOW_MAT = new THREE.MeshBasicMaterial({
+  map: DROP_SHADOW_TEX,
+  transparent: true,
+  depthWrite: false
+});
+
+const PORTAL_TRACK_MAT = new THREE.MeshBasicMaterial({ color: 0xd8d6d0 });
+const PORTAL_LENS_MAT = new THREE.MeshBasicMaterial({ color: 0xfff2cc });
+PORTAL_LENS_MAT.toneMapped = false;
+
+function buildWallPortal(key, label, sub, wallMat) {
+  const g = new THREE.Group();
+
+  const doorHalfW = 1.50; // clear opening from -1.50 to +1.50 (3.0m wide)
+  const doorH = 3.20;     // clear opening height 3.20m
+  const jambW = 0.35;     // jamb casing from 1.50 to 1.85 (35cm wide)
+  const jambX = doorHalfW + jambW / 2; // 1.675
+  const casingHalfW = doorHalfW + jambW; // 1.85 (outer edge of doorframe casing)
+
+  // Fluted jamb pilasters flanking the doorway (depth 0.48: projects 6cm beyond walls)
+  const jambG = new THREE.BoxGeometry(jambW, doorH, 0.48);
+  const jL = new THREE.Mesh(jambG, Mat.archTrim), jR = new THREE.Mesh(jambG, Mat.archTrim);
+  jL.position.set(-jambX, doorH / 2, 0);
+  jR.position.set(jambX, doorH / 2, 0);
+  jL.castShadow = true; jR.castShadow = true;
+
+  // Lintel / Architrave spanning above the doorway across both jambs
+  const lintelH = 0.22;
+  const lintel = new THREE.Mesh(new RoundedBoxGeometry(casingHalfW * 2, lintelH, 0.48, 3, 0.02), Mat.archTrim);
+  lintel.position.set(0, doorH + lintelH / 2, 0);
+  lintel.castShadow = true;
+
+  // Entablature Frieze (Sign band backing both plaques)
+  const friezeH = 0.80;
+  const friezeY = doorH + lintelH + friezeH / 2; // 3.82
+  const frieze = new THREE.Mesh(new RoundedBoxGeometry(casingHalfW * 2, friezeH, 0.44, 3, 0.02), Mat.archTrim);
+  frieze.position.set(0, friezeY, 0);
+  frieze.castShadow = true;
+
+  // Classical molded cornice crown above the frieze
+  const corniceH = 0.18;
+  const cornice = new THREE.Mesh(new RoundedBoxGeometry(casingHalfW * 2, corniceH, 0.50, 3, 0.02), Mat.archTrim);
+  cornice.position.set(0, doorH + lintelH + friezeH + corniceH / 2, 0); // 4.31
+  cornice.castShadow = true;
+
+  // Central attic wall between cornice and rotunda ceiling (between -1.85 and +1.85)
+  // Remap UVs so v is in [0.62, 0.96] (upper plaster only — prevents floating wainscot dado above doorway!)
+  const atticBottom = doorH + lintelH + friezeH + corniceH; // 4.40
+  const atticH = H_ROT - atticBottom; // 6.40 - 4.40 = 2.00m
+  const atticGeo = new THREE.BoxGeometry(casingHalfW * 2, atticH, 0.36);
+  const atticUv = atticGeo.attributes.uv;
+  const atticPos = atticGeo.attributes.position;
+  for (let vi = 0; vi < atticUv.count; vi++) {
+    const u = (atticPos.getX(vi) + casingHalfW) / 4.2;
+    const v = 0.62 + ((atticPos.getY(vi) + atticH / 2) / atticH) * 0.34;
+    atticUv.setXY(vi, u, v);
+  }
+  const attic = new THREE.Mesh(atticGeo, wallMat || Mat.wallRotunda);
+  attic.position.set(0, atticBottom + atticH / 2, 0);
+  attic.castShadow = true; attic.receiveShadow = true;
+
+  // 1. INWARD SIGN (Facing the Grand Rotunda as visitors enter the wing)
+  const inSignTex = textTexture(1024, 256, (ctx, w, h) => {
+    ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 5; ctx.strokeRect(10, 10, w - 20, h - 20);
+    ctx.strokeStyle = 'rgba(230,175,46,0.45)'; ctx.lineWidth = 1.5; ctx.strokeRect(18, 18, w - 36, h - 36);
+    ctx.fillStyle = '#e6af2e'; ctx.font = `600 22px ${SANS}`;
+    spacedText(ctx, `WING ${key}`.toUpperCase(), w / 2, 52, 6);
+    ctx.fillStyle = '#fbfffe'; ctx.font = `600 46px ${SERIF}`;
+    spacedText(ctx, label.toUpperCase(), w / 2, 112, 7);
+    ctx.strokeStyle = 'rgba(230,175,46,0.55)'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(w * 0.22, 138); ctx.lineTo(w * 0.78, 138); ctx.stroke();
+    ctx.fillStyle = '#dbe4e2'; ctx.font = `italic 24px ${SERIF}`; ctx.textAlign = 'center';
+    ctx.fillText(sub, w / 2, 182);
+    ctx.fillStyle = '#e6af2e'; ctx.font = `500 15px ${SANS}`;
+    ctx.fillText('◆  EUNOIA GALLERIES  ◆', w / 2, 222);
+  });
+  const signMatIn = new THREE.MeshBasicMaterial({
+    map: inSignTex,
+    color: SIGN_TINT,
+    lightMap: ART_SPOT_LIGHTMAP,
+    lightMapIntensity: ART_SPOT_INTENSITY
+  });
+  const signIn = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 0.68), signMatIn);
+  signIn.position.set(0, friezeY, -0.228);
+  signIn.rotation.y = Math.PI; // Face outward into the Grand Rotunda (-Z)
+
+  // IES Parabolic Light Cone washing down over the Rotunda-side Wing Sign
+  const coneIn = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 3.6), IES_CONE_MAT);
+  coneIn.position.set(0, friezeY - 0.15, -0.258);
+  coneIn.rotation.y = Math.PI;
+  coneIn.renderOrder = 2;
+
+  // Overhead white track rail + 2 spotlight cans aimed at the Rotunda-side Wing Sign
+  const railInY = H_WING - 0.12;
+  const railIn = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.042, 0.055), PORTAL_TRACK_MAT);
+  railIn.position.set(0, railInY, -1.25);
+  g.add(railIn);
+  [-0.55, 0.55].forEach((hx) => {
+    const can = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.22, 12), PORTAL_TRACK_MAT);
+    can.rotation.x = Math.PI / 2 - 0.62;
+    can.position.set(hx, railInY - 0.12, -1.25);
+    const lens = new THREE.Mesh(new THREE.CircleGeometry(0.052, 12), PORTAL_LENS_MAT);
+    lens.rotation.x = -0.62;
+    lens.position.set(hx, railInY - 0.12 - Math.sin(0.62) * 0.112, -1.25 + Math.cos(0.62) * 0.112);
+    g.add(can, lens);
+  });
+
+  // 2. OUTWARD SIGN (Facing into the wing as visitors exit back to Grand Rotunda)
+  const outSignTex = textTexture(1024, 256, (ctx, w, h) => {
+    ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 5; ctx.strokeRect(10, 10, w - 20, h - 20);
+    ctx.strokeStyle = 'rgba(230,175,46,0.45)'; ctx.lineWidth = 1.5; ctx.strokeRect(18, 18, w - 36, h - 36);
+    ctx.fillStyle = '#e6af2e'; ctx.font = `600 22px ${SANS}`;
+    spacedText(ctx, 'CENTRAL FOYER'.toUpperCase(), w / 2, 52, 6);
+    ctx.fillStyle = '#fbfffe'; ctx.font = `600 46px ${SERIF}`;
+    spacedText(ctx, 'GRAND ROTUNDA', w / 2, 112, 7);
+    ctx.strokeStyle = 'rgba(230,175,46,0.55)'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(w * 0.22, 138); ctx.lineTo(w * 0.78, 138); ctx.stroke();
+    ctx.fillStyle = '#dbe4e2'; ctx.font = `italic 24px ${SERIF}`; ctx.textAlign = 'center';
+    ctx.fillText('Sculpture Court · Information & Wing Directory', w / 2, 182);
+    ctx.fillStyle = '#e6af2e'; ctx.font = `500 15px ${SANS}`;
+    ctx.fillText('← RETURN TO FOYER →', w / 2, 222);
+  });
+  const signMatOut = new THREE.MeshBasicMaterial({
+    map: outSignTex,
+    color: SIGN_TINT,
+    lightMap: ART_SPOT_LIGHTMAP,
+    lightMapIntensity: ART_SPOT_INTENSITY
+  });
+  const signOut = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 0.68), signMatOut);
+  signOut.position.set(0, friezeY, 0.228);
+  signOut.rotation.y = 0; // Face inward into the Wing corridor (+Z)
+
+  // IES Parabolic Light Cone washing down over the Wing-side Exit Sign
+  const coneOut = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 3.6), IES_CONE_MAT);
+  coneOut.position.set(0, friezeY - 0.15, 0.258);
+  coneOut.rotation.y = 0;
+  coneOut.renderOrder = 2;
+
+  // Overhead white track rail + 2 spotlight cans aimed at the Wing-side Exit Sign
+  const railOut = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.042, 0.055), PORTAL_TRACK_MAT);
+  railOut.position.set(0, railInY, 1.25);
+  g.add(railOut);
+  [-0.55, 0.55].forEach((hx) => {
+    const can = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.22, 12), PORTAL_TRACK_MAT);
+    can.rotation.x = Math.PI / 2 - 0.62;
+    can.rotation.y = Math.PI;
+    can.position.set(hx, railInY - 0.12, 1.25);
+    const lens = new THREE.Mesh(new THREE.CircleGeometry(0.052, 12), PORTAL_LENS_MAT);
+    lens.rotation.x = -0.62;
+    lens.rotation.y = Math.PI;
+    lens.position.set(hx, railInY - 0.12 - Math.sin(0.62) * 0.112, 1.25 - Math.cos(0.62) * 0.112);
+    g.add(can, lens);
+  });
+
+  g.add(lintel, frieze, cornice, jL, jR, attic, signIn, coneIn, signOut, coneOut);
+  return g;
+}
+
+/* --------------------------------------------------------------------------
+   4.9  MUSEUM ARCHITECTURE
+   -------------------------------------------------------------------------- */
+const H_ROT = 6.4, R_ROT = 8.5;
+const WING_W = 7.0, WING_L = 26.0, H_WING = 5.4;
+
+// Grand Wing Groups for Hierarchical Occlusion Culling
+const rotunda_group = new THREE.Group();
+const wingI_group = new THREE.Group();
+const wingII_group = new THREE.Group();
+const wingIII_group = new THREE.Group();
+const wingIV_group = new THREE.Group();
+
+
+/* --------------------------------------------------------------------------
+   4.9.5  CURATOR'S CONCIERGE STAND (WALNUT PEDESTAL, ROTARY PHONE & 3D CARD)
+   -------------------------------------------------------------------------- */
+function makeWalnutCanvas() {
+  const [c, ctx] = makeCanvas(512, 512);
+  ctx.fillStyle = '#26160e'; ctx.fillRect(0, 0, 512, 512);
+  for (let y = 0; y < 512; y++) {
+    const v = Math.sin(y * 0.07) * 16 + Math.sin(y * 0.24) * 8;
+    ctx.fillStyle = `rgba(58, 34, 20, ${0.18 + (Math.sin(y * 0.4) * 0.5 + 0.5) * 0.22})`;
+    ctx.fillRect(0, y, 512, 1);
+  }
+  for (let i = 0; i < 45; i++) {
+    const gy = Math.random() * 512;
+    ctx.strokeStyle = 'rgba(15, 8, 4, 0.28)'; ctx.lineWidth = 1 + Math.random() * 2;
+    ctx.beginPath(); ctx.moveTo(0, gy);
+    ctx.bezierCurveTo(170, gy + (Math.random() - 0.5) * 18, 340, gy + (Math.random() - 0.5) * 18, 512, gy);
+    ctx.stroke();
+  }
+  return c;
+}
+
+function makeRotaryDialCanvas() {
+  const [c, ctx] = makeCanvas(512, 512);
+  ctx.fillStyle = '#141412'; ctx.fillRect(0, 0, 512, 512);
+  ctx.beginPath(); ctx.arc(256, 256, 238, 0, Math.PI * 2);
+  ctx.fillStyle = '#f8f4e6'; ctx.fill();
+  ctx.lineWidth = 16; ctx.strokeStyle = '#c49735'; ctx.stroke();
+  ctx.fillStyle = '#111'; ctx.font = `bold 42px ${SANS}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const nums = ['1','2','3','4','5','6','7','8','9','0'];
+  for (let i = 0; i < 10; i++) {
+    const angle = 0.60 + (i * 0.42);
+    const r = 164;
+    const x = 256 + Math.cos(angle) * r;
+    const y = 256 + Math.sin(angle) * r;
+    ctx.beginPath(); ctx.arc(x, y, 28, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.85)'; ctx.fill();
+    ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(0,0,0,0.25)'; ctx.stroke();
+    ctx.fillStyle = '#151515'; ctx.fillText(nums[i], x, y);
+  }
+  ctx.beginPath(); ctx.arc(256, 256, 70, 0, Math.PI * 2);
+  ctx.fillStyle = '#c49735'; ctx.fill();
+  ctx.lineWidth = 6; ctx.strokeStyle = '#e6af2e'; ctx.stroke();
+  return c;
+}
+
+function makeCardFrontCanvas() {
+  const [c, ctx] = makeCanvas(768, 480);
+  ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, 768, 480);
+  ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 6; ctx.strokeRect(16, 16, 736, 448);
+  ctx.lineWidth = 2; ctx.strokeRect(26, 26, 716, 428);
+  ctx.fillStyle = '#e6af2e'; ctx.font = `600 24px ${SANS}`;
+  spacedText(ctx, 'CURATORIAL DOSSIER · NO. 01', 384, 90, 5);
+  ctx.fillStyle = '#fbfffe'; ctx.font = `600 72px ${SERIF}`;
+  spacedText(ctx, 'EUNOIA', 384, 185, 12);
+  ctx.fillStyle = '#e6af2e'; ctx.font = `italic 24px ${SERIF}`; ctx.textAlign = 'center';
+  ctx.fillText('A Museum of Animation & Visual Art', 384, 235);
+  ctx.fillStyle = '#dbe4e2'; ctx.font = `500 20px ${SANS}`;
+  ctx.fillText('Mangilaya · 2D Animator & 3D Generalist', 384, 340);
+  ctx.fillStyle = '#8b9c9a'; ctx.font = `400 16px ${SANS}`;
+  ctx.fillText('hello@eunoia.studio', 384, 385);
+  return c;
+}
+
+function makeCardBackCanvas() {
+  const [c, ctx] = makeCanvas(768, 480);
+  ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, 768, 480);
+  ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 4; ctx.strokeRect(16, 16, 736, 448);
+  ctx.fillStyle = '#e6af2e'; ctx.font = `600 20px ${SANS}`;
+  spacedText(ctx, 'MANGILAYA · ATELIER', 384, 70, 4);
+  ctx.fillStyle = '#dbe4e2'; ctx.font = `400 17px ${SANS}`; ctx.textAlign = 'center';
+  ctx.fillText('• 2D Keyframe Animation & Character Design', 384, 140);
+  ctx.fillText('• 3D Environment Design & ArchViz (Blender)', 384, 180);
+  ctx.fillText('• VFX Simulation & Cinematic Direction', 384, 220);
+  ctx.fillText('• Observational Street & Lunar Photography', 384, 260);
+  ctx.fillStyle = '#fbfffe'; ctx.font = `italic 18px ${SERIF}`;
+  ctx.fillText('"Beautiful thinking, made visible."', 384, 340);
+  ctx.fillStyle = '#e6af2e'; ctx.font = `600 16px ${SANS}`;
+  ctx.fillText('Available for Creative Collaborations & Roles', 384, 395);
+  return c;
+}
+
+function buildConciergeStand(root) {
+  const standG = new THREE.Group();
+  standG.position.set(2.4, 0, -2.6);
+  // Orient table so local +Z faces visitor arriving from entrance at (0, -4.5)
+  standG.rotation.y = -2.25;
+
+  // Textures with graceful procedural fallbacks
+  const assets = EUNOIA_CONFIG.site.conciergeAssets || {};
+  const T_WALNUT = managedTexture(makeWalnutCanvas(), assets.walnutWood, { repeat: true });
+  T_WALNUT.repeat.set(2, 2);
+  const T_ROTARY = managedTexture(makeRotaryDialCanvas(), assets.rotaryDial);
+  const T_CARD_FRONT = managedTexture(makeCardFrontCanvas(), assets.cardFront);
+  const T_CARD_BACK = managedTexture(makeCardBackCanvas(), assets.cardBack);
+
+  const matWalnut = new THREE.MeshStandardMaterial({
+    map: T_WALNUT,
+    roughness: 0.32,
+    metalness: 0.04
+  });
+
+  // 1. Walnut Pedestal Table (Square top, fluted/chamfered post, stepped plinth, console bracket feet)
+  const plinthBottom = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.05, 0.72), matWalnut);
+  plinthBottom.position.y = 0.025;
+  const plinthStep = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.04, 0.62), matWalnut);
+  plinthStep.position.y = 0.07;
+  const plinthTop = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.03, 0.52), matWalnut);
+  plinthTop.position.y = 0.105;
+  standG.add(plinthBottom, plinthStep, plinthTop);
+
+  // 4 Decorative console bracket feet at corners
+  for (let i = 0; i < 4; i++) {
+    const ang = (i * Math.PI) / 2 + Math.PI / 4;
+    const foot = new THREE.Mesh(new THREE.BoxGeometry(0.10, 0.14, 0.22), matWalnut);
+    foot.position.set(Math.cos(ang) * 0.28, 0.08, Math.sin(ang) * 0.28);
+    foot.rotation.y = -ang;
+    standG.add(foot);
+  }
+
+  // Central square shaft / post
+  const postH = 0.74;
+  const post = new THREE.Mesh(new THREE.BoxGeometry(0.16, postH, 0.16), matWalnut);
+  post.position.y = 0.12 + postH / 2;
+  standG.add(post);
+
+  // 4 corner fluting / accent beading on post
+  for (let i = 0; i < 4; i++) {
+    const ang = (i * Math.PI) / 2 + Math.PI / 4;
+    const bead = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, postH - 0.04, 8), matWalnut);
+    bead.position.set(Math.cos(ang) * 0.10, 0.49, Math.sin(ang) * 0.10);
+    standG.add(bead);
+  }
+
+  // Capital collar below tabletop
+  const collar = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.04, 0.32), matWalnut);
+  collar.position.y = 0.12 + postH + 0.02;
+  const subTop = new THREE.Mesh(new THREE.BoxGeometry(0.76, 0.03, 0.76), matWalnut);
+  subTop.position.y = 0.915;
+  const topMesh = new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.045, 0.86), matWalnut);
+  topMesh.position.y = 0.9525;
+  standG.add(collar, subTop, topMesh);
+
+  // Floor contact shadow under table
+  const shadowPlane = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 1.2), DROP_SHADOW_MAT);
+  shadowPlane.rotation.x = -Math.PI / 2;
+  shadowPlane.position.set(0.02, 0.005, 0.02);
+  standG.add(shadowPlane);
+
+  // Tabletop warm pin-spotlight pool
+  const [glowC, glowCtx] = makeCanvas(256, 256);
+  const grad = glowCtx.createRadialGradient(128, 128, 10, 128, 128, 120);
+  grad.addColorStop(0, 'rgba(255, 238, 205, 0.70)');
+  grad.addColorStop(0.5, 'rgba(255, 220, 170, 0.32)');
+  grad.addColorStop(1, 'rgba(255, 200, 140, 0)');
+  glowCtx.fillStyle = grad; glowCtx.fillRect(0, 0, 256, 256);
+  const tableGlowTex = new THREE.CanvasTexture(glowC);
+  const tableLightPool = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.80, 0.80),
+    new THREE.MeshBasicMaterial({ map: tableGlowTex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  tableLightPool.rotation.x = -Math.PI / 2;
+  tableLightPool.position.set(0, 0.976, 0);
+  standG.add(tableLightPool);
+
+  // Floor warm spot pool
+  const floorLightPool = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.8, 1.8),
+    new THREE.MeshBasicMaterial({ map: tableGlowTex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  floorLightPool.rotation.x = -Math.PI / 2;
+  floorLightPool.position.set(0, 0.006, 0);
+  standG.add(floorLightPool);
+
+  // Overhead track light rail & spotlight can above the stand
+  const canRail = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.04, 0.08), Mat.trackRail);
+  canRail.position.set(0, H_ROT - 0.10, 0);
+  const canCyl = new THREE.Mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.24, 12), Mat.trackCylinder);
+  canCyl.position.set(0, H_ROT - 0.22, 0);
+  canCyl.rotation.x = 0.18;
+  const canLens = new THREE.Mesh(new THREE.CircleGeometry(0.055, 12), Mat.trackLens);
+  canLens.position.set(0, H_ROT - 0.34, 0.02);
+  canLens.rotation.x = Math.PI / 2 + 0.18;
+  standG.add(canRail, canCyl, canLens);
+
+  // Add physical collider for stand
+  addBoxCollider(2.4, -2.6, 0.44, 0.44);
+
+  // --------------------------------------------------------------------------
+  // 2. Vintage Glossy Red Rotary Telephone (Table Left: x = -0.20, z = -0.02)
+  // --------------------------------------------------------------------------
+  const phoneG = new THREE.Group();
+  phoneG.position.set(-0.20, 0.975, 0.04);
+
+  const matRedPhone = new THREE.MeshStandardMaterial({
+    color: 0xcc1414,
+    roughness: 0.14,
+    metalness: 0.04
+  });
+  const matBlackPlastic = new THREE.MeshStandardMaterial({
+    color: 0x151515,
+    roughness: 0.28,
+    metalness: 0.1
+  });
+  const matChrome = new THREE.MeshStandardMaterial({
+    color: 0xeeeeee,
+    roughness: 0.15,
+    metalness: 0.95
+  });
+
+  // Base housing: classic trapezoidal pyramidal rounded shape
+  const phoneBase = new THREE.Mesh(new THREE.BoxGeometry(0.20, 0.04, 0.18), matRedPhone);
+  phoneBase.position.y = 0.02;
+  const phoneBodyMid = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.035, 0.16), matRedPhone);
+  phoneBodyMid.position.set(0, 0.055, -0.005);
+  const phoneBodyUpper = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.04, 0.13), matRedPhone);
+  phoneBodyUpper.position.set(0, 0.08, -0.012);
+  phoneBodyUpper.rotation.x = -0.16;
+
+  // Front slanted face dial mount
+  const dialMount = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.065, 0.015, 24), matRedPhone);
+  dialMount.position.set(0, 0.076, 0.034);
+  dialMount.rotation.x = Math.PI / 3.8;
+
+  // Rotary Dial Face with loaded texture
+  const dialFaceMat = new THREE.MeshBasicMaterial({ map: T_ROTARY });
+  const dialFace = new THREE.Mesh(new THREE.CircleGeometry(0.058, 24), dialFaceMat);
+  dialFace.position.set(0, 0.084, 0.042);
+  dialFace.rotation.x = -Math.PI / 3.8;
+
+  // Acrylic finger wheel & Gold central hub
+  const fingerWheel = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.058, 0.058, 0.004, 24),
+    new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.4, roughness: 0.1 })
+  );
+  fingerWheel.position.set(0, 0.086, 0.044);
+  fingerWheel.rotation.x = -Math.PI / 3.8;
+
+  const dialHub = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.016, 0.008, 16), Mat.goldLeaf);
+  dialHub.position.set(0, 0.089, 0.047);
+  dialHub.rotation.x = -Math.PI / 3.8;
+
+  const fingerStop = new THREE.Mesh(new THREE.BoxGeometry(0.006, 0.016, 0.004), matChrome);
+  fingerStop.position.set(0.038, 0.058, 0.068);
+  fingerStop.rotation.z = -0.6;
+
+  // Handset cradle horns / prongs
+  const cradleL = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.026, 0.028), matChrome);
+  cradleL.position.set(-0.055, 0.115, -0.035);
+  const cradleR = new THREE.Mesh(new THREE.BoxGeometry(0.024, 0.026, 0.028), matChrome);
+  cradleR.position.set(0.055, 0.115, -0.035);
+
+  // Red Handset resting horizontally across the cradle
+  const handsetG = new THREE.Group();
+  handsetG.position.set(0, 0.13, -0.035);
+  const grip = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.15, 12), matRedPhone);
+  grip.rotation.z = Math.PI / 2;
+  const earCup = new THREE.Mesh(new THREE.CylinderGeometry(0.034, 0.026, 0.035, 16), matRedPhone);
+  earCup.position.set(-0.09, -0.006, 0); earCup.rotation.z = 0.22;
+  const mouthCup = new THREE.Mesh(new THREE.CylinderGeometry(0.034, 0.026, 0.035, 16), matRedPhone);
+  mouthCup.position.set(0.09, -0.006, 0); mouthCup.rotation.z = -0.22;
+  const earCap = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.008, 16), matBlackPlastic);
+  earCap.position.set(-0.104, -0.018, 0); earCap.rotation.z = 0.22;
+  const mouthCap = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.008, 16), matBlackPlastic);
+  mouthCap.position.set(0.104, -0.018, 0); mouthCap.rotation.z = -0.22;
+  handsetG.add(grip, earCup, mouthCup, earCap, mouthCap);
+  handsetG.rotation.y = 0.06;
+
+  // Coiled black telephone cord
+  const cordG = new THREE.Group();
+  for (let c = 0; c < 12; c++) {
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.011, 0.0032, 8, 12), matBlackPlastic);
+    ring.position.set(-0.075 - c * 0.006, 0.07 - c * 0.0045, -0.04 - Math.sin(c * 0.55) * 0.015);
+    ring.rotation.x = Math.PI / 2 + c * 0.22;
+    cordG.add(ring);
+  }
+
+  // Brass Plaque in front of phone
+  const phonePlqTex = textTexture(512, 128, (ctx, w, h) => {
+    ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 3; ctx.strokeRect(4, 4, w - 8, h - 8);
+    ctx.fillStyle = '#e6af2e'; ctx.font = `600 18px ${SANS}`;
+    spacedText(ctx, "CURATOR'S DIRECT LINE", w / 2, 42, 3);
+    ctx.fillStyle = '#fbfffe'; ctx.font = `italic 20px ${SERIF}`; ctx.textAlign = 'center';
+    ctx.fillText('Click to Ring / Transmit Dispatch', w / 2, 85);
+  });
+  const phonePlaque = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.18, 0.05),
+    new THREE.MeshBasicMaterial({ map: phonePlqTex })
+  );
+  phonePlaque.rotation.x = -Math.PI / 3.5;
+  phonePlaque.position.set(0, 0.015, 0.12);
+
+  phoneG.add(phoneBase, phoneBodyMid, phoneBodyUpper, dialMount, dialFace, fingerWheel, dialHub, fingerStop, cradleL, cradleR, handsetG, cordG, phonePlaque);
+  phoneG.rotation.y = 0.18; // angled slightly toward visitor
+  standG.add(phoneG);
+
+  // Invisible proxy box for raycasting on the phone
+  const phoneHitProxy = new THREE.Mesh(
+    new THREE.BoxGeometry(0.28, 0.26, 0.28),
+    new THREE.MeshBasicMaterial({ visible: false })
+  );
+  phoneHitProxy.position.set(0, 0.12, 0);
+  phoneHitProxy.userData = { isPhone: true, group: standG };
+  phoneG.add(phoneHitProxy);
+  interactivePropMeshes.push(phoneHitProxy);
+
+  // --------------------------------------------------------------------------
+  // 3. Brass Display Easel & 3D Dossier Card (Table Right: x = +0.19, z = -0.02)
+  // --------------------------------------------------------------------------
+  const easelG = new THREE.Group();
+  easelG.position.set(0.19, 0.975, 0.04);
+
+  const matBrassEasel = new THREE.MeshStandardMaterial({
+    color: 0xe6af2e,
+    roughness: 0.22,
+    metalness: 0.88
+  });
+
+  const legGeo = new THREE.CylinderGeometry(0.005, 0.005, 0.28, 8);
+  const legL = new THREE.Mesh(legGeo, matBrassEasel);
+  legL.position.set(-0.08, 0.13, -0.02); legL.rotation.z = -0.16;
+  const legR = new THREE.Mesh(legGeo, matBrassEasel);
+  legR.position.set(0.08, 0.13, -0.02); legR.rotation.z = 0.16;
+  const legBack = new THREE.Mesh(legGeo, matBrassEasel);
+  legBack.position.set(0, 0.13, -0.09); legBack.rotation.x = -0.38;
+
+  const restBar = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.008, 0.015), matBrassEasel);
+  restBar.position.set(0, 0.06, 0.01);
+  const restLip = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.014, 0.005), matBrassEasel);
+  restLip.position.set(0, 0.068, 0.016);
+
+  easelG.add(legL, legR, legBack, restBar, restLip);
+
+  const cardG = new THREE.Group();
+  cardG.position.set(0, 0.135, 0.01);
+  cardG.rotation.x = -0.22;
+
+  const cardFrontMesh = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.24, 0.15),
+    new THREE.MeshStandardMaterial({ map: T_CARD_FRONT, roughness: 0.35, metalness: 0.08 })
+  );
+  cardFrontMesh.position.z = 0.0012;
+
+  const cardBackMesh = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.24, 0.15),
+    new THREE.MeshStandardMaterial({ map: T_CARD_BACK, roughness: 0.35, metalness: 0.08 })
+  );
+  cardBackMesh.rotation.y = Math.PI;
+  cardBackMesh.position.z = -0.0012;
+
+  const cardRim = new THREE.Mesh(
+    new THREE.BoxGeometry(0.241, 0.151, 0.002),
+    Mat.goldLeaf
+  );
+
+  cardG.add(cardFrontMesh, cardBackMesh, cardRim);
+
+  const cardPlqTex = textTexture(512, 128, (ctx, w, h) => {
+    ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 3; ctx.strokeRect(4, 4, w - 8, h - 8);
+    ctx.fillStyle = '#e6af2e'; ctx.font = `600 18px ${SANS}`;
+    spacedText(ctx, "CURATOR'S DOSSIER", w / 2, 42, 3);
+    ctx.fillStyle = '#fbfffe'; ctx.font = `italic 20px ${SERIF}`; ctx.textAlign = 'center';
+    ctx.fillText('Click to Examine & Flip Dossier', w / 2, 85);
+  });
+  const cardPlaque = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.18, 0.05),
+    new THREE.MeshBasicMaterial({ map: cardPlqTex })
+  );
+  cardPlaque.rotation.x = -Math.PI / 3.5;
+  cardPlaque.position.set(0, 0.015, 0.12);
+
+  easelG.add(cardG, cardPlaque);
+  easelG.rotation.y = -0.18; // angled slightly toward visitor
+  standG.add(easelG);
+
+  // Invisible proxy box for card clicking
+  const cardHitProxy = new THREE.Mesh(
+    new THREE.BoxGeometry(0.26, 0.24, 0.22),
+    new THREE.MeshBasicMaterial({ visible: false })
+  );
+  cardHitProxy.position.set(0, 0.13, 0);
+  cardHitProxy.userData = { isCard: true, group: standG };
+  easelG.add(cardHitProxy);
+  interactivePropMeshes.push(cardHitProxy);
+
+  root.add(standG);
+}
+
+function buildArchitecture() {
+  const root = new THREE.Group();
+
+  function addSolidWall(x1, z1, x2, z2, mat, targetGroup, yMin = 0, yMax = H_WING) {
+    const dx = x2 - x1;
+    const dz = z2 - z1;
+    const len = Math.hypot(dx, dz);
+    if (len < 0.001) return;
+    const h = yMax - yMin;
+    const midX = (x1 + x2) / 2;
+    const midZ = (z1 + z2) / 2;
+    const midY = (yMin + yMax) / 2;
+    const angle = Math.atan2(dx, dz);
+
+    const geo = new THREE.BoxGeometry(0.24, h, len);
+    const uvAttr = geo.attributes.uv;
+    const posAttr = geo.attributes.position;
+    const normAttr = geo.attributes.normal;
+    const tileW = 4.2;
+    for (let vi = 0; vi < uvAttr.count; vi++) {
+      const wy = posAttr.getY(vi) + midY;
+      const v = clamp(wy / H_WING, 0, 1);
+      const u = Math.abs(normAttr.getX(vi)) > 0.5
+        ? (posAttr.getZ(vi) + len / 2) / tileW
+        : (posAttr.getX(vi) + 0.12) / tileW;
+      uvAttr.setXY(vi, u, v);
+    }
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(midX, midY, midZ);
+    mesh.rotation.y = angle;
+    mesh.receiveShadow = true;
+    mesh.castShadow = false;
+    targetGroup.add(mesh);
+
+    if (yMin < 1.0) {
+      addWallSegment(x1, z1, x2, z2);
+    }
+    return mesh;
+  }
+
+  /* --- 1. Grand Rotunda --- */
+  const rotFloor = new THREE.Mesh(new THREE.CylinderGeometry(R_ROT, R_ROT, 0.4, 48), Mat.floorRotunda);
+  rotFloor.position.y = -0.2; rotFloor.receiveShadow = true; root.add(rotFloor);
+
+  const rotCeil = new THREE.Mesh(new THREE.CylinderGeometry(R_ROT, R_ROT, 0.3, 48), Mat.ceilingRot);
+  rotCeil.position.y = H_ROT + 0.15; root.add(rotCeil);
+
+  // Rotunda walls: 16-sided polygon with openings into the 3 wings & entrance niche
+  const segments = 16, dTheta = TAU / segments;
+  for (let i = 0; i < segments; i++) {
+    const a0 = i * dTheta, a1 = (i + 1) * dTheta, mid = (a0 + a1) / 2;
+    // Wing openings: i=0 (East +X, Wing I), i=4 (North +Z, Wing II), i=8 (West -X, Wing III)
+    const isWingI = (i === 0 || i === segments - 1);
+    const isWingII = (i === 4 || i === 3);
+    const isWingIII = (i === 8 || i === 7);
+    if (isWingI || isWingII || isWingIII) {
+      // Clear doorway opening into wings (portal archway provided cleanly by buildWallPortal)
+      continue;
+    }
+    const chord = 2 * R_ROT * Math.sin(dTheta / 2);
+    const segGeo = new THREE.BoxGeometry(chord * 1.02, H_ROT, 0.4);
+    const segUv = segGeo.attributes.uv;
+    const segPos = segGeo.attributes.position;
+    for (let vi = 0; vi < segUv.count; vi++) {
+      const wy = segPos.getY(vi) + H_ROT / 2;
+      const v = clamp(wy / H_WING, 0, 1);
+      const u = (segPos.getX(vi) + chord * 0.51) / 4.2;
+      segUv.setXY(vi, u, v);
+    }
+    const wallSeg = new THREE.Mesh(segGeo, Mat.wallRotunda);
+    wallSeg.position.set(Math.cos(mid) * R_ROT, H_ROT / 2, Math.sin(mid) * R_ROT);
+    wallSeg.rotation.y = -mid + Math.PI / 2;
+    wallSeg.castShadow = true; wallSeg.receiveShadow = true; root.add(wallSeg);
+
+    // Subtle dim IES parabolic wall-wash cone on solid Rotunda perimeter bays
+    if (i % 2 === 1 && i !== 11 && i !== 12) {
+      const rotCone = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 4.2), IES_CONE_DIM_MAT);
+      const rIn = R_ROT - 0.21;
+      rotCone.position.set(Math.cos(mid) * rIn, 2.55, Math.sin(mid) * rIn);
+      rotCone.rotation.y = -mid - Math.PI / 2;
+      rotCone.renderOrder = 2;
+      root.add(rotCone);
+    }
+
+    // Continuous line-segment collider for each solid rotunda wall
+    const p1x = Math.cos(a0) * (R_ROT - 0.2), p1z = Math.sin(a0) * (R_ROT - 0.2);
+    const p2x = Math.cos(a1) * (R_ROT - 0.2), p2z = Math.sin(a1) * (R_ROT - 0.2);
+    addWallSegment(p1x, p1z, p2x, p2z);
+  }
+
+  // 8 peristyle fluted columns flanking portals and foyer
+  const R_COLS = 5.8;
+  const colAngles = [
+    Math.PI / 6, 2 * Math.PI / 6,
+    4 * Math.PI / 6, 5 * Math.PI / 6,
+    7 * Math.PI / 6, 8 * Math.PI / 6,
+    10 * Math.PI / 6, 11 * Math.PI / 6
+  ];
+  colAngles.forEach((a) => {
+    const col = buildFlutedColumn(H_ROT, 0.38);
+    const cx = Math.cos(a) * R_COLS, cz = Math.sin(a) * R_COLS;
+    col.position.set(cx, 0, cz); root.add(col);
+    addCylCollider(cx, cz, 0.55);
+  });
+
+  // Central sculpture pedestal + abstract classical sculpture
+  const ped = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.3, 1.1, 32), Mat.pedestal);
+  ped.position.set(0, 0.55, 0); ped.castShadow = true; ped.receiveShadow = true; root.add(ped);
+  addCylCollider(0, 0, 1.28);
+
+  const plinthTop = new THREE.Mesh(new THREE.CylinderGeometry(1.26, 1.26, 0.08, 32), Mat.goldLeaf);
+  plinthTop.position.set(0, 1.14, 0); root.add(plinthTop);
+
+  // Modernist alabaster / bronze torsion sculpture atop the pedestal
+  const sculpG = new THREE.Group();
+  sculpG.position.set(0, 1.18, 0);
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(0.7, 0.08, 16, 64), Mat.goldLeaf);
+  ring1.position.y = 1.0; ring1.rotation.set(0.6, 0.4, 0); ring1.castShadow = true;
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.07, 16, 64), Mat.alabaster);
+  ring2.position.y = 1.0; ring2.rotation.set(-0.5, 0.9, 0.3); ring2.castShadow = true;
+  const coreOrb = new THREE.Mesh(new THREE.SphereGeometry(0.32, 32, 32), Mat.flutedColumn);
+  coreOrb.position.y = 1.0; coreOrb.castShadow = true;
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.18, 0.7, 16), Mat.pedestal);
+  stem.position.y = 0.35; stem.castShadow = true;
+  sculpG.add(ring1, ring2, coreOrb, stem); root.add(sculpG);
+
+  // Welcome directory plaque on the south wall (-Z)
+  const dirTex = textTexture(1024, 512, (ctx, w, h) => {
+    ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 6; ctx.strokeRect(10, 10, w - 20, h - 20);
+    ctx.fillStyle = '#e6af2e'; ctx.font = `600 24px ${SANS}`;
+    spacedText(ctx, EUNOIA_CONFIG.site.overline.toUpperCase(), w / 2, 54, 4);
+    ctx.fillStyle = '#fbfffe'; ctx.font = `600 70px ${SERIF}`;
+    spacedText(ctx, EUNOIA_CONFIG.site.title, w / 2, 128, 12);
+    ctx.strokeStyle = 'rgba(230,175,46,0.55)'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(w * 0.18, 154); ctx.lineTo(w * 0.82, 154); ctx.stroke();
+    ctx.fillStyle = '#dbe4e2'; ctx.font = `italic 26px ${SERIF}`; ctx.textAlign = 'center';
+    ctx.fillText(EUNOIA_CONFIG.site.tagline, w / 2, 196);
+
+    ctx.font = `500 18px ${SANS}`;
+    ctx.fillStyle = '#e6af2e'; ctx.fillText('← Wing III · The Nocturne & Light Gallery (86 Works)', w / 2, 260);
+    ctx.fillStyle = '#fbfffe'; ctx.fillText('↑ Wing II · 3D Virtual Worlds: 5 Specialized Chambers (38 Works) → leads to Wing IV', w / 2, 305);
+    ctx.fillStyle = '#e6af2e'; ctx.fillText('Wing I · The Classical & Fine Arts Wing (29 Works) →', w / 2, 350);
+    ctx.fillStyle = '#ffc94d'; ctx.fillText('★ Wing IV · The Kinematic Pavilion (Animation, Storyboards & Applied Design · 52 Works)', w / 2, 395);
+
+    ctx.fillStyle = '#8b9c9a'; ctx.font = `400 16px ${SANS}`;
+    ctx.fillText('[WASD] Walk  ·  [LMB] Inspect Art & Watch Video  ·  [TAB] Full 205-Piece Exhibition Index', w / 2, 460);
+  });
+  const dirPlaque = new THREE.Mesh(
+    new THREE.PlaneGeometry(3.6, 1.8),
+    new THREE.MeshBasicMaterial({
+      map: dirTex,
+      color: SIGN_TINT,
+      lightMap: ART_SPOT_LIGHTMAP,
+      lightMapIntensity: ART_SPOT_INTENSITY
+    })
+  );
+  dirPlaque.position.set(0, 2.2, -R_ROT + 0.30);
+  root.add(dirPlaque);
+
+  // Drop-shadow & IES parabolic light cone on the South Rotunda Welcome Directory
+  const dirShadow = new THREE.Mesh(new THREE.PlaneGeometry(4.0, 2.2), DROP_SHADOW_MAT);
+  dirShadow.position.set(0.07, 2.11, -R_ROT + 0.285);
+  dirShadow.renderOrder = 1;
+  const dirCone = new THREE.Mesh(new THREE.PlaneGeometry(6.8, 4.4), IES_CONE_MAT);
+  dirCone.position.set(0, 2.55, -R_ROT + 0.28);
+  dirCone.renderOrder = 2;
+  root.add(dirShadow, dirCone);
+
+  // Curator's Concierge Stand (Pedestal table, Rotary Phone, 3D Dossier Card)
+  buildConciergeStand(root);
+
+  // Helper: Build Grand Doorway Archway between Galleries
+  function buildGalleryPortal({ x, z, rotY = 0, width = 6.0, label, sub, returnLabel = 'RETURN TO PROMENADE' }) {
+    const g = new THREE.Group();
+    g.position.set(x, 0, z);
+    g.rotation.y = rotY;
+
+    const lintelH = H_WING - 3.8;
+    const lintel = new THREE.Mesh(new THREE.BoxGeometry(width, lintelH, 0.4), Mat.archTrim);
+    lintel.position.set(0, 3.8 + lintelH / 2, 0);
+
+    const colL = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 3.8, 16), Mat.flutedColumn);
+    colL.position.set(-width / 2 + 0.24, 1.9, 0);
+    const colR = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 3.8, 16), Mat.flutedColumn);
+    colR.position.set(width / 2 - 0.24, 1.9, 0);
+
+    // Front Sign (Facing entrance approach, +Z in local coordinates)
+    const signTex = textTexture(1024, 256, (ctx, w, h) => {
+      ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 5; ctx.strokeRect(10, 10, w - 20, h - 20);
+      ctx.fillStyle = '#e6af2e'; ctx.font = `600 22px ${SANS}`;
+      spacedText(ctx, 'EUNOIA GALLERIES · DEDICATED SALON', w / 2, 54, 4);
+      ctx.fillStyle = '#fbfffe'; ctx.font = `600 38px ${SERIF}`;
+      spacedText(ctx, label, w / 2, 114, 5);
+      ctx.fillStyle = '#dbe4e2'; ctx.font = `italic 20px ${SERIF}`; ctx.textAlign = 'center';
+      ctx.fillText(sub, w / 2, 172);
+      ctx.fillStyle = '#e6af2e'; ctx.font = `500 15px ${SANS}`;
+      ctx.fillText('ENTER GALLERY →', w / 2, 218);
+    });
+    const signW = Math.min(width - 0.6, 4.2);
+    const signMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(signW, 0.8),
+      new THREE.MeshBasicMaterial({
+        map: signTex,
+        color: SIGN_TINT,
+        lightMap: ART_SPOT_LIGHTMAP,
+        lightMapIntensity: ART_SPOT_INTENSITY
+      })
+    );
+    signMesh.position.set(0, 4.0, 0.22);
+
+    const coneFront = new THREE.Mesh(new THREE.PlaneGeometry(Math.min(width - 0.2, 5.2), 2.8), IES_CONE_MAT);
+    coneFront.position.set(0, 3.85, 0.235);
+    coneFront.renderOrder = 2;
+
+    // Reverse Sign (Facing gallery interior, -Z in local coordinates)
+    const revTex = textTexture(512, 128, (ctx, w, h) => {
+      ctx.fillStyle = '#001514'; ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = '#e6af2e'; ctx.lineWidth = 3; ctx.strokeRect(6, 6, w - 12, h - 12);
+      ctx.fillStyle = '#e6af2e'; ctx.font = `600 16px ${SANS}`;
+      spacedText(ctx, 'GALLERY EXIT', w / 2, 38, 4);
+      ctx.fillStyle = '#fbfffe'; ctx.font = `italic 18px ${SERIF}`; ctx.textAlign = 'center';
+      ctx.fillText(`← ${returnLabel} →`, w / 2, 82);
+    });
+    const revMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(Math.min(width - 0.6, 3.2), 0.6),
+      new THREE.MeshBasicMaterial({
+        map: revTex,
+        color: SIGN_TINT,
+        lightMap: ART_SPOT_LIGHTMAP,
+        lightMapIntensity: ART_SPOT_INTENSITY
+      })
+    );
+    revMesh.position.set(0, 4.0, -0.22);
+    revMesh.rotation.y = Math.PI;
+
+    const coneRev = new THREE.Mesh(new THREE.PlaneGeometry(Math.min(width - 0.4, 4.2), 2.5), IES_CONE_DIM_MAT);
+    coneRev.position.set(0, 3.88, -0.235);
+    coneRev.rotation.y = Math.PI;
+    coneRev.renderOrder = 2;
+
+    // Overhead white track rail + spotlight cans aimed at the portal signs
+    const pRailY = H_WING - 0.14;
+    const pRailF = new THREE.Mesh(new THREE.BoxGeometry(Math.min(width * 0.55, 2.4), 0.042, 0.055), PORTAL_TRACK_MAT);
+    pRailF.position.set(0, pRailY, 1.15);
+    g.add(pRailF);
+    [-0.5, 0.5].forEach((hx) => {
+      const can = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.22, 12), PORTAL_TRACK_MAT);
+      can.rotation.x = Math.PI / 2 - 0.58;
+      can.rotation.y = Math.PI;
+      can.position.set(hx, pRailY - 0.12, 1.15);
+      const lens = new THREE.Mesh(new THREE.CircleGeometry(0.052, 12), PORTAL_LENS_MAT);
+      lens.rotation.x = -0.58;
+      lens.rotation.y = Math.PI;
+      lens.position.set(hx, pRailY - 0.12 - Math.sin(0.58) * 0.112, 1.15 - Math.cos(0.58) * 0.112);
+      g.add(can, lens);
+    });
+
+    g.add(lintel, colL, colR, signMesh, coneFront, revMesh, coneRev);
+    return g;
+  }
+
+  /* --- 2.1 Wing I: The Classical & Fine Arts Wing (29 Works) --- */
+  function buildWingI() {
+    const wing = wingI_group;
+    const ox = R_ROT - 0.2; // ox = 8.3
+
+    // Central Promenade Floor & Ceiling (x in [8.3, 44.3], z in [-5.0, 5.0])
+    const promLen = 36.0, promW = 10.0;
+    const floorP = new THREE.Mesh(new THREE.PlaneGeometry(promLen, promW), Mat.floorWingI);
+    floorP.rotation.x = -Math.PI / 2; floorP.position.set(ox + promLen / 2, 0, 0); floorP.receiveShadow = true;
+    const ceilP = new THREE.Mesh(new THREE.PlaneGeometry(promLen, promW), Mat.ceilingWingI);
+    ceilP.rotation.x = Math.PI / 2; ceilP.position.set(ox + promLen / 2, H_WING, 0);
+    const threshold = new THREE.Mesh(new RoundedBoxGeometry(0.72, 0.024, promW + 0.1, 3, 0.01), Mat.archTrim);
+    threshold.position.set(ox, 0.012, 0);
+    wing.add(floorP, ceilP, threshold);
+
+    // Entrance Portal from Rotunda
+    const portal = buildWallPortal('I', EUNOIA_CONFIG.wings.I.name, EUNOIA_CONFIG.wings.I.blurb, Mat.wallWingI);
+    portal.position.set(ox, 0, 0); portal.rotation.y = Math.PI / 2; wing.add(portal);
+
+    // Portal flanking returns & header
+    addSolidWall(ox, -5.0, ox, -1.85, Mat.wallWingI, wing); addWallSegment(ox, -1.85, ox, -1.50);
+    addSolidWall(ox, 1.85, ox, 5.0, Mat.wallWingI, wing); addWallSegment(ox, 1.50, ox, 1.85);
+
+    // Promenade Continuous Side Walls
+    addSolidWall(ox, 5.0, ox + promLen, 5.0, Mat.wallWingI, wing);
+    addSolidWall(ox, -5.0, ox + promLen, -5.0, Mat.wallWingI, wing);
+
+    // Viewing benches along Promenade
+    const benchP1 = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchP1.position.set(20.0, 0, 0); wing.add(benchP1); addRotatedBoxCollider(20.0, 0, 1.75, 0.55, 0);
+    const benchP2 = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchP2.position.set(34.0, 0, 0); wing.add(benchP2); addRotatedBoxCollider(34.0, 0, 1.75, 0.55, 0);
+
+    // Vestibule Floor & Ceiling (x in [44.3, 58.0], z in [-5.0, 5.0])
+    const vestLen = 13.7;
+    const floorV = new THREE.Mesh(new THREE.PlaneGeometry(vestLen, promW), Mat.floorWingI);
+    floorV.rotation.x = -Math.PI / 2; floorV.position.set(44.3 + vestLen / 2, 0, 0); floorV.receiveShadow = true;
+    const ceilV = new THREE.Mesh(new THREE.PlaneGeometry(vestLen, promW), Mat.ceilingWingI);
+    ceilV.rotation.x = Math.PI / 2; ceilV.position.set(44.3 + vestLen / 2, H_WING, 0);
+    wing.add(floorV, ceilV);
+
+    // East End Wall at x = 58.0
+    addSolidWall(58.0, -5.0, 58.0, 5.0, Mat.wallWingI, wing);
+
+    // Console table & urn
+    const consoleTable = new THREE.Mesh(new RoundedBoxGeometry(2.4, 0.9, 0.6, 3, 0.03), Mat.darkWood);
+    consoleTable.position.set(57.5, 0.45, 0); consoleTable.rotation.y = -Math.PI / 2; consoleTable.castShadow = true;
+    const urn = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.18, 0.7, 16), Mat.goldLeaf);
+    urn.position.set(57.5, 1.25, 0); urn.castShadow = true;
+    wing.add(consoleTable, urn);
+    addRotatedBoxCollider(57.5, 0, 1.35, 0.45, Math.PI / 2);
+
+    // North Portal to Traditional Salon
+    const portTrad = buildGalleryPortal({ x: 51.0, z: 5.0, rotY: Math.PI, width: 6.0, label: 'TRADITIONAL FINE ART SALON', sub: 'Life Studies · Academic Plates · Anatomical Mastery', returnLabel: 'RETURN TO PROMENADE' });
+    wing.add(portTrad);
+    addSolidWall(44.3, 5.0, 48.0, 5.0, Mat.wallWingI, wing);
+    addSolidWall(54.0, 5.0, 60.0, 5.0, Mat.wallWingI, wing);
+
+    // South Portal to Character Studio
+    const portChar = buildGalleryPortal({ x: 51.0, z: -5.0, rotY: 0, width: 6.0, label: '2D CHARACTER ANATOMY STUDIO', sub: 'Figure Proportions · Model Sheets & Design Plates', returnLabel: 'RETURN TO PROMENADE' });
+    wing.add(portChar);
+    addSolidWall(44.3, -5.0, 48.0, -5.0, Mat.wallWingI, wing);
+    addSolidWall(54.0, -5.0, 60.0, -5.0, Mat.wallWingI, wing);
+
+    // North Salon Floor, Ceiling & Walls (x in [44.0, 60.0], z in [5.0, 22.0])
+    const salLen = 16.0, salD = 17.0;
+    const floorSal = new THREE.Mesh(new THREE.PlaneGeometry(salLen, salD), Mat.floorWingI);
+    floorSal.rotation.x = -Math.PI / 2; floorSal.position.set(52.0, 0, 13.5); floorSal.receiveShadow = true;
+    const ceilSal = new THREE.Mesh(new THREE.PlaneGeometry(salLen, salD), Mat.ceilingWingI);
+    ceilSal.rotation.x = Math.PI / 2; ceilSal.position.set(52.0, H_WING, 13.5);
+    wing.add(floorSal, ceilSal);
+
+    addSolidWall(44.0, 5.0, 44.0, 22.0, Mat.wallWingI, wing);  // West wall
+    addSolidWall(44.0, 22.0, 60.0, 22.0, Mat.wallWingI, wing); // North wall
+    addSolidWall(60.0, 5.0, 60.0, 22.0, Mat.wallWingI, wing);  // East wall
+
+    const benchSal = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchSal.position.set(52.0, 0, 13.5); wing.add(benchSal); addRotatedBoxCollider(52.0, 13.5, 1.75, 0.55, 0);
+
+    // South Studio Floor, Ceiling & Walls (x in [44.0, 60.0], z in [-22.0, -5.0])
+    const floorChar = new THREE.Mesh(new THREE.PlaneGeometry(salLen, salD), Mat.floorWingI);
+    floorChar.rotation.x = -Math.PI / 2; floorChar.position.set(52.0, 0, -13.5); floorChar.receiveShadow = true;
+    const ceilChar = new THREE.Mesh(new THREE.PlaneGeometry(salLen, salD), Mat.ceilingWingI);
+    ceilChar.rotation.x = Math.PI / 2; ceilChar.position.set(52.0, H_WING, -13.5);
+    wing.add(floorChar, ceilChar);
+
+    addSolidWall(44.0, -22.0, 44.0, -5.0, Mat.wallWingI, wing);  // West wall
+    addSolidWall(44.0, -22.0, 60.0, -22.0, Mat.wallWingI, wing); // South wall
+    addSolidWall(60.0, -22.0, 60.0, -5.0, Mat.wallWingI, wing);  // East wall
+
+    const benchChar = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchChar.position.set(52.0, 0, -13.5); wing.add(benchChar); addRotatedBoxCollider(52.0, -13.5, 1.75, 0.55, 0);
+  }
+
+  /* --- 2.2 Wing II: The 3D Virtual Worlds Pavilion (38 Works) --- */
+  function buildWingII() {
+    const wing = wingII_group;
+    const oz = R_ROT - 0.2; // oz = 8.3
+    const length = 43.7; // Spans z = 8.3 to 52.0
+    const hw = 4.0;
+
+    const floorStart = 0.35;
+    const floorLen = length - floorStart;
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(hw * 2, floorLen), Mat.floorWingII);
+    floor.rotation.x = -Math.PI / 2; floor.position.set(0, 0, oz + floorStart + floorLen / 2); floor.receiveShadow = true;
+    const ceil = new THREE.Mesh(new THREE.PlaneGeometry(hw * 2, floorLen), Mat.ceilingWingII);
+    ceil.rotation.x = Math.PI / 2; ceil.position.set(0, H_WING, oz + floorStart + floorLen / 2);
+    const threshold = new THREE.Mesh(new RoundedBoxGeometry(hw * 2 + 0.1, 0.024, 0.72, 3, 0.01), Mat.archTrim);
+    threshold.position.set(0, 0.012, oz);
+    wing.add(floor, ceil, threshold);
+
+    // Entrance portal arch from Rotunda into Wing II
+    const portal = buildWallPortal('II', EUNOIA_CONFIG.wings.II.name, EUNOIA_CONFIG.wings.II.blurb, Mat.wallWingII);
+    portal.position.set(0, 0, oz); wing.add(portal);
+
+    addSolidWall(-hw, oz, -1.85, oz, Mat.wallWingII, wing); addWallSegment(-1.85, oz, -1.50, oz);
+    addSolidWall(1.85, oz, hw, oz, Mat.wallWingII, wing); addWallSegment(1.50, oz, 1.85, oz);
+
+    // Promenade West Walls (x = -4.0)
+    addSolidWall(-hw, 8.3, -hw, 14.5, Mat.wallWingII, wing);
+    addSolidWall(-hw, 20.5, -hw, 38.0, Mat.wallWingII, wing);
+    addSolidWall(-hw, 44.0, -hw, 52.0, Mat.wallWingII, wing);
+
+    // Promenade East Walls (x = 4.0)
+    addSolidWall(hw, 8.3, hw, 14.5, Mat.wallWingII, wing);
+    addSolidWall(hw, 20.5, hw, 38.0, Mat.wallWingII, wing);
+    addSolidWall(hw, 44.0, hw, 52.0, Mat.wallWingII, wing);
+
+    // Chamber Doorway Portals
+    const portalA = buildGalleryPortal({ x: -hw, z: 17.5, rotY: Math.PI / 2, width: 6.0, label: '3D ENVIRONMENT GALLERY', sub: 'Exterior Worlds · Architecture · PBR Illumination' });
+    const portalB = buildGalleryPortal({ x: hw, z: 17.5, rotY: -Math.PI / 2, width: 6.0, label: '3D INTERIOR ARCHITECTURE', sub: 'Spatial Layouts · Materiality & Raytracing' });
+    const portalC = buildGalleryPortal({ x: -hw, z: 41.0, rotY: Math.PI / 2, width: 6.0, label: '3D VFX THEATRE', sub: 'Dynamic Simulations · Fluids & Particles' });
+    const portalD = buildGalleryPortal({ x: hw, z: 41.0, rotY: -Math.PI / 2, width: 6.0, label: '3D STILL LIFE & PROP RENDER', sub: 'Studio Lighting · Microfacet Shading' });
+    wing.add(portalA, portalB, portalC, portalD);
+
+    // North Portal to Wing IV at z = 52.0
+    const portToIV = buildGalleryPortal({ x: 0, z: 52.0, rotY: Math.PI, width: 4.0, label: 'WING IV · THE KINEMATIC PAVILION', sub: 'Animation, Storyboards & Applied Graphic Design', returnLabel: 'RETURN TO WING II PROMENADE' });
+    wing.add(portToIV);
+    addWallSegment(-hw, 52.0, -2.0, 52.0); // visual wall provided by Wing IV south wall
+    addWallSegment(2.0, 52.0, hw, 52.0);
+
+    // Helper: Build Room
+    function buildRoom({ xMin, xMax, zMin, zMax, openSide, benchMat, floorMat = Mat.floorWingII, wallMat = Mat.wallWingII }) {
+      const rw = xMax - xMin, rd = zMax - zMin;
+      const cx = (xMin + xMax) / 2, cz = (zMin + zMax) / 2;
+
+      const f = new THREE.Mesh(new THREE.PlaneGeometry(rw, rd), floorMat);
+      f.rotation.x = -Math.PI / 2; f.position.set(cx, 0, cz); f.receiveShadow = true;
+      const c = new THREE.Mesh(new THREE.PlaneGeometry(rw, rd), Mat.ceilingWingII);
+      c.rotation.x = Math.PI / 2; c.position.set(cx, H_WING, cz);
+      wing.add(f, c);
+
+      addSolidWall(xMin, zMax, xMax, zMax, wallMat, wing); // North wall
+      addSolidWall(xMin, zMin, xMax, zMin, wallMat, wing); // South wall
+
+      if (openSide === 'east') {
+        addSolidWall(xMin, zMin, xMin, zMax, wallMat, wing); // West outer wall
+      } else {
+        addSolidWall(xMax, zMin, xMax, zMax, wallMat, wing); // East outer wall
+      }
+
+      const bench = buildMuseumBench(Mat.darkWood, benchMat || Mat.blackVelvet);
+      bench.position.set(cx, 0, cz); wing.add(bench);
+      addRotatedBoxCollider(cx, cz, 1.75, 0.55, 0);
+    }
+
+    buildRoom({ xMin: -22.0, xMax: -4.0, zMin: 9.5, zMax: 25.5, openSide: 'east', benchMat: Mat.darkWood });
+    buildRoom({ xMin: 4.0, xMax: 22.0, zMin: 9.5, zMax: 25.5, openSide: 'west', benchMat: Mat.crimsonVelvet });
+    buildRoom({ xMin: -22.0, xMax: -4.0, zMin: 33.0, zMax: 49.0, openSide: 'east', benchMat: Mat.blackVelvet });
+    buildRoom({ xMin: 4.0, xMax: 22.0, zMin: 33.0, zMax: 49.0, openSide: 'west', benchMat: Mat.darkWood });
+  }
+
+  /* --- 2.3 Wing III: The Nocturne & Observational Photography Gallery (86 Works) --- */
+  function buildWingIII() {
+    const wing = wingIII_group;
+    const ox = -(R_ROT - 0.2); // ox = -8.3
+    const blvdLen = 59.7, blvdW = 10.0;
+
+    const floorB = new THREE.Mesh(new THREE.PlaneGeometry(blvdLen, blvdW), Mat.floorWingIII);
+    floorB.rotation.x = -Math.PI / 2; floorB.position.set(-8.3 - blvdLen / 2, 0, 0); floorB.receiveShadow = true;
+    const ceilB = new THREE.Mesh(new THREE.PlaneGeometry(blvdLen, blvdW), Mat.ceilingWingIII);
+    ceilB.rotation.x = Math.PI / 2; ceilB.position.set(-8.3 - blvdLen / 2, H_WING, 0);
+    const threshold = new THREE.Mesh(new RoundedBoxGeometry(0.72, 0.024, blvdW + 0.1, 3, 0.01), Mat.archTrim);
+    threshold.position.set(ox, 0.012, 0);
+    wing.add(floorB, ceilB, threshold);
+
+    // Entrance Portal from Rotunda
+    const portal = buildWallPortal('III', EUNOIA_CONFIG.wings.III.name, EUNOIA_CONFIG.wings.III.blurb, Mat.wallWingIII);
+    portal.position.set(ox, 0, 0); portal.rotation.y = -Math.PI / 2; wing.add(portal);
+
+    // Portal flanking return walls
+    addSolidWall(ox, -5.0, ox, -1.85, Mat.wallWingIII, wing); addWallSegment(ox, -1.85, ox, -1.50);
+    addSolidWall(ox, 1.85, ox, 5.0, Mat.wallWingIII, wing); addWallSegment(ox, 1.50, ox, 1.85);
+
+    // West End Wall at x = -68.0
+    addSolidWall(-68.0, -5.0, -68.0, 5.0, Mat.wallWingIII, wing);
+
+    // Pedestal & Golden Lunar Sphere
+    const noctPed = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.45, 1.0, 24), Mat.pedestal);
+    noctPed.position.set(-66.8, 0.5, 0);
+    const orb = new THREE.Mesh(new THREE.SphereGeometry(0.28, 24, 24), Mat.goldLeaf);
+    orb.position.set(-66.8, 1.28, 0);
+    wing.add(noctPed, orb);
+    addCylCollider(-66.8, 0, 0.6);
+
+    // North & South Portals
+    const portLunar = buildGalleryPortal({ x: -35.0, z: 5.0, rotY: Math.PI, width: 6.0, label: 'LUNAR ASTROPHOTOGRAPHY OBSERVATORY', sub: 'Selenography · Deep Celestial Horizons · Moonlit Tonalities' });
+    const portWild = buildGalleryPortal({ x: -35.0, z: -5.0, rotY: 0, width: 6.0, label: 'WILDLIFE & ANIMAL SANCTUARY', sub: 'Fauna Portraiture · Kinetic Instinct · Living Light' });
+    const portPort = buildGalleryPortal({ x: -55.0, z: 5.0, rotY: Math.PI, width: 6.0, label: 'EDITORIAL & MODEL PORTRAITURE SALON', sub: 'Dramatic Key Lighting · Human Expressiveness' });
+    const portStill = buildGalleryPortal({ x: -55.0, z: -5.0, rotY: 0, width: 6.0, label: 'STILL LIFE & OBSERVATIONAL OBJECTS', sub: 'Form, Shadow & Everyday Materiality' });
+    wing.add(portLunar, portWild, portPort, portStill);
+
+    // Boulevard North Walls (z = 5.0) - Street Photography hangs here!
+    addSolidWall(-8.3, 5.0, -32.0, 5.0, Mat.wallWingIII, wing);
+    addSolidWall(-38.0, 5.0, -52.0, 5.0, Mat.wallWingIII, wing);
+    addSolidWall(-58.0, 5.0, -68.0, 5.0, Mat.wallWingIII, wing);
+
+    // Boulevard South Walls (z = -5.0) - Street Photography hangs here!
+    addSolidWall(-8.3, -5.0, -32.0, -5.0, Mat.wallWingIII, wing);
+    addSolidWall(-38.0, -5.0, -52.0, -5.0, Mat.wallWingIII, wing);
+    addSolidWall(-58.0, -5.0, -68.0, -5.0, Mat.wallWingIII, wing);
+
+    const bB1 = buildMuseumBench(Mat.pedestal, Mat.blackVelvet);
+    bB1.position.set(-20.0, 0, 0); wing.add(bB1); addRotatedBoxCollider(-20.0, 0, 1.75, 0.55, 0);
+    const bB2 = buildMuseumBench(Mat.pedestal, Mat.blackVelvet);
+    bB2.position.set(-45.0, 0, 0); wing.add(bB2); addRotatedBoxCollider(-45.0, 0, 1.75, 0.55, 0);
+
+    function buildPhotoChamber({ xMin, xMax, zMin, zMax, openZ }) {
+      const cw = xMax - xMin, cd = zMax - zMin;
+      const cx = (xMin + xMax) / 2, cz = (zMin + zMax) / 2;
+
+      const f = new THREE.Mesh(new THREE.PlaneGeometry(cw, cd), Mat.floorWingIII);
+      f.rotation.x = -Math.PI / 2; f.position.set(cx, 0, cz); f.receiveShadow = true;
+      const c = new THREE.Mesh(new THREE.PlaneGeometry(cw, cd), Mat.ceilingWingIII);
+      c.rotation.x = Math.PI / 2; c.position.set(cx, H_WING, cz);
+      wing.add(f, c);
+
+      addSolidWall(xMax, zMin, xMax, zMax, Mat.wallWingIII, wing);
+      addSolidWall(xMin, zMin, xMin, zMax, Mat.wallWingIII, wing);
+
+      if (openZ < 0) {
+        addSolidWall(xMin, zMin, xMax, zMin, Mat.wallWingIII, wing);
+      } else {
+        addSolidWall(xMin, zMax, xMax, zMax, Mat.wallWingIII, wing);
+      }
+
+      const bench = buildMuseumBench(Mat.pedestal, Mat.blackVelvet);
+      bench.position.set(cx, 0, cz); wing.add(bench);
+      addRotatedBoxCollider(cx, cz, 1.75, 0.55, 0);
+    }
+
+    buildPhotoChamber({ xMin: -46.0, xMax: -28.0, zMin: 5.0, zMax: 23.0, openZ: 5.0 });
+    buildPhotoChamber({ xMin: -46.0, xMax: -28.0, zMin: -23.0, zMax: -5.0, openZ: -5.0 });
+    buildPhotoChamber({ xMin: -66.0, xMax: -48.0, zMin: 5.0, zMax: 23.0, openZ: 5.0 });
+    buildPhotoChamber({ xMin: -66.0, xMax: -48.0, zMin: -23.0, zMax: -5.0, openZ: -5.0 });
+  }
+
+  /* --- 2.4 Wing IV: The Kinematic & Applied Design Pavilion (52 Works) --- */
+  function buildWingIV() {
+    const wing = wingIV_group;
+
+    // A. Central Cinema Atrium (x in [-8.0, 8.0], z in [52.0, 68.0], 16m x 16m)
+    const floorC = new THREE.Mesh(new THREE.PlaneGeometry(16.0, 16.0), Mat.floorWingI);
+    floorC.rotation.x = -Math.PI / 2; floorC.position.set(0, 0, 60.0); floorC.receiveShadow = true;
+    const ceilC = new THREE.Mesh(new THREE.PlaneGeometry(16.0, 16.0), Mat.ceilingWingI);
+    ceilC.rotation.x = Math.PI / 2; ceilC.position.set(0, H_WING, 60.0);
+    wing.add(floorC, ceilC);
+
+    // (Two-sided portal sign provided cleanly by portToIV at z = 52.0)
+
+    // Portals
+    const portGraphic = buildGalleryPortal({ x: 8.0, z: 60.0, rotY: -Math.PI / 2, width: 4.0, label: 'APPLIED GRAPHIC DESIGN & BRAND IDENTITY', sub: 'Poster Typography · Brand Monograms · Atelier Jacquard Lanyards' });
+    const portProd = buildGalleryPortal({ x: -8.0, z: 60.0, rotY: Math.PI / 2, width: 4.0, label: 'PRODUCTION DESIGN & ART DIRECTION', sub: 'Set Photography · Cinematic Scenography & Atmosphere' });
+    const portStory = buildGalleryPortal({ x: 0, z: 68.0, rotY: Math.PI, width: 6.0, label: 'MASTER STORYBOARD & PRE-VISUALIZATION', sub: 'The Wind Rises Adaptation · Dynamic Continuity & Cinematography', returnLabel: 'RETURN TO CINEMA ATRIUM' });
+    wing.add(portGraphic, portProd, portStory);
+
+    // 1. South Wall of Wing IV (z = 52.0)
+    addSolidWall(-28.0, 52.0, -8.0, 52.0, Mat.wallWingII, wing); // West Chamber south
+    addSolidWall(-8.0, 52.0, -2.0, 52.0, Mat.wallWingII, wing);  // Cinema left return
+    addSolidWall(2.0, 52.0, 8.0, 52.0, Mat.wallWingII, wing);   // Cinema right return
+    addSolidWall(8.0, 52.0, 28.0, 52.0, Mat.wallWingII, wing);  // East Chamber south
+
+    // 2. West Dividing Wall between Cinema and Production Design (x = -8.0)
+    addSolidWall(-8.0, 52.0, -8.0, 58.0, Mat.wallWingII, wing); // Spot 3 hangs here!
+    addSolidWall(-8.0, 62.0, -8.0, 68.0, Mat.wallWingII, wing); // Spot 4 hangs here!
+
+    // 3. East Dividing Wall between Cinema and Applied Graphic (x = 8.0)
+    addSolidWall(8.0, 52.0, 8.0, 58.0, Mat.wallWingII, wing);  // Spot 5 hangs here!
+    addSolidWall(8.0, 62.0, 8.0, 68.0, Mat.wallWingII, wing);  // Spot 6 hangs here!
+
+    // 4. North Dividing Wall at z = 68.0 (between South Chambers and Grand Storyboard Hall)
+    addSolidWall(-28.0, 68.0, -8.0, 68.0, Mat.wallWingII, wing); // West Chamber north
+    addSolidWall(-8.0, 68.0, -3.0, 68.0, Mat.wallWingII, wing);  // Cinema left return (Spot 1 hangs here!)
+    addSolidWall(3.0, 68.0, 8.0, 68.0, Mat.wallWingII, wing);   // Cinema right return (Spot 2 hangs here!)
+    addSolidWall(8.0, 68.0, 28.0, 68.0, Mat.wallWingII, wing);  // East Chamber north
+
+    // 5. Outer Perimeter Walls
+    addSolidWall(-28.0, 52.0, -28.0, 68.0, Mat.wallWingII, wing); // West Chamber outer
+    addSolidWall(28.0, 52.0, 28.0, 68.0, Mat.wallWingII, wing);  // East Chamber outer
+    addSolidWall(-28.0, 68.0, -28.0, 92.0, Mat.wallWingII, wing); // Storyboard Hall west outer
+    addSolidWall(28.0, 68.0, 28.0, 92.0, Mat.wallWingII, wing);  // Storyboard Hall east outer
+    addSolidWall(-28.0, 92.0, 28.0, 92.0, Mat.wallWingII, wing); // Grand north wall
+
+    const cinemaBench = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    cinemaBench.position.set(0, 0, 60.0); wing.add(cinemaBench);
+    addRotatedBoxCollider(0, 60.0, 1.75, 0.55, 0);
+
+    // B. East Chamber Floor & Ceiling
+    const floorG = new THREE.Mesh(new THREE.PlaneGeometry(20.0, 16.0), Mat.floorWingI);
+    floorG.rotation.x = -Math.PI / 2; floorG.position.set(18.0, 0, 60.0); floorG.receiveShadow = true;
+    const ceilG = new THREE.Mesh(new THREE.PlaneGeometry(20.0, 16.0), Mat.ceilingWingI);
+    ceilG.rotation.x = Math.PI / 2; ceilG.position.set(18.0, H_WING, 60.0);
+    wing.add(floorG, ceilG);
+    const benchG = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchG.position.set(18.0, 0, 60.0); wing.add(benchG);
+    addRotatedBoxCollider(18.0, 60.0, 1.75, 0.55, 0);
+
+    // C. West Chamber Floor & Ceiling
+    const floorP = new THREE.Mesh(new THREE.PlaneGeometry(20.0, 16.0), Mat.floorWingI);
+    floorP.rotation.x = -Math.PI / 2; floorP.position.set(-18.0, 0, 60.0); floorP.receiveShadow = true;
+    const ceilP = new THREE.Mesh(new THREE.PlaneGeometry(20.0, 16.0), Mat.ceilingWingI);
+    ceilP.rotation.x = Math.PI / 2; ceilP.position.set(-18.0, H_WING, 60.0);
+    wing.add(floorP, ceilP);
+    const benchP = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchP.position.set(-18.0, 0, 60.0); wing.add(benchP);
+    addRotatedBoxCollider(-18.0, 60.0, 1.75, 0.55, 0);
+
+    // D. North Grand Hall: Master Storyboard Floor & Ceiling
+    const floorS = new THREE.Mesh(new THREE.PlaneGeometry(56.0, 24.0), Mat.floorWingI);
+    floorS.rotation.x = -Math.PI / 2; floorS.position.set(0, 0, 80.0); floorS.receiveShadow = true;
+    const ceilS = new THREE.Mesh(new THREE.PlaneGeometry(56.0, 24.0), Mat.ceilingWingI);
+    ceilS.rotation.x = Math.PI / 2; ceilS.position.set(0, H_WING, 80.0);
+    wing.add(floorS, ceilS);
+    const benchS1 = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchS1.position.set(0, 0, 80.0); wing.add(benchS1); addRotatedBoxCollider(0, 80.0, 1.75, 0.55, 0);
+    const benchS2 = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchS2.position.set(-14.0, 0, 80.0); wing.add(benchS2); addRotatedBoxCollider(-14.0, 80.0, 1.75, 0.55, 0);
+    const benchS3 = buildMuseumBench(Mat.darkWood, Mat.crimsonVelvet);
+    benchS3.position.set(14.0, 0, 80.0); wing.add(benchS3); addRotatedBoxCollider(14.0, 80.0, 1.75, 0.55, 0);
+  }
+
+  buildWingI();
+  buildWingII();
+  buildWingIII();
+  buildWingIV();
+
+  rotunda_group.add(root);
+  scene.add(rotunda_group, wingI_group, wingII_group, wingIII_group, wingIV_group);
+}
+
+/* --------------------------------------------------------------------------
+   4.10  FRAMES, EXHIBIT HANGING & INTERACTIVE OBJECTS
+   -------------------------------------------------------------------------- */
+const exhibitMeshes = [];      // For raycasting
+const interactivePropMeshes = []; // For raycasting interactive props (telephone, dossier card)
+const exhibitDataMap = new Map(); // Mesh UUID -> Exhibit Data & Teleport target
+
+// ============================================================================
+// PERFORMANCE OPTIMIZATION: GEOMETRY CACHE & STREAMING VIDEO TEXTURES
+// ============================================================================
+const FrameGeoCache = {
+  backLandscape: new RoundedBoxGeometry(2.6 + 0.32, 1.95 + 0.32, 0.12, 2, 0.02),
+  backPortrait:  new RoundedBoxGeometry(1.95 + 0.32, 2.6 + 0.32, 0.12, 2, 0.02),
+  linerLandscape: new RoundedBoxGeometry(2.6 + 0.08, 1.95 + 0.08, 0.13, 2, 0.01),
+  linerPortrait:  new RoundedBoxGeometry(1.95 + 0.08, 2.6 + 0.08, 0.13, 2, 0.01),
+  canvasLandscape: new THREE.PlaneGeometry(2.6, 1.95),
+  canvasPortrait:  new THREE.PlaneGeometry(1.95, 2.6),
+  plaque: new THREE.PlaneGeometry(0.7, 0.28),
+  iesConeTex: IES_CONE_TEX,
+  iesConeLandscape: new THREE.PlaneGeometry(2.6 * 2.95, 1.95 * 2.55),
+  iesConePortrait:  new THREE.PlaneGeometry(1.95 * 2.95, 2.6 * 2.55),
+  shadowLandscape: new THREE.PlaneGeometry(2.6 + 0.44, 1.95 + 0.44),
+  shadowPortrait:  new THREE.PlaneGeometry(1.95 + 0.44, 2.6 + 0.44)
+};
+
+/* Gallery Hanging Wires: sleek vertical wires extending from frame top up towards ceiling track */
+function buildHangingWires(artW, artH) {
+  const parts = [];
+  const wireH = Math.max(0.4, H_WING - 2.15 - artH / 2);
+  const wireGeo = new THREE.CylinderGeometry(0.0025, 0.0025, wireH, 4);
+  const wireY = artH / 2 + wireH / 2;
+  const sx = artW * 0.42;
+  [-sx, sx].forEach((x) => {
+    const w = wireGeo.clone();
+    w.translate(x, wireY, 0.008);
+    parts.push(w);
+  });
+  const flatParts = parts.map((p) => (p.index ? p.toNonIndexed() : p));
+  const merged = mergeGeometries(flatParts, false);
+  parts.forEach((p) => p.dispose()); flatParts.forEach((p) => p.dispose());
+  return merged;
+}
+FrameGeoCache.wiresLandscape = buildHangingWires(2.6, 1.95);
+FrameGeoCache.wiresPortrait = buildHangingWires(1.95, 2.6);
+const WIRE_MAT = new THREE.MeshBasicMaterial({ color: 0x8a8680 });
+
+/* Two shared procedural fallbacks for ALL frames (instead of 180 painterly canvases). */
+function makeSharedFallback(orientation, w, h, seed) {
+  const src = paintArtwork('gallery', orientation, seed);
+  const [c, ctx] = makeCanvas(w, h);
+  ctx.drawImage(src, 0, 0, w, h);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.generateMipmaps = false;
+  t.minFilter = THREE.LinearFilter;
+  t.magFilter = THREE.LinearFilter;
+  return t;
+}
+const SHARED_FALLBACK_LANDSCAPE = makeSharedFallback('landscape', 512, 384, 1337);
+const SHARED_FALLBACK_PORTRAIT = makeSharedFallback('portrait', 384, 512, 7331);
+// Reduced base canvas brightness (0.52) so paintings look physically illuminated rather than glowing like monitors
+const ART_TINT = new THREE.Color(0.66, 0.64, 0.60);
+
+const activeHogwartsVideos = [];
+window.activeHogwartsVideos = activeHogwartsVideos;
+let lastVideoCheckTime = 0;
+
+/* Kept for API compatibility: just requests an immediate proximity re-check.
+   It is NO LONGER bound to keydown / click / pointerdown / touchstart. */
+function wakeAllHogwartsVideos() { lastVideoCheckTime = 0; }
+
+function activateHogwartsVideo(hv) {
+  const v = hv.video;
+  if (!hv.videoTex) {
+    hv.videoTex = new THREE.VideoTexture(v);
+    hv.videoTex.colorSpace = THREE.SRGBColorSpace;
+    hv.videoTex.minFilter = THREE.LinearFilter;
+    hv.videoTex.magFilter = THREE.LinearFilter;
+    hv.videoTex.generateMipmaps = false;
+  }
+  if (!hv.srcSet) {
+    hv.srcSet = true;
+    v.preload = 'auto';
+    v.addEventListener('loadeddata', () => {
+      hv.artMat.map = hv.videoTex;
+      hv.artMat.needsUpdate = true;
+    }, { once: true });
+    v.src = hv.srcPath;
+  }
+  if (v.paused) {
+    v.muted = true; v.volume = 0;
+    v.play().catch(() => {});
+  }
+}
+
+function releaseHogwartsVideo(hv) {
+  if (!hv.srcSet) return;
+  const v = hv.video;
+  v.pause();
+  v.removeAttribute('src');
+  v.load();
+  hv.srcSet = false;
+  hv.artMat.map = hv.fallbackTex;
+  hv.artMat.needsUpdate = true;
+}
+
+function updateHogwartsVideos() {
+  const cp = camera.position;
+  const near = [];
+  for (let i = 0; i < activeHogwartsVideos.length; i++) {
+    const hv = activeHogwartsVideos[i];
+    hv.dSq = hv.group.position.distanceToSquared(cp);
+    if (hv.dSq < 144.0) near.push(hv); // within 12 m
+  }
+  near.sort((a, b) => a.dSq - b.dSq);
+  const play = new Set(near.slice(0, 2));
+  let playing = play.size;
+  for (let i = 0; i < activeHogwartsVideos.length; i++) {
+    const hv = activeHogwartsVideos[i];
+    if (play.has(hv)) { activateHogwartsVideo(hv); continue; }
+    if (hv.srcSet && !hv.video.paused) {
+      // hysteresis band 12-16 m: keep playing only if we are under the 2-video cap
+      if (hv.dSq > 256.0 || playing >= 2) hv.video.pause();
+      else playing++;
+    }
+    if (hv.srcSet && hv.dSq > 900.0) releaseHogwartsVideo(hv); // >30 m: free buffers
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Texture streaming: fetch -> createImageBitmap (max 1024px) -> 1 GPU upload / frame
+   Full-res imagePath is kept ONLY for the 2D #plqImg inspection modal.
+   --------------------------------------------------------------------------- */
+const TEX_MAX_DIM = 1024;
+const TextureLoadQueue = {
+  queue: [],
+  uploads: [],
+  activeCount: 0,
+  maxConcurrent: 2,
+  paused: true,
+  enqueue(item) {
+    this.queue.push(item);
+    if (!this.paused) this.process();
+  },
+  resume() { this.paused = false; this.process(); },
+  pickNext() {
+    let best = 0, bestScore = Infinity;
+    const cp = camera.position;
+    for (let i = 0; i < this.queue.length; i++) {
+      const it = this.queue[i];
+      const score = (it.wing === currentWingKey ? 0 : 1e6) + it.group.position.distanceToSquared(cp);
+      if (score < bestScore) { bestScore = score; best = i; }
+    }
+    return best;
+  },
+  process() {
+    while (this.activeCount < this.maxConcurrent && this.queue.length > 0) {
+      const item = this.queue.splice(this.pickNext(), 1)[0];
+      this.activeCount++;
+      this.decode(item.url).then(
+        (bmp) => { this.uploads.push({ item, bmp }); },
+        () => { loadTracker.done++; updateLoadStatus(); }
+      ).finally(() => {
+        this.activeCount--;
+        // 16 ms yield between decodes so the main thread is never saturated
+        setTimeout(() => this.process(), 16);
+      });
+    }
+  },
+  async downscale(source, w, h) {
+    const s = Math.min(1, TEX_MAX_DIM / Math.max(w, h));
+    return createImageBitmap(source, {
+      resizeWidth: Math.max(1, Math.round(w * s)),
+      resizeHeight: Math.max(1, Math.round(h * s)),
+      resizeQuality: 'medium',
+      imageOrientation: 'flipY'
+    });
+  },
+  async decode(url) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const blob = await res.blob();
+      const full = await createImageBitmap(blob);
+      const small = await this.downscale(full, full.width, full.height);
+      full.close();
+      return small;
+    } catch (e) {
+      // Fallback (e.g. file:// where fetch is blocked): <img> -> bitmap
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => this.downscale(img, img.naturalWidth, img.naturalHeight).then(resolve, reject);
+        img.onerror = reject;
+        img.src = url;
+      });
+    }
+  },
+  /* Called once per animation frame: at most ONE texture reaches the GPU per frame. */
+  pump() {
+    if (this.uploads.length === 0) return;
+    const { item, bmp } = this.uploads.shift();
+    item.artMat.userData.texSize = [bmp.width, bmp.height];
+    const tex = new THREE.Texture(bmp);
+    tex.flipY = false; // bitmap already flipped at creation
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.generateMipmaps = false;
+    tex.minFilter = THREE.LinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+    tex.onUpdate = (t) => { if (t.image && t.image.close) t.image.close(); t.onUpdate = null; };
+    tex.needsUpdate = true;
+    renderer.initTexture(tex); // deterministic single upload now
+    item.artMat.map = tex;
+    loadTracker.done++;
+    loadTracker.ok++;
+    updateLoadStatus();
+  }
+};
+window.TextureLoadQueue = TextureLoadQueue;
+
+function buildPictureFrame(exhibit, width, height) {
+  const group = new THREE.Group();
+
+  const isLandscape = exhibit.orientation === 'landscape';
+  const artW = width || (isLandscape ? 2.6 : 1.95);
+  const artH = height || (isLandscape ? 1.95 : 2.6);
+  const frameDepth = 0.12;
+
+  let frameMat = Mat.goldLeaf;
+  if (exhibit.wing === 'II') frameMat = Mat.darkWood;
+  if (exhibit.wing === 'III') frameMat = Mat.pedestal;
+  if (exhibit.wing === 'IV') frameMat = Mat.bronze;
+
+  const flat = (m) => { m.castShadow = false; m.receiveShadow = false; m.matrixAutoUpdate = false; m.updateMatrix(); return m; };
+
+  // 1. True IES Parabolic Wall-Wash Light Cone (z = 0.005, flush against wall behind frame)
+  const iesGeo = (artW === 2.6 && artH === 1.95) ? FrameGeoCache.iesConeLandscape
+               : (artW === 1.95 && artH === 2.6) ? FrameGeoCache.iesConePortrait
+               : new THREE.PlaneGeometry(artW * 2.95, artH * 2.55);
+  const iesConeMesh = new THREE.Mesh(iesGeo, IES_CONE_MAT);
+  // Positioned at x = 0, shifted slightly up (y = artH * 0.18, clamped so top stays below ceiling)
+  const coneH = artH * 2.45;
+  const maxConeY = (H_WING - 2.15 - 0.02) - (coneH * 0.42);
+  iesConeMesh.position.set(0, Math.min(artH * 0.18, maxConeY), 0.005);
+  iesConeMesh.renderOrder = 1;
+  group.add(flat(iesConeMesh));
+
+  // 2. Physical Offset Frame Drop-Shadow (x = 0.07, y = -0.09, z = 0.01)
+  const shadowGeo = (artW === 2.6 && artH === 1.95) ? FrameGeoCache.shadowLandscape
+                  : (artW === 1.95 && artH === 2.6) ? FrameGeoCache.shadowPortrait
+                  : new THREE.PlaneGeometry(artW + 0.44, artH + 0.44);
+  const shadowMesh = new THREE.Mesh(shadowGeo, DROP_SHADOW_MAT);
+  shadowMesh.position.set(0.07, -0.09, 0.01);
+  shadowMesh.renderOrder = 2;
+  group.add(flat(shadowMesh));
+
+  // 3. Frame Molding & Inner Liner (front face at z = +0.06 occludes cone & shadow behind frame)
+  const frameBack = flat(new THREE.Mesh(isLandscape ? FrameGeoCache.backLandscape : FrameGeoCache.backPortrait, frameMat));
+  group.add(frameBack);
+
+  const linerMat = exhibit.wing === 'II' ? Mat.goldLeaf : Mat.alabaster;
+  const liner = flat(new THREE.Mesh(isLandscape ? FrameGeoCache.linerLandscape : FrameGeoCache.linerPortrait, linerMat));
+  group.add(liner);
+
+  // 4. Artwork Canvas with 0.52 baseline & top-down spotlight vignette (no neon glow)
+  const fallbackTex = isLandscape ? SHARED_FALLBACK_LANDSCAPE : SHARED_FALLBACK_PORTRAIT;
+  const artMat = new THREE.MeshBasicMaterial({
+    map: fallbackTex,
+    color: ART_TINT,
+    lightMap: ART_SPOT_LIGHTMAP,
+    lightMapIntensity: ART_SPOT_INTENSITY
+  });
+
+  if (exhibit.mediaType === 'video') {
+    const video = document.createElement('video');
+    video.crossOrigin = 'anonymous';
+    video.loop = true;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.volume = 0;
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('loop', '');
+    video.preload = 'none';
+
+    activeHogwartsVideos.push({
+      video, videoTex: null, group, artMat, fallbackTex,
+      srcPath: exhibit.imagePath, srcSet: false, dSq: Infinity,
+      wing: exhibit.wing, room: exhibit.room
+    });
+  } else if (exhibit.imagePath) {
+    loadTracker.total++;
+    TextureLoadQueue.enqueue({ url: exhibit.imagePath, artMat, group, wing: exhibit.wing });
+  }
+
+  const canvasGeo = isLandscape ? FrameGeoCache.canvasLandscape : FrameGeoCache.canvasPortrait;
+  const artCanvasMesh = new THREE.Mesh(canvasGeo, artMat);
+  artCanvasMesh.position.z = frameDepth / 2 + 0.015;
+  artCanvasMesh.castShadow = false;
+  artCanvasMesh.receiveShadow = false;
+  group.add(artCanvasMesh);
+
+  artCanvasMesh.userData = { exhibit, group };
+  exhibitMeshes.push(artCanvasMesh);
+  exhibitDataMap.set(artCanvasMesh.uuid, exhibit);
+
+  // Museum wall plaque: 256x96 canvas
+  const plaqueTex = textTexture(256, 96, (ctx, cw, ch) => {
+    ctx.save();
+    ctx.scale(cw / 512, ch / 192);
+    const w = 512, h = 192;
+    ctx.fillStyle = '#0d0e0e';
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#9e7824';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(6, 6, w - 12, h - 12);
+    ctx.fillStyle = '#c49735';
+    ctx.font = `600 22px ${SANS}`;
+    ctx.textAlign = 'center';
+    ctx.fillText(`${(exhibit.category || '').toUpperCase()} · ${exhibit.year || ''}`, w / 2, 42);
+    if (exhibit.title) {
+      ctx.fillStyle = '#e0dcd3';
+      ctx.font = `600 32px ${SERIF}`;
+      wrapText(ctx, exhibit.title, w / 2, 88, w - 40, 36);
+      ctx.fillStyle = '#9a968e';
+      ctx.font = `italic 20px ${SERIF}`;
+      ctx.fillText(exhibit.subtitle || '', w / 2, 154);
+    } else {
+      ctx.fillStyle = '#e0dcd3';
+      ctx.font = `italic 24px ${SERIF}`;
+      ctx.fillText(exhibit.category || '', w / 2, 108);
+    }
+    ctx.restore();
+  });
+  plaqueTex.generateMipmaps = false;
+  plaqueTex.minFilter = THREE.LinearFilter;
+  plaqueTex.anisotropy = 1;
+
+  const plaqueMesh = new THREE.Mesh(FrameGeoCache.plaque, new THREE.MeshBasicMaterial({ map: plaqueTex, color: 0x99948a }));
+  plaqueMesh.position.set(0, -artH / 2 - 0.30, frameDepth / 2);
+  group.add(flat(plaqueMesh));
+
+  // Sleek gallery hanging wires extending from top of frame to ceiling rail (no brass frame lamp!)
+  const wiresGeo = artH === 1.95 ? FrameGeoCache.wiresLandscape
+                 : artH === 2.6 ? FrameGeoCache.wiresPortrait
+                 : buildHangingWires(artW, artH);
+  const wiresMesh = flat(new THREE.Mesh(wiresGeo, WIRE_MAT));
+  group.add(wiresMesh);
+
+  return { group, artCanvasMesh, artW, artH };
+}
+
+/* --------------------------------------------------------------------------
+   4.10  EXHIBIT SPOTS& COMPLETE 205-PIECE LAYOUT ENGINE
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   4.10  EXHIBIT SPOTS& COMPLETE 205-PIECE LAYOUT ENGINE
+   -------------------------------------------------------------------------- */
+const EXHIBIT_SPOTS = {
+  "I_finearts_promenade": [
+    {
+      "x": 11.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 11.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 15.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 15.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 19.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 19.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 23.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 23.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 27.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 27.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 31.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 31.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 35.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 35.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 39.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": 39.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": 11.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 11.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": 15.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 15.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": 19.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 19.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": 23.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 23.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": 27.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 27.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": 31.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 31.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": 35.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 35.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": 39.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": 39.5,
+      "viewZ": -2.3
+    }
+  ],
+  "I_finearts_traditional": [
+    {
+      "x": 44.14,
+      "y": 2.4,
+      "z": 10.0,
+      "rotY": 1.5707963267948966,
+      "viewX": 46.8,
+      "viewZ": 10.0
+    },
+    {
+      "x": 44.14,
+      "y": 2.4,
+      "z": 16.5,
+      "rotY": 1.5707963267948966,
+      "viewX": 46.8,
+      "viewZ": 16.5
+    },
+    {
+      "x": 48.5,
+      "y": 2.4,
+      "z": 21.86,
+      "rotY": 3.141592653589793,
+      "viewX": 48.5,
+      "viewZ": 19.2
+    },
+    {
+      "x": 55.5,
+      "y": 2.4,
+      "z": 21.86,
+      "rotY": 3.141592653589793,
+      "viewX": 55.5,
+      "viewZ": 19.2
+    },
+    {
+      "x": 59.86,
+      "y": 2.4,
+      "z": 16.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 57.2,
+      "viewZ": 16.5
+    },
+    {
+      "x": 59.86,
+      "y": 2.4,
+      "z": 10.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 57.2,
+      "viewZ": 10.0
+    }
+  ],
+  "I_finearts_character": [
+    {
+      "x": 44.14,
+      "y": 2.4,
+      "z": -10.0,
+      "rotY": 1.5707963267948966,
+      "viewX": 46.8,
+      "viewZ": -10.0
+    },
+    {
+      "x": 44.14,
+      "y": 2.4,
+      "z": -16.5,
+      "rotY": 1.5707963267948966,
+      "viewX": 46.8,
+      "viewZ": -16.5
+    },
+    {
+      "x": 47.5,
+      "y": 2.4,
+      "z": -21.86,
+      "rotY": 0,
+      "viewX": 47.5,
+      "viewZ": -19.2
+    },
+    {
+      "x": 52.0,
+      "y": 2.4,
+      "z": -21.86,
+      "rotY": 0,
+      "viewX": 52.0,
+      "viewZ": -19.2
+    },
+    {
+      "x": 56.5,
+      "y": 2.4,
+      "z": -21.86,
+      "rotY": 0,
+      "viewX": 56.5,
+      "viewZ": -19.2
+    },
+    {
+      "x": 59.86,
+      "y": 2.4,
+      "z": -16.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 57.2,
+      "viewZ": -16.5
+    },
+    {
+      "x": 59.86,
+      "y": 2.4,
+      "z": -10.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 57.2,
+      "viewZ": -10.0
+    }
+  ],
+  "II_env": [
+    {
+      "x": -17.5,
+      "y": 2.4,
+      "z": 25.36,
+      "rotY": 3.141592653589793,
+      "viewX": -17.5,
+      "viewZ": 22.8
+    },
+    {
+      "x": -13.0,
+      "y": 2.4,
+      "z": 25.36,
+      "rotY": 3.141592653589793,
+      "viewX": -13.0,
+      "viewZ": 22.8
+    },
+    {
+      "x": -8.5,
+      "y": 2.4,
+      "z": 25.36,
+      "rotY": 3.141592653589793,
+      "viewX": -8.5,
+      "viewZ": 22.8
+    },
+    {
+      "x": -21.86,
+      "y": 2.4,
+      "z": 21.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -19.2,
+      "viewZ": 21.5
+    },
+    {
+      "x": -21.86,
+      "y": 2.4,
+      "z": 17.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -19.2,
+      "viewZ": 17.5
+    },
+    {
+      "x": -21.86,
+      "y": 2.4,
+      "z": 13.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -19.2,
+      "viewZ": 13.5
+    },
+    {
+      "x": -17.5,
+      "y": 2.4,
+      "z": 9.64,
+      "rotY": 0,
+      "viewX": -17.5,
+      "viewZ": 12.2
+    },
+    {
+      "x": -13.0,
+      "y": 2.4,
+      "z": 9.64,
+      "rotY": 0,
+      "viewX": -13.0,
+      "viewZ": 12.2
+    },
+    {
+      "x": -8.5,
+      "y": 2.4,
+      "z": 9.64,
+      "rotY": 0,
+      "viewX": -8.5,
+      "viewZ": 12.2
+    }
+  ],
+  "II_interior": [
+    {
+      "x": 8.5,
+      "y": 2.4,
+      "z": 9.64,
+      "rotY": 0,
+      "viewX": 8.5,
+      "viewZ": 12.2
+    },
+    {
+      "x": 13.0,
+      "y": 2.4,
+      "z": 9.64,
+      "rotY": 0,
+      "viewX": 13.0,
+      "viewZ": 12.2
+    },
+    {
+      "x": 17.5,
+      "y": 2.4,
+      "z": 9.64,
+      "rotY": 0,
+      "viewX": 17.5,
+      "viewZ": 12.2
+    },
+    {
+      "x": 21.86,
+      "y": 2.4,
+      "z": 12.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 19.2,
+      "viewZ": 12.0
+    },
+    {
+      "x": 21.86,
+      "y": 2.4,
+      "z": 15.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 19.2,
+      "viewZ": 15.5
+    },
+    {
+      "x": 21.86,
+      "y": 2.4,
+      "z": 19.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 19.2,
+      "viewZ": 19.0
+    },
+    {
+      "x": 21.86,
+      "y": 2.4,
+      "z": 22.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 19.2,
+      "viewZ": 22.5
+    },
+    {
+      "x": 17.5,
+      "y": 2.4,
+      "z": 25.36,
+      "rotY": 3.141592653589793,
+      "viewX": 17.5,
+      "viewZ": 22.8
+    },
+    {
+      "x": 13.0,
+      "y": 2.4,
+      "z": 25.36,
+      "rotY": 3.141592653589793,
+      "viewX": 13.0,
+      "viewZ": 22.8
+    },
+    {
+      "x": 8.5,
+      "y": 2.4,
+      "z": 25.36,
+      "rotY": 3.141592653589793,
+      "viewX": 8.5,
+      "viewZ": 22.8
+    }
+  ],
+  "II_vfx": [
+    {
+      "x": -17.5,
+      "y": 2.5,
+      "z": 33.14,
+      "rotY": 0,
+      "viewX": -17.5,
+      "viewZ": 35.8
+    },
+    {
+      "x": -13.0,
+      "y": 2.5,
+      "z": 33.14,
+      "rotY": 0,
+      "viewX": -13.0,
+      "viewZ": 35.8
+    },
+    {
+      "x": -8.5,
+      "y": 2.5,
+      "z": 33.14,
+      "rotY": 0,
+      "viewX": -8.5,
+      "viewZ": 35.8
+    },
+    {
+      "x": -21.86,
+      "y": 2.5,
+      "z": 38.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -19.2,
+      "viewZ": 38.5
+    },
+    {
+      "x": -21.86,
+      "y": 2.5,
+      "z": 43.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -19.2,
+      "viewZ": 43.5
+    },
+    {
+      "x": -17.5,
+      "y": 2.5,
+      "z": 48.86,
+      "rotY": 3.141592653589793,
+      "viewX": -17.5,
+      "viewZ": 46.2
+    },
+    {
+      "x": -13.0,
+      "y": 2.5,
+      "z": 48.86,
+      "rotY": 3.141592653589793,
+      "viewX": -13.0,
+      "viewZ": 46.2
+    },
+    {
+      "x": -8.5,
+      "y": 2.5,
+      "z": 48.86,
+      "rotY": 3.141592653589793,
+      "viewX": -8.5,
+      "viewZ": 46.2
+    }
+  ],
+  "II_stilllife": [
+    {
+      "x": 13.0,
+      "y": 2.4,
+      "z": 33.14,
+      "rotY": 0,
+      "viewX": 13.0,
+      "viewZ": 35.8
+    },
+    {
+      "x": 21.86,
+      "y": 2.4,
+      "z": 38.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 19.2,
+      "viewZ": 38.5
+    },
+    {
+      "x": 21.86,
+      "y": 2.4,
+      "z": 43.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 19.2,
+      "viewZ": 43.5
+    },
+    {
+      "x": 13.0,
+      "y": 2.4,
+      "z": 48.86,
+      "rotY": 3.141592653589793,
+      "viewX": 13.0,
+      "viewZ": 46.2
+    }
+  ],
+  "II_char3d": [
+    {
+      "x": -3.86,
+      "y": 2.4,
+      "z": 11.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -1.6,
+      "viewZ": 11.0
+    },
+    {
+      "x": -3.86,
+      "y": 2.4,
+      "z": 24.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -1.6,
+      "viewZ": 24.0
+    },
+    {
+      "x": -3.86,
+      "y": 2.4,
+      "z": 35.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -1.6,
+      "viewZ": 35.0
+    },
+    {
+      "x": 3.86,
+      "y": 2.4,
+      "z": 11.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 1.6,
+      "viewZ": 11.0
+    },
+    {
+      "x": 3.86,
+      "y": 2.4,
+      "z": 24.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 1.6,
+      "viewZ": 24.0
+    },
+    {
+      "x": 3.86,
+      "y": 2.4,
+      "z": 35.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 1.6,
+      "viewZ": 35.0
+    },
+    {
+      "x": 0.0,
+      "y": 2.1,
+      "z": 28.0,
+      "rotY": 0,
+      "viewX": 0.0,
+      "viewZ": 25.5
+    }
+  ],
+  "III_street": [
+    {
+      "x": -12.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -12.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -15.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -15.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -18.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -18.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -21.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -21.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -24.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -24.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -27.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -27.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -30.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -30.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -40.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -40.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -43.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -43.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -46.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -46.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -49.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -49.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -51.0,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -51.0,
+      "viewZ": 2.3
+    },
+    {
+      "x": -59.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -59.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": -62.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -62.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": -65.5,
+      "y": 2.4,
+      "z": 4.86,
+      "rotY": 3.141592653589793,
+      "viewX": -65.5,
+      "viewZ": 2.3
+    },
+    {
+      "x": -12.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -12.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -15.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -15.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -18.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -18.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -21.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -21.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -24.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -24.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -27.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -27.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -30.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -30.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -40.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -40.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -43.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -43.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -46.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -46.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -49.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -49.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -51.0,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -51.0,
+      "viewZ": -2.3
+    },
+    {
+      "x": -59.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -59.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": -62.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -62.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": -65.5,
+      "y": 2.4,
+      "z": -4.86,
+      "rotY": 0,
+      "viewX": -65.5,
+      "viewZ": -2.3
+    },
+    {
+      "x": -67.86,
+      "y": 2.4,
+      "z": -2.8,
+      "rotY": 1.5707963267948966,
+      "viewX": -65.2,
+      "viewZ": -2.8
+    },
+    {
+      "x": -67.86,
+      "y": 2.4,
+      "z": 2.8,
+      "rotY": 1.5707963267948966,
+      "viewX": -65.2,
+      "viewZ": 2.8
+    }
+  ],
+  "III_lunar": [
+    {
+        "x": -45.86,
+        "y": 2.4,
+        "z": 9.0,
+        "rotY": 1.5707963267948966,
+        "viewX": -43.4,
+        "viewZ": 9.0
+    },
+    {
+        "x": -45.86,
+        "y": 2.4,
+        "z": 14.0,
+        "rotY": 1.5707963267948966,
+        "viewX": -43.4,
+        "viewZ": 14.0
+    },
+    {
+        "x": -45.86,
+        "y": 2.4,
+        "z": 19.0,
+        "rotY": 1.5707963267948966,
+        "viewX": -43.4,
+        "viewZ": 19.0
+    },
+    {
+        "x": -40.0,
+        "y": 2.4,
+        "z": 22.86,
+        "rotY": 3.141592653589793,
+        "viewX": -40.0,
+        "viewZ": 20.3
+    },
+    {
+        "x": -34.0,
+        "y": 2.4,
+        "z": 22.86,
+        "rotY": 3.141592653589793,
+        "viewX": -34.0,
+        "viewZ": 20.3
+    },
+    {
+        "x": -28.14,
+        "y": 2.4,
+        "z": 19.0,
+        "rotY": -1.5707963267948966,
+        "viewX": -30.6,
+        "viewZ": 19.0
+    },
+    {
+        "x": -28.14,
+        "y": 2.4,
+        "z": 14.0,
+        "rotY": -1.5707963267948966,
+        "viewX": -30.6,
+        "viewZ": 14.0
+    },
+    {
+        "x": -28.14,
+        "y": 2.4,
+        "z": 9.0,
+        "rotY": -1.5707963267948966,
+        "viewX": -30.6,
+        "viewZ": 9.0
+    }
+],
+  "III_wildlife": [
+    {
+        "x": -28.14,
+        "y": 2.4,
+        "z": -11.0,
+        "rotY": -1.5707963267948966,
+        "viewX": -30.6,
+        "viewZ": -11.0
+    },
+    {
+        "x": -28.14,
+        "y": 2.4,
+        "z": -17.0,
+        "rotY": -1.5707963267948966,
+        "viewX": -30.6,
+        "viewZ": -17.0
+    },
+    {
+        "x": -32.0,
+        "y": 2.4,
+        "z": -22.86,
+        "rotY": 0.0,
+        "viewX": -32.0,
+        "viewZ": -20.3
+    },
+    {
+        "x": -37.0,
+        "y": 2.4,
+        "z": -22.86,
+        "rotY": 0.0,
+        "viewX": -37.0,
+        "viewZ": -20.3
+    },
+    {
+        "x": -42.0,
+        "y": 2.4,
+        "z": -22.86,
+        "rotY": 0.0,
+        "viewX": -42.0,
+        "viewZ": -20.3
+    },
+    {
+        "x": -45.86,
+        "y": 2.4,
+        "z": -17.0,
+        "rotY": 1.5707963267948966,
+        "viewX": -43.4,
+        "viewZ": -17.0
+    },
+    {
+        "x": -45.86,
+        "y": 2.4,
+        "z": -11.0,
+        "rotY": 1.5707963267948966,
+        "viewX": -43.4,
+        "viewZ": -11.0
+    }
+],
+  "III_portrait": [
+    {
+      "x": -48.14,
+      "y": 2.4,
+      "z": 10.0,
+      "rotY": -1.5707963267948966,
+      "viewX": -50.6,
+      "viewZ": 10.0
+    },
+    {
+      "x": -48.14,
+      "y": 2.4,
+      "z": 18.0,
+      "rotY": -1.5707963267948966,
+      "viewX": -50.6,
+      "viewZ": 18.0
+    },
+    {
+      "x": -51.5,
+      "y": 2.4,
+      "z": 22.86,
+      "rotY": 3.141592653589793,
+      "viewX": -51.5,
+      "viewZ": 20.3
+    },
+    {
+      "x": -55.0,
+      "y": 2.4,
+      "z": 22.86,
+      "rotY": 3.141592653589793,
+      "viewX": -55.0,
+      "viewZ": 20.3
+    },
+    {
+      "x": -58.5,
+      "y": 2.4,
+      "z": 22.86,
+      "rotY": 3.141592653589793,
+      "viewX": -58.5,
+      "viewZ": 20.3
+    },
+    {
+      "x": -62.0,
+      "y": 2.4,
+      "z": 22.86,
+      "rotY": 3.141592653589793,
+      "viewX": -62.0,
+      "viewZ": 20.3
+    },
+    {
+      "x": -65.86,
+      "y": 2.4,
+      "z": 18.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -63.4,
+      "viewZ": 18.0
+    },
+    {
+      "x": -65.86,
+      "y": 2.4,
+      "z": 10.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -63.4,
+      "viewZ": 10.0
+    }
+  ],
+  "III_stilllife_object": [
+    {
+      "x": -48.14,
+      "y": 2.4,
+      "z": -8.5,
+      "rotY": -1.5707963267948966,
+      "viewX": -50.6,
+      "viewZ": -8.5
+    },
+    {
+      "x": -48.14,
+      "y": 2.4,
+      "z": -12.5,
+      "rotY": -1.5707963267948966,
+      "viewX": -50.6,
+      "viewZ": -12.5
+    },
+    {
+      "x": -48.14,
+      "y": 2.4,
+      "z": -16.5,
+      "rotY": -1.5707963267948966,
+      "viewX": -50.6,
+      "viewZ": -16.5
+    },
+    {
+      "x": -48.14,
+      "y": 2.4,
+      "z": -20.5,
+      "rotY": -1.5707963267948966,
+      "viewX": -50.6,
+      "viewZ": -20.5
+    },
+    {
+      "x": -51.0,
+      "y": 2.4,
+      "z": -22.86,
+      "rotY": 0,
+      "viewX": -51.0,
+      "viewZ": -20.3
+    },
+    {
+      "x": -53.8,
+      "y": 2.4,
+      "z": -22.86,
+      "rotY": 0,
+      "viewX": -53.8,
+      "viewZ": -20.3
+    },
+    {
+      "x": -56.6,
+      "y": 2.4,
+      "z": -22.86,
+      "rotY": 0,
+      "viewX": -56.6,
+      "viewZ": -20.3
+    },
+    {
+      "x": -59.4,
+      "y": 2.4,
+      "z": -22.86,
+      "rotY": 0,
+      "viewX": -59.4,
+      "viewZ": -20.3
+    },
+    {
+      "x": -62.2,
+      "y": 2.4,
+      "z": -22.86,
+      "rotY": 0,
+      "viewX": -62.2,
+      "viewZ": -20.3
+    },
+    {
+      "x": -64.0,
+      "y": 2.4,
+      "z": -22.86,
+      "rotY": 0,
+      "viewX": -64.0,
+      "viewZ": -20.3
+    },
+    {
+      "x": -65.86,
+      "y": 2.4,
+      "z": -20.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -63.4,
+      "viewZ": -20.5
+    },
+    {
+      "x": -65.86,
+      "y": 2.4,
+      "z": -16.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -63.4,
+      "viewZ": -16.5
+    },
+    {
+      "x": -65.86,
+      "y": 2.4,
+      "z": -12.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -63.4,
+      "viewZ": -12.5
+    },
+    {
+      "x": -65.86,
+      "y": 2.4,
+      "z": -8.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -63.4,
+      "viewZ": -8.5
+    }
+  ],
+  "IV_applied_graphic": [
+    {
+      "x": 11.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": 11.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": 15.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": 15.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": 19.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": 19.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": 23.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": 23.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": 27.86,
+      "y": 2.4,
+      "z": 56.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 25.2,
+      "viewZ": 56.0
+    },
+    {
+      "x": 27.86,
+      "y": 2.4,
+      "z": 60.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 25.2,
+      "viewZ": 60.0
+    },
+    {
+      "x": 27.86,
+      "y": 2.4,
+      "z": 64.0,
+      "rotY": -1.5707963267948966,
+      "viewX": 25.2,
+      "viewZ": 64.0
+    },
+    {
+      "x": 11.0,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": 11.0,
+      "viewZ": 65.2
+    },
+    {
+      "x": 13.8,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": 13.8,
+      "viewZ": 65.2
+    },
+    {
+      "x": 16.6,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": 16.6,
+      "viewZ": 65.2
+    },
+    {
+      "x": 19.4,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": 19.4,
+      "viewZ": 65.2
+    },
+    {
+      "x": 22.2,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": 22.2,
+      "viewZ": 65.2
+    },
+    {
+      "x": 25.0,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": 25.0,
+      "viewZ": 65.2
+    }
+  ],
+  "IV_cinema": [
+    {
+      "x": -5.2,
+      "y": 2.6,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": -5.2,
+      "viewZ": 64.5
+    },
+    {
+      "x": 5.2,
+      "y": 2.6,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": 5.2,
+      "viewZ": 64.5
+    },
+    {
+      "x": -7.86,
+      "y": 2.6,
+      "z": 55.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -5.2,
+      "viewZ": 55.5
+    },
+    {
+      "x": -7.86,
+      "y": 2.6,
+      "z": 64.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -5.2,
+      "viewZ": 64.5
+    },
+    {
+      "x": 7.86,
+      "y": 2.6,
+      "z": 55.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 5.2,
+      "viewZ": 55.5
+    },
+    {
+      "x": 7.86,
+      "y": 2.6,
+      "z": 64.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 5.2,
+      "viewZ": 64.5
+    }
+  ],
+  "IV_production_design": [
+    {
+      "x": -24.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": -24.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": -20.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": -20.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": -16.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": -16.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": -11.5,
+      "y": 2.4,
+      "z": 52.14,
+      "rotY": 0,
+      "viewX": -11.5,
+      "viewZ": 54.8
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 54.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 54.5
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 57.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 57.0
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 59.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 59.5
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 62.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 62.0
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 64.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 64.5
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 66.0,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 66.0
+    },
+    {
+      "x": -24.5,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": -24.5,
+      "viewZ": 65.2
+    },
+    {
+      "x": -21.0,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": -21.0,
+      "viewZ": 65.2
+    },
+    {
+      "x": -15.5,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": -15.5,
+      "viewZ": 65.2
+    },
+    {
+      "x": -11.5,
+      "y": 2.4,
+      "z": 67.86,
+      "rotY": 3.141592653589793,
+      "viewX": -11.5,
+      "viewZ": 65.2
+    }
+  ],
+  "IV_storyboard": [
+    {
+      "x": -21.0,
+      "y": 2.5,
+      "z": 91.86,
+      "rotY": 3.141592653589793,
+      "viewX": -21.0,
+      "viewZ": 88.5
+    },
+    {
+      "x": -14.0,
+      "y": 2.5,
+      "z": 91.86,
+      "rotY": 3.141592653589793,
+      "viewX": -14.0,
+      "viewZ": 88.5
+    },
+    {
+      "x": -7.0,
+      "y": 2.5,
+      "z": 91.86,
+      "rotY": 3.141592653589793,
+      "viewX": -7.0,
+      "viewZ": 88.5
+    },
+    {
+      "x": 0.0,
+      "y": 2.5,
+      "z": 91.86,
+      "rotY": 3.141592653589793,
+      "viewX": 0.0,
+      "viewZ": 88.5
+    },
+    {
+      "x": 7.0,
+      "y": 2.5,
+      "z": 91.86,
+      "rotY": 3.141592653589793,
+      "viewX": 7.0,
+      "viewZ": 88.5
+    },
+    {
+      "x": 14.0,
+      "y": 2.5,
+      "z": 91.86,
+      "rotY": 3.141592653589793,
+      "viewX": 14.0,
+      "viewZ": 88.5
+    },
+    {
+      "x": 21.0,
+      "y": 2.5,
+      "z": 91.86,
+      "rotY": 3.141592653589793,
+      "viewX": 21.0,
+      "viewZ": 88.5
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 72.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 72.5
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 77.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 77.5
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 82.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 82.5
+    },
+    {
+      "x": -27.86,
+      "y": 2.4,
+      "z": 87.5,
+      "rotY": 1.5707963267948966,
+      "viewX": -25.2,
+      "viewZ": 87.5
+    },
+    {
+      "x": 27.86,
+      "y": 2.4,
+      "z": 72.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 25.2,
+      "viewZ": 72.5
+    },
+    {
+      "x": 27.86,
+      "y": 2.4,
+      "z": 77.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 25.2,
+      "viewZ": 77.5
+    },
+    {
+      "x": 27.86,
+      "y": 2.4,
+      "z": 82.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 25.2,
+      "viewZ": 82.5
+    },
+    {
+      "x": 27.86,
+      "y": 2.4,
+      "z": 87.5,
+      "rotY": -1.5707963267948966,
+      "viewX": 25.2,
+      "viewZ": 87.5
+    },
+    {
+      "x": -22.0,
+      "y": 2.4,
+      "z": 68.14,
+      "rotY": 0,
+      "viewX": -22.0,
+      "viewZ": 70.8
+    },
+    {
+      "x": -12.0,
+      "y": 2.4,
+      "z": 68.14,
+      "rotY": 0,
+      "viewX": -12.0,
+      "viewZ": 70.8
+    },
+    {
+      "x": 12.0,
+      "y": 2.4,
+      "z": 68.14,
+      "rotY": 0,
+      "viewX": 12.0,
+      "viewZ": 70.8
+    },
+    {
+      "x": 22.0,
+      "y": 2.4,
+      "z": 68.14,
+      "rotY": 0,
+      "viewX": 22.0,
+      "viewZ": 70.8
+    }
+  ]
+};
+
+/* ---------------------------------------------------------------------------
+   Baked picture-light pools: one additive wall glow per frame, merged into a
+   single mesh per wing (4 draw calls total, zero real-time lights).
+   --------------------------------------------------------------------------- */
+function buildLightPools(poolSpots) {
+  // White rectangular track rails (#d8d6d0) at 1.6m from each wall (y = H_WING - 0.15),
+  // with angled white cylindrical spotlight cans (CylinderGeometry(0.055, 0.055, 0.22, 12))
+  // aimed at each painting and a bright warm emissive lens (0xfff2cc) on the front of each can.
+  const trackMat = new THREE.MeshBasicMaterial({ color: 0xd8d6d0 });
+  const clampMat = new THREE.MeshBasicMaterial({ color: 0x222324 });
+  const lensMat = new THREE.MeshBasicMaterial({ color: 0xfff2cc });
+  lensMat.toneMapped = false;
+
+  // Soft warm floor bounce reflection under each lit painting
+  const [fc, fctx] = makeCanvas(256, 128);
+  const fg = fctx.createRadialGradient(128, 64, 0, 128, 64, 120);
+  fg.addColorStop(0.00, 'rgba(255,232,190,0.45)');
+  fg.addColorStop(0.45, 'rgba(255,215,160,0.18)');
+  fg.addColorStop(1.00, 'rgba(255,200,130,0)');
+  fctx.fillStyle = fg; fctx.fillRect(0, 0, 256, 128);
+  const floorPoolTex = new THREE.CanvasTexture(fc);
+  floorPoolTex.colorSpace = THREE.SRGBColorSpace;
+  const floorPoolMat = new THREE.MeshBasicMaterial({
+    map: floorPoolTex, transparent: true, opacity: 0.28,
+    blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide
+  });
+  floorPoolMat.toneMapped = false;
+
+  const wingGroups = { I: wingI_group, II: wingII_group, III: wingIII_group, IV: wingIV_group };
+
+  // Dimmer project-style IES parabolic wall-wash lights for hallways, corridors & flanking wall bays
+  const hallwaySpots = {
+    I: [
+      // Wing I Entrance Return Walls (z in [-5, -1.85] and [1.85, 5])
+      { x: 8.43,  y: 2.35, z: -3.4,  rotY: Math.PI / 2, w: 2.9, h: 3.6, dist: 1.4 },
+      { x: 8.43,  y: 2.35, z:  3.4,  rotY: Math.PI / 2, w: 2.9, h: 3.6, dist: 1.4 },
+      // Wing I Vestibule Side Walls & East Console Wall (x in [44.3, 58.0])
+      { x: 46.2,  y: 2.35, z:  4.87, rotY: Math.PI,     w: 3.2, h: 3.6, dist: 1.5 },
+      { x: 46.2,  y: 2.35, z: -4.87, rotY: 0,           w: 3.2, h: 3.6, dist: 1.5 },
+      { x: 56.0,  y: 2.35, z:  4.87, rotY: Math.PI,     w: 3.2, h: 3.6, dist: 1.5 },
+      { x: 56.0,  y: 2.35, z: -4.87, rotY: 0,           w: 3.2, h: 3.6, dist: 1.5 },
+      // East End Wall behind Console Table & Golden Urn + flanking bays
+      { x: 57.87, y: 2.35, z: -2.8,  rotY: -Math.PI / 2, w: 3.4, h: 3.8, dist: 1.5 },
+      { x: 57.87, y: 2.35, z:  0.0,  rotY: -Math.PI / 2, w: 4.2, h: 4.0, dist: 1.5 },
+      { x: 57.87, y: 2.35, z:  2.8,  rotY: -Math.PI / 2, w: 3.4, h: 3.8, dist: 1.5 }
+    ],
+    II: [
+      // Wing II Entrance Return Walls
+      { x: -2.9,  y: 2.35, z: 8.43,  rotY: 0,            w: 2.1, h: 3.5, dist: 1.3 },
+      { x:  2.9,  y: 2.35, z: 8.43,  rotY: 0,            w: 2.1, h: 3.5, dist: 1.3 },
+      // Wing II Central Hallway Promenade (West Wall x = -3.87, East Wall x = +3.87)
+      { x: -3.87, y: 2.35, z: 11.4,  rotY: Math.PI / 2,  w: 4.2, h: 3.9, dist: 1.35 },
+      { x:  3.87, y: 2.35, z: 11.4,  rotY: -Math.PI / 2, w: 4.2, h: 3.9, dist: 1.35 },
+      { x: -3.87, y: 2.35, z: 23.8,  rotY: Math.PI / 2,  w: 4.2, h: 3.9, dist: 1.35 },
+      { x:  3.87, y: 2.35, z: 23.8,  rotY: -Math.PI / 2, w: 4.2, h: 3.9, dist: 1.35 },
+      { x: -3.87, y: 2.35, z: 29.25, rotY: Math.PI / 2,  w: 4.2, h: 3.9, dist: 1.35 },
+      { x:  3.87, y: 2.35, z: 29.25, rotY: -Math.PI / 2, w: 4.2, h: 3.9, dist: 1.35 },
+      { x: -3.87, y: 2.35, z: 34.7,  rotY: Math.PI / 2,  w: 4.2, h: 3.9, dist: 1.35 },
+      { x:  3.87, y: 2.35, z: 34.7,  rotY: -Math.PI / 2, w: 4.2, h: 3.9, dist: 1.35 },
+      { x: -3.87, y: 2.35, z: 48.0,  rotY: Math.PI / 2,  w: 4.2, h: 3.9, dist: 1.35 },
+      { x:  3.87, y: 2.35, z: 48.0,  rotY: -Math.PI / 2, w: 4.2, h: 3.9, dist: 1.35 },
+      // North End of Wing II Corridor flanking Wing IV Portal (z = 51.87)
+      { x: -2.95, y: 2.35, z: 51.87, rotY: Math.PI,      w: 2.0, h: 3.6, dist: 1.35 },
+      { x:  2.95, y: 2.35, z: 51.87, rotY: Math.PI,      w: 2.0, h: 3.6, dist: 1.35 }
+    ],
+    III: [
+      // Wing III Entrance Return Walls
+      { x: -8.43, y: 2.35, z: -3.4,  rotY: -Math.PI / 2, w: 2.9, h: 3.6, dist: 1.4 },
+      { x: -8.43, y: 2.35, z:  3.4,  rotY: -Math.PI / 2, w: 2.9, h: 3.6, dist: 1.4 },
+      // West End Wall behind Nocturne Pedestal & Golden Lunar Sphere
+      { x: -67.87, y: 2.35, z: 0.0,  rotY: Math.PI / 2,  w: 4.0, h: 4.0, dist: 1.5 }
+    ],
+    IV: [
+      // Wing IV Cinema Atrium South Wall Returns (z = 52.13)
+      { x: -5.0,  y: 2.35, z: 52.13, rotY: 0,            w: 4.2, h: 3.9, dist: 1.5 },
+      { x:  5.0,  y: 2.35, z: 52.13, rotY: 0,            w: 4.2, h: 3.9, dist: 1.5 }
+    ]
+  };
+
+  Object.keys(poolSpots).forEach((wing) => {
+    const trackGeos = [];
+    const clampGeos = [];
+    const lensGeos = [];
+    const floorGeos = [];
+    const hallConeGeos = [];
+
+    poolSpots[wing].forEach((s) => {
+      const isLand = s.land;
+      const artW = isLand ? 2.6 : 1.95;
+
+      // Track rail parallel to wall at 1.6m distance, y = H_WING - 0.15
+      const trackDist = 1.6;
+      const railY = (H_WING - 0.15) - s.y;
+      const railW = artW + 2.4; // connects into continuous architectural track runs
+
+      const gRail = new THREE.BoxGeometry(railW, 0.042, 0.055);
+      gRail.translate(0, railY, trackDist);
+      gRail.rotateY(s.rotY);
+      gRail.translate(s.x, s.y, s.z);
+      trackGeos.push(gRail);
+
+      // Vertical suspension stems up to the slatted black ceiling
+      [-artW * 0.45, artW * 0.45].forEach((rx) => {
+        const gStem = new THREE.CylinderGeometry(0.006, 0.006, 0.15, 6);
+        gStem.translate(rx, railY + 0.075, trackDist);
+        gStem.rotateY(s.rotY);
+        gStem.translate(s.x, s.y, s.z);
+        clampGeos.push(gStem);
+      });
+
+      // Angled white cylindrical spotlight cans (CylinderGeometry(0.055, 0.055, 0.22, 12))
+      const headOffsets = isLand ? [-0.42, 0.42] : [0.0];
+      const canY = railY - 0.12;
+      const spotAngle = Math.atan2(trackDist, canY - 0.15);
+
+      headOffsets.forEach((hx) => {
+        // Track adapter box
+        const gBox = new THREE.BoxGeometry(0.048, 0.036, 0.075);
+        gBox.translate(hx, railY - 0.032, trackDist);
+        gBox.rotateY(s.rotY);
+        gBox.translate(s.x, s.y, s.z);
+        trackGeos.push(gBox);
+
+        // White cylindrical spotlight can aimed at painting
+        const gCan = new THREE.CylinderGeometry(0.055, 0.055, 0.22, 12);
+        gCan.rotateX(Math.PI / 2);
+        gCan.rotateX(-spotAngle);
+        gCan.translate(hx, canY, trackDist);
+        gCan.rotateY(s.rotY);
+        gCan.translate(s.x, s.y, s.z);
+        trackGeos.push(gCan);
+
+        // Bright warm emissive lens (0xfff2cc) on the front of each can
+        const gLens = new THREE.CircleGeometry(0.052, 12);
+        gLens.rotateX(Math.PI);
+        gLens.rotateX(-spotAngle);
+        const lensOffZ = trackDist - Math.sin(spotAngle) * 0.112;
+        const lensOffY = canY - Math.cos(spotAngle) * 0.112;
+        gLens.translate(hx, lensOffY, lensOffZ);
+        gLens.rotateY(s.rotY);
+        gLens.translate(s.x, s.y, s.z);
+        lensGeos.push(gLens);
+      });
+
+      // Subtle floor reflection pool
+      const gFloor = new THREE.PlaneGeometry(artW + 1.2, 1.8);
+      gFloor.rotateX(-Math.PI / 2);
+      gFloor.translate(0, 0.015, 1.15);
+      gFloor.rotateY(s.rotY);
+      gFloor.translate(s.x, 0, s.z);
+      floorGeos.push(gFloor);
+    });
+
+    // Emit dim project-style IES parabolic wall-wash cones & track fixtures in hallways
+    (hallwaySpots[wing] || []).forEach((h) => {
+      const gCone = new THREE.PlaneGeometry(h.w, h.h);
+      gCone.rotateY(h.rotY);
+      gCone.translate(h.x, h.y, h.z);
+      hallConeGeos.push(gCone);
+
+      const trackDist = h.dist || 1.4;
+      const railY = (H_WING - 0.15) - h.y;
+      const railW = h.w + 1.4;
+
+      const gRail = new THREE.BoxGeometry(railW, 0.042, 0.055);
+      gRail.translate(0, railY, trackDist);
+      gRail.rotateY(h.rotY);
+      gRail.translate(h.x, h.y, h.z);
+      trackGeos.push(gRail);
+
+      [-h.w * 0.35, h.w * 0.35].forEach((rx) => {
+        const gStem = new THREE.CylinderGeometry(0.006, 0.006, 0.15, 6);
+        gStem.translate(rx, railY + 0.075, trackDist);
+        gStem.rotateY(h.rotY);
+        gStem.translate(h.x, h.y, h.z);
+        clampGeos.push(gStem);
+      });
+
+      const canY = railY - 0.12;
+      const spotAngle = Math.atan2(trackDist, canY - 0.15);
+
+      const gBox = new THREE.BoxGeometry(0.048, 0.036, 0.075);
+      gBox.translate(0, railY - 0.032, trackDist);
+      gBox.rotateY(h.rotY);
+      gBox.translate(h.x, h.y, h.z);
+      trackGeos.push(gBox);
+
+      const gCan = new THREE.CylinderGeometry(0.055, 0.055, 0.22, 12);
+      gCan.rotateX(Math.PI / 2);
+      gCan.rotateX(-spotAngle);
+      gCan.translate(0, canY, trackDist);
+      gCan.rotateY(h.rotY);
+      gCan.translate(h.x, h.y, h.z);
+      trackGeos.push(gCan);
+
+      const gLens = new THREE.CircleGeometry(0.052, 12);
+      gLens.rotateX(Math.PI);
+      gLens.rotateX(-spotAngle);
+      const lensOffZ = trackDist - Math.sin(spotAngle) * 0.112;
+      const lensOffY = canY - Math.cos(spotAngle) * 0.112;
+      gLens.translate(0, lensOffY, lensOffZ);
+      gLens.rotateY(h.rotY);
+      gLens.translate(h.x, h.y, h.z);
+      lensGeos.push(gLens);
+
+      const gFloor = new THREE.PlaneGeometry(h.w * 0.85, 1.5);
+      gFloor.rotateX(-Math.PI / 2);
+      gFloor.translate(0, 0.015, 1.05);
+      gFloor.rotateY(h.rotY);
+      gFloor.translate(h.x, 0, h.z);
+      floorGeos.push(gFloor);
+    });
+
+    const mergeAndEmit = (list, mat, order) => {
+      if (!list.length) return;
+      const flat = list.map((p) => (p.index ? p.toNonIndexed() : p));
+      const merged = mergeGeometries(flat, false);
+      list.forEach((g) => g.dispose()); flat.forEach((p) => p.dispose());
+      const mesh = new THREE.Mesh(merged, mat);
+      mesh.renderOrder = order;
+      mesh.frustumCulled = false;
+      mesh.matrixAutoUpdate = false;
+      wingGroups[wing].add(mesh);
+    };
+
+    mergeAndEmit(trackGeos, trackMat, 1);
+    mergeAndEmit(clampGeos, clampMat, 1);
+    mergeAndEmit(lensGeos, lensMat, 1);
+    mergeAndEmit(floorGeos, floorPoolMat, 1);
+    mergeAndEmit(hallConeGeos, IES_CONE_DIM_MAT, 1);
+  });
+}
+
+function buildMuseumAtmosphere() {
+  // Keep wings moody and free of ceiling rings; only place subtle floor glow in Grand Rotunda
+  const [c, ctx] = makeCanvas(256, 256);
+  const g = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
+  g.addColorStop(0.00, 'rgba(255,230,185,0.45)');
+  g.addColorStop(0.50, 'rgba(255,210,150,0.14)');
+  g.addColorStop(1.00, 'rgba(255,190,120,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, 256, 256);
+  const poolTex = new THREE.CanvasTexture(c);
+  poolTex.colorSpace = THREE.SRGBColorSpace;
+  const poolMat = new THREE.MeshBasicMaterial({
+    map: poolTex, transparent: true, opacity: 0.35,
+    blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide
+  });
+  poolMat.toneMapped = false;
+  const ringPool = new THREE.Mesh(new THREE.PlaneGeometry(7.5, 7.5), poolMat);
+  ringPool.rotation.x = -Math.PI / 2;
+  ringPool.position.y = 0.016;
+  rotunda_group.add(ringPool);
+}
+
+function layoutExhibits() {
+  const poolSpots = {};
+  const groups = {};
+  EUNOIA_CONFIG.exhibits.forEach((ex) => {
+    const key = `${ex.wing}_${ex.room}`;
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(ex);
+  });
+
+  let hungCount = 0;
+  for (const [key, list] of Object.entries(groups)) {
+    const spots = EXHIBIT_SPOTS[key] || [];
+    list.forEach((ex, idx) => {
+      const spot = spots[idx];
+      if (!spot) {
+        console.warn(`No spot for exhibit ${ex.id} in group ${key} index ${idx}`);
+        return;
+      }
+
+      // Hang frames just above the 0.95m wainscot dado rail so the parabolic IES cone
+      // has ~0.85m of upper gallery wall to arch above each frame (matching reference photo)
+      const hangY = ex.orientation === 'landscape' ? 2.15 : 2.12;
+
+      const { group } = buildPictureFrame(ex);
+      group.position.set(spot.x, hangY, spot.z);
+      group.rotation.y = spot.rotY;
+      group.updateMatrix();
+
+      if (ex.wing === 'I') wingI_group.add(group);
+      else if (ex.wing === 'II') wingII_group.add(group);
+      else if (ex.wing === 'III') wingIII_group.add(group);
+      else if (ex.wing === 'IV') wingIV_group.add(group);
+      else scene.add(group);
+
+      ex.teleportPos = new THREE.Vector3(spot.viewX, EYE_HEIGHT, spot.viewZ);
+      ex.lookTarget = new THREE.Vector3(spot.x, hangY, spot.z);
+      (poolSpots[ex.wing] = poolSpots[ex.wing] || []).push({
+        x: spot.x, y: hangY, z: spot.z, rotY: spot.rotY,
+        land: ex.orientation === 'landscape'
+      });
+      hungCount++;
+    });
+  }
+  buildTrackLight(poolSpots);
+  console.log(`Successfully hung ${hungCount} exhibits in 3D museum!`);
+}
+
+/* --------------------------------------------------------------------------
+   4.11  LIGHTING PIPELINE
+   -------------------------------------------------------------------------- */
+function buildLighting() {
+  // 4.1 Dark Ambient Baseline: HemisphereLight 0.14, AmbientLight 0.10, toneMappingExposure 0.75
+  const hemi = new THREE.HemisphereLight(0xf4e6d4, 0x100c08, 0.14);
+  scene.add(hemi);
+
+  const amb = new THREE.AmbientLight(0xfff3e2, 0.10);
+  scene.add(amb);
+
+  // Subtle visitor lantern so camera never washes out the moody walls
+  const visitorLantern = new THREE.PointLight(0xffeed4, 0.28, 9.0, 1.6);
+  camera.add(visitorLantern);
+  scene.add(camera);
+
+  // Rotunda skylight: global, NO shadow map
+  const rotundaSun = new THREE.SpotLight(0xffeaad, 18, 22, Math.PI / 3.2, 0.65, 1.2);
+  rotundaSun.position.set(0, H_ROT + 1.2, 0);
+  rotundaSun.target.position.set(0, 0, 0);
+  rotundaSun.castShadow = false;
+  scene.add(rotundaSun, rotundaSun.target);
+
+  // Baked soft contact shadow under the central sculpture
+  const [sc, sctx] = makeCanvas(256, 256);
+  const grad = sctx.createRadialGradient(128, 128, 20, 128, 128, 128);
+  grad.addColorStop(0, 'rgba(0,0,0,0.65)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  sctx.fillStyle = grad; sctx.fillRect(0, 0, 256, 256);
+  const shadowTex = new THREE.CanvasTexture(sc);
+  const bakedShadow = new THREE.Mesh(
+    new THREE.PlaneGeometry(4.6, 4.6),
+    new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false })
+  );
+  bakedShadow.rotation.x = -Math.PI / 2;
+  bakedShadow.position.y = 0.012;
+  rotunda_group.add(bakedShadow);
+}
+
+/* --------------------------------------------------------------------------
+   4.12  PROCEDURAL WEB AUDIO (Footsteps + Relaxing Museum Background Music)
+   -------------------------------------------------------------------------- */
+let audioCtx = null;
+window.audioCtx = null;
+let isMuted = false;
+let ambienceGain = null;
+let footstepGain = null;
+let bgMusic = null;
+window.bgMusic = null;
+let bgMusicGain = null;
+const BG_MUSIC_SRC = './assets/Audio/BG audio.mp3';
+const BG_MUSIC_TARGET_VOL = 0.28; // relaxing, gentle museum ambient background volume
+
+function initAudio() {
+  if (audioCtx) {
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    if (bgMusic && bgMusic.paused && !isMuted) {
+      bgMusic.play().catch(() => {});
+    }
+    return;
+  }
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    audioCtx = new AudioContext();
+    window.audioCtx = audioCtx;
+
+    // Relaxing Background Music audio element
+    if (!bgMusic) {
+      bgMusic = new Audio();
+    window.bgMusic = bgMusic;
+      bgMusic.src = BG_MUSIC_SRC;
+      bgMusic.loop = true;
+      bgMusic.crossOrigin = 'anonymous';
+      bgMusic.preload = 'auto';
+      bgMusic.volume = isMuted ? 0 : BG_MUSIC_TARGET_VOL;
+
+      try {
+        const bgSource = audioCtx.createMediaElementSource(bgMusic);
+        bgMusicGain = audioCtx.createGain();
+        bgMusicGain.gain.setValueAtTime(isMuted ? 0 : BG_MUSIC_TARGET_VOL, audioCtx.currentTime);
+        bgSource.connect(bgMusicGain);
+        bgMusicGain.connect(audioCtx.destination);
+      } catch (mediaErr) {
+        // Fallback directly via HTMLAudioElement volume if CORS / MediaElementSource restricted
+        bgMusic.volume = isMuted ? 0 : BG_MUSIC_TARGET_VOL;
+      }
+
+      if (!isMuted) {
+        bgMusic.play().catch(() => {});
+      }
+    }
+
+    // Gentle sub-bass room presence
+    const ambOsc1 = audioCtx.createOscillator();
+    ambOsc1.type = 'sine'; ambOsc1.frequency.setValueAtTime(54, audioCtx.currentTime);
+
+    const filter = audioCtx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(220, audioCtx.currentTime);
+
+    ambienceGain = audioCtx.createGain();
+    ambienceGain.gain.setValueAtTime(0.018, audioCtx.currentTime);
+
+    ambOsc1.connect(filter);
+    filter.connect(ambienceGain);
+    ambienceGain.connect(audioCtx.destination);
+    ambOsc1.start();
+
+    // Footstep sub-chain
+    footstepGain = audioCtx.createGain();
+    footstepGain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+    footstepGain.connect(audioCtx.destination);
+  } catch (e) {
+    console.warn('Web Audio not supported or blocked:', e);
+  }
+}
+
+function playFootstep() {
+  if (!audioCtx || isMuted || audioCtx.state !== 'running') return;
+  try {
+    const t = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    const filter = audioCtx.createBiquadFilter();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(80, t);
+    osc.frequency.exponentialRampToValueAtTime(32, t + 0.09);
+
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(160, t);
+
+    g.gain.setValueAtTime(0.08, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.09);
+
+    osc.connect(filter);
+    filter.connect(g);
+    g.connect(footstepGain);
+
+    osc.start(t);
+    osc.stop(t + 0.095);
+  } catch (_) {}
+}
+
+function toggleSound() {
+  isMuted = !isMuted;
+  if (audioCtx) {
+    if (isMuted) {
+      if (ambienceGain) ambienceGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.05);
+      if (footstepGain) footstepGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.05);
+      if (bgMusicGain) {
+        bgMusicGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.05);
+      } else if (bgMusic) {
+        bgMusic.volume = 0;
+      }
+    } else {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      if (ambienceGain) ambienceGain.gain.setTargetAtTime(0.018, audioCtx.currentTime, 0.05);
+      if (footstepGain) footstepGain.gain.setTargetAtTime(0.08, audioCtx.currentTime, 0.05);
+      if (bgMusicGain) {
+        bgMusicGain.gain.setTargetAtTime(BG_MUSIC_TARGET_VOL, audioCtx.currentTime, 0.05);
+      } else if (bgMusic) {
+        bgMusic.volume = BG_MUSIC_TARGET_VOL;
+      }
+      if (bgMusic && bgMusic.paused) {
+        bgMusic.play().catch(() => {});
+      }
+    }
+  }
+  icoSoundOn.classList.toggle('hidden', isMuted);
+  icoSoundOff.classList.toggle('hidden', !isMuted);
+  btnSound.setAttribute('aria-pressed', (!isMuted).toString());
+}
+$('btnSound').addEventListener('click', toggleSound);
+
+/* --------------------------------------------------------------------------
+   4.13  FIRST-PERSON CONTROLLER & INPUT HANDLING
+   -------------------------------------------------------------------------- */
+const controls = new PointerLockControls(camera, renderer.domElement);
+let isControlsLocked = false;
+let isInspecting = false;
+let isLobbyActive = true;
+let isCatalogOpen = false;
+let isPhoneModalOpen = false;
+let isCardModalOpen = false;
+
+// Movement state
+const moveState = { forward: false, backward: false, left: false, right: false, sprint: false };
+const velocity = new THREE.Vector3();
+const direction = new THREE.Vector3();
+let bobTimer = 0;
+let lastFootstepBob = 0;
+
+// Camera inspection interpolation
+let inspectLerp = null; // { startPos, endPos, startQuat, endQuat, t, duration, onComplete }
+
+controls.addEventListener('lock', () => {
+  isControlsLocked = true;
+  $('resume').classList.add('hidden');
+});
+controls.addEventListener('unlock', () => {
+  isControlsLocked = false;
+  if (!isLobbyActive && !isInspecting && !isCatalogOpen) {
+    $('resume').classList.remove('hidden');
+  }
+});
+
+// Resume overlay click
+$('resume').addEventListener('click', () => {
+  initAudio();
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  try { controls.lock(); } catch (e) {}
+});
+
+// Keyboard events
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'KeyW' || e.code === 'ArrowUp') moveState.forward = true;
+  if (e.code === 'KeyS' || e.code === 'ArrowDown') moveState.backward = true;
+  if (e.code === 'KeyA' || e.code === 'ArrowLeft') moveState.left = true;
+  if (e.code === 'KeyD' || e.code === 'ArrowRight') moveState.right = true;
+  if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') moveState.sprint = true;
+
+  if (e.code === 'Tab') {
+    e.preventDefault();
+    toggleCatalog();
+  }
+  if (e.code === 'KeyM') {
+    toggleSound();
+  }
+  if (e.code === 'Escape') {
+    if (isPhoneModalOpen) {
+      closePhoneModal();
+    } else if (isCardModalOpen) {
+      closeCardModal();
+    } else if (isCatalogOpen) {
+      toggleCatalog(false);
+    } else if (isInspecting) {
+      exitInspection();
+    } else if (!isLobbyActive) {
+      openLobby();
+    }
+  }
+});
+
+window.addEventListener('keyup', (e) => {
+  if (e.code === 'KeyW' || e.code === 'ArrowUp') moveState.forward = false;
+  if (e.code === 'KeyS' || e.code === 'ArrowDown') moveState.backward = false;
+  if (e.code === 'KeyA' || e.code === 'ArrowLeft') moveState.left = false;
+  if (e.code === 'KeyD' || e.code === 'ArrowRight') moveState.right = false;
+  if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') moveState.sprint = false;
+});
+
+/* --------------------------------------------------------------------------
+   4.14  RAYCASTING & INSPECTION MODE
+   -------------------------------------------------------------------------- */
+const raycaster = new THREE.Raycaster();
+const screenCenter = new THREE.Vector2(0, 0);
+let hoveredExhibitMesh = null;
+
+const _tmpVec = new THREE.Vector3();
+let lastRaycastTime = 0;
+const _rayCandidates = [];
+
+function updateRaycast() {
+  const nowR = performance.now();
+  if (nowR - lastRaycastTime < 80) return; // ~12 Hz
+  lastRaycastTime = nowR;
+
+  if ((!isControlsLocked && !isMobileActive) || isInspecting || isCatalogOpen || isPhoneModalOpen || isCardModalOpen) {
+    $('reticle').classList.remove('active');
+    $('prompt').classList.remove('show');
+    hoveredExhibitMesh = null;
+    return;
+  }
+
+  // Spatial filter: visible wing + within 7 m  (185 meshes -> ~2-4)
+  _rayCandidates.length = 0;
+  const cp = camera.position;
+  for (let i = 0; i < exhibitMeshes.length; i++) {
+    const m = exhibitMeshes[i];
+    const g = m.userData.group;
+    if (!g.visible || !g.parent || !g.parent.visible) continue;
+    if (g.position.distanceToSquared(cp) < 49.0) _rayCandidates.push(m);
+  }
+  for (let i = 0; i < interactivePropMeshes.length; i++) {
+    const pm = interactivePropMeshes[i];
+    const pg = pm.userData.group;
+    if (pg && (!pg.visible || !pg.parent || !pg.parent.visible)) continue;
+    if (pm.getWorldPosition(_tmpVec).distanceToSquared(cp) < 49.0) {
+      _rayCandidates.push(pm);
+    }
+  }
+
+  raycaster.setFromCamera(screenCenter, camera);
+  raycaster.far = 6.5;
+  const intersects = raycaster.intersectObjects(_rayCandidates, false);
+
+  if (intersects.length > 0) {
+    const hit = intersects[0].object;
+    hoveredExhibitMesh = hit;
+    $('reticle').classList.add('active');
+    $('prompt').classList.add('show');
+    if (hit.userData.isPhone) {
+      $('promptTitle').textContent = "Curator's Direct Line [Call Studio]";
+    } else if (hit.userData.isCard) {
+      $('promptTitle').textContent = "Curator's Dossier · Mangilaya [Examine]";
+    } else {
+      const exhibit = hit.userData.exhibit;
+      $('promptTitle').textContent = exhibit ? (exhibit.title || exhibit.category || '') : '';
+    }
+  } else {
+    $('reticle').classList.remove('active');
+    $('prompt').classList.remove('show');
+    hoveredExhibitMesh = null;
+  }
+}
+
+// Click to inspect exhibit or interact with concierge props
+window.addEventListener('mousedown', (e) => {
+  if (e.button === 0 && isControlsLocked && hoveredExhibitMesh && !isInspecting) {
+    if (hoveredExhibitMesh.userData.isPhone) {
+      openPhoneModal();
+    } else if (hoveredExhibitMesh.userData.isCard) {
+      openCardModal();
+    } else if (hoveredExhibitMesh.userData.exhibit) {
+      inspectExhibit(hoveredExhibitMesh.userData.exhibit, hoveredExhibitMesh);
+    }
+  }
+});
+
+function inspectExhibit(exhibit, mesh) {
+  isInspecting = true;
+  document.body.classList.add('is-inspecting');
+  controls.unlock();
+
+  // Populate Curator Plaque UI
+  const plqImg = $('plqImg');
+  const plqVid = $('plqVideo');
+
+  if (exhibit.mediaType === 'video') {
+    plqImg.classList.add('hidden');
+    plqVid.classList.remove('hidden');
+    plqVid.src = exhibit.imagePath;
+    plqVid.play().catch(() => {});
+  } else {
+    plqVid.classList.add('hidden');
+    plqVid.pause();
+    plqImg.classList.remove('hidden');
+    plqImg.src = exhibit.imagePath;
+    plqImg.alt = exhibit.title;
+  }
+  $('plqNo').textContent = `Exhibit ${exhibit.id}`;
+  $('plqWing').textContent = EUNOIA_CONFIG.wings[exhibit.wing]?.name || `Wing ${exhibit.wing}`;
+  $('plqWing').className = 'badge wing-' + exhibit.wing;
+  $('plqTitle').textContent = exhibit.title || exhibit.category || 'Untitled Study';
+  $('plqSubtitle').textContent = exhibit.subtitle || '';
+  $('plqYear').textContent = exhibit.year;
+  $('plqCategory').textContent = exhibit.category;
+
+  const tagsContainer = $('plqTags');
+  tagsContainer.innerHTML = '';
+  (exhibit.tags || []).forEach((t) => {
+    const tag = document.createElement('span');
+    tag.className = 'tag';
+    tag.textContent = t;
+    tagsContainer.appendChild(tag);
+  });
+
+  const divider = document.querySelector('.divider');
+  if (!exhibit.description) {
+    $('plqDesc').style.display = 'none';
+    if (divider) divider.style.display = 'none';
+  } else {
+    $('plqDesc').style.display = 'block';
+    $('plqDesc').textContent = exhibit.description;
+    if (divider) divider.style.display = 'block';
+  }
+
+  const linksContainer = $('plqLinks');
+  linksContainer.innerHTML = '';
+  (exhibit.links || []).forEach((l) => {
+    const a = document.createElement('a');
+    a.className = 'btn btn-ghost btn-small';
+    a.href = l.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = l.label;
+    linksContainer.appendChild(a);
+  });
+
+  $('plaque').classList.add('open');
+  updateMobileUIState();
+  $('plaque').setAttribute('aria-hidden', 'false');
+
+  // Smooth lerp camera to framed inspect target
+  const startPos = camera.position.clone();
+  const startQuat = camera.quaternion.clone();
+
+  const targetPos = getExhibitTeleportPos(exhibit).clone();
+  const lookTarget = getExhibitLookTarget(exhibit);
+  const tempCam = camera.clone();
+  tempCam.position.copy(targetPos);
+  tempCam.lookAt(lookTarget);
+  const targetQuat = tempCam.quaternion.clone();
+
+  inspectLerp = {
+    startPos, endPos: targetPos,
+    startQuat, endQuat: targetQuat,
+    t: 0, duration: 1.1,
+    onComplete: null
+  };
+}
+
+function exitInspection() {
+  if (!isInspecting) return;
+  isInspecting = false;
+  inspectLerp = null;
+  document.body.classList.remove('is-inspecting');
+  $('plaque').classList.remove('open');
+  updateMobileUIState();
+  $('plaque').setAttribute('aria-hidden', 'true');
+
+  const plqVid = $('plqVideo');
+  if (plqVid) plqVid.pause();
+
+  initAudio();
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  camera.rotation.setFromQuaternion(camera.quaternion, 'YXZ');
+  try { controls.lock(); } catch (e) {}
+  updateCurrentWingCaption(camera.position);
+}
+$('plqClose').addEventListener('click', exitInspection);
+
+/* --------------------------------------------------------------------------
+   4.15  TELEPORT & QUICK EXHIBITION INDEX (Catalog)
+   -------------------------------------------------------------------------- */
+function getExhibitTeleportPos(exhibit) {
+  if (exhibit.teleportPos) return exhibit.teleportPos;
+  if (exhibit.room) {
+    const hungInRoom = EUNOIA_CONFIG.exhibits.find(e => e.room === exhibit.room && e.teleportPos);
+    if (hungInRoom) return hungInRoom.teleportPos;
+  }
+  const hungInWing = EUNOIA_CONFIG.exhibits.find(e => e.wing === exhibit.wing && e.teleportPos);
+  if (hungInWing) return hungInWing.teleportPos;
+  return new THREE.Vector3(0, EYE_HEIGHT, -4.5);
+}
+
+function getExhibitLookTarget(exhibit) {
+  if (exhibit.lookTarget) return exhibit.lookTarget;
+  if (exhibit.room) {
+    const hungInRoom = EUNOIA_CONFIG.exhibits.find(e => e.room === exhibit.room && e.lookTarget);
+    if (hungInRoom) return hungInRoom.lookTarget;
+  }
+  const hungInWing = EUNOIA_CONFIG.exhibits.find(e => e.wing === exhibit.wing && e.lookTarget);
+  if (hungInWing) return hungInWing.lookTarget;
+  return new THREE.Vector3(0, EYE_HEIGHT, 0);
+}
+
+function teleportToExhibit(exhibitOrId) {
+  const exhibit = typeof exhibitOrId === 'string'
+    ? EUNOIA_CONFIG.exhibits.find(e => e.id === exhibitOrId)
+    : exhibitOrId;
+  if (!exhibit) return;
+  inspectLerp = null;
+  const fade = $('fade');
+  fade.classList.add('on');
+
+  const targetPos = getExhibitTeleportPos(exhibit);
+  const targetLook = getExhibitLookTarget(exhibit);
+
+  setTimeout(() => {
+    camera.position.copy(targetPos);
+    camera.lookAt(targetLook);
+    camera.rotation.setFromQuaternion(camera.quaternion, 'YXZ');
+
+    if (controls.object) controls.object.position.copy(targetPos);
+    updateCurrentWingCaption(targetPos);
+    updateWingCulling();
+
+    setTimeout(() => {
+      fade.classList.remove('on');
+      if (isCatalogOpen) toggleCatalog(false);
+      inspectExhibit(exhibit);
+    }, 150);
+  }, 320);
+}
+
+let renderCatalogGrid = null;
+let catalogBuilt = false;
+function toggleCatalog(force) {
+  isCatalogOpen = force !== undefined ? force : !isCatalogOpen;
+  $('catalog').classList.toggle('open', isCatalogOpen);
+  updateMobileUIState();
+  $('catalog').setAttribute('aria-hidden', (!isCatalogOpen).toString());
+
+  if (isCatalogOpen) {
+    // Lazy-mount DOM cards only when the catalog is actually opened
+    if (!catalogBuilt && renderCatalogGrid) { renderCatalogGrid(); catalogBuilt = true; }
+  } else {
+    // Unmount cards (frees decoded thumbnails) when closed
+    const g = $('catGrid');
+    if (g) g.querySelectorAll('video').forEach((v) => { v.pause(); v.removeAttribute('src'); v.load(); });
+    if (g) g.innerHTML = '';
+    catalogBuilt = false;
+  }
+
+  if (isCatalogOpen) {
+    if (isControlsLocked) controls.unlock();
+  } else {
+    if (!isLobbyActive && !isInspecting) {
+      try { controls.lock(); } catch (e) {}
+    }
+  }
+}
+$('btnIndex').addEventListener('click', () => toggleCatalog(true));
+$('catClose').addEventListener('click', () => toggleCatalog(false));
+
+// Populate 2D Catalog
+function initCatalog() {
+  const filtersNav = $('catFilters');
+  const grid = $('catGrid');
+  filtersNav.innerHTML = '';
+  grid.innerHTML = '';
+
+  const countAll = EUNOIA_CONFIG.exhibits.length;
+  const countI = EUNOIA_CONFIG.exhibits.filter(e => e.wing === 'I').length;
+  const countII = EUNOIA_CONFIG.exhibits.filter(e => e.wing === 'II').length;
+  const countIII = EUNOIA_CONFIG.exhibits.filter(e => e.wing === 'III').length;
+  const countIV = EUNOIA_CONFIG.exhibits.filter(e => e.wing === 'IV').length;
+
+  const wings = [
+    { id: 'ALL', name: `All Works (${countAll})` },
+    { id: 'I',   name: `Wing I · Fine Arts (${countI})` },
+    { id: 'II',  name: `Wing II · 3D CGI (${countII})` },
+    { id: 'III', name: `Wing III · Nocturne (${countIII})` },
+    { id: 'IV',  name: `Wing IV · Kinematic (${countIV})` }
+  ];
+
+  let activeWing = 'ALL';
+
+  function renderGrid() {
+    grid.innerHTML = '';
+    const items = activeWing === 'ALL'
+      ? EUNOIA_CONFIG.exhibits
+      : EUNOIA_CONFIG.exhibits.filter((e) => e.wing === activeWing);
+
+    items.forEach((ex) => {
+      const card = document.createElement('article');
+      card.className = 'card';
+
+      const thumb = document.createElement('div');
+      thumb.className = 'card-thumb';
+
+      if (ex.mediaType === 'video') {
+        thumb.style.background = 'radial-gradient(circle at 50% 45%, #0b2e2c 0%, #001514 75%)';
+        thumb.style.display = 'flex';
+        thumb.style.alignItems = 'center';
+        thumb.style.justifyContent = 'center';
+        const play = document.createElement('div');
+        play.textContent = '▶';
+        play.style.cssText = 'font-size:42px;color:#e6af2e;opacity:.85;text-shadow:0 0 18px rgba(230,175,46,.45)';
+        thumb.appendChild(play);
+        const vBadge = document.createElement('span');
+        vBadge.className = 'no';
+        vBadge.style.background = '#e6af2e';
+        vBadge.style.color = '#001514';
+        vBadge.style.fontWeight = '700';
+        vBadge.textContent = ex.wing === 'II' ? '▶ 3D VFX REEL' : (ex.category.includes('Animation') ? '▶ 2D ANIMATION' : '▶ VIDEO REEL');
+        thumb.appendChild(vBadge);
+      } else {
+        const img = document.createElement('img');
+        img.src = ex.imagePath;
+        img.alt = ex.title;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        thumb.appendChild(img);
+        const no = document.createElement('span');
+        no.className = 'no';
+        no.textContent = `Wing ${ex.wing}${ex.isHung ? ' · Hung in 3D' : ''}`;
+        thumb.appendChild(no);
+      }
+
+      thumb.addEventListener('click', () => {
+        teleportToExhibit(ex);
+      });
+
+      const body = document.createElement('div');
+      body.className = 'card-body';
+      body.innerHTML = `
+        <span class="card-wing">${EUNOIA_CONFIG.wings[ex.wing]?.name || 'Wing ' + ex.wing}</span>
+        <h3 class="card-title">${ex.title || ex.category || 'Untitled Study'}</h3>
+        <span class="card-meta">${ex.category} · ${ex.year}</span>
+        <div class="card-actions">
+          <button class="btn btn-gold btn-small btn-teleport">${ex.isHung ? 'Teleport to Exhibit' : 'Teleport to Gallery Room'}</button>
+        </div>
+      `;
+
+      body.querySelector('.btn-teleport').addEventListener('click', () => {
+        teleportToExhibit(ex);
+      });
+
+      card.appendChild(thumb);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+  }
+
+  wings.forEach((w) => {
+    const btn = document.createElement('button');
+    btn.className = `chip ${w.id === activeWing ? 'active' : ''}`;
+    btn.textContent = w.name;
+    btn.addEventListener('click', () => {
+      activeWing = w.id;
+      filtersNav.querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid();
+    });
+    filtersNav.appendChild(btn);
+  });
+
+  renderCatalogGrid = renderGrid; // mounted lazily on first toggleCatalog(true)
+}
+
+/* --------------------------------------------------------------------------
+   4.16  LOBBY & APPLICATION FLOW
+   -------------------------------------------------------------------------- */
+function initLobbyUI() {
+  $('lobbyTitle').textContent = EUNOIA_CONFIG.site.title;
+  $('lobbyOverline').textContent = EUNOIA_CONFIG.site.overline;
+  $('lobbyTagline').textContent = EUNOIA_CONFIG.site.tagline;
+  $('lobbySub').textContent = EUNOIA_CONFIG.site.intro;
+  $('hudTitle').textContent = EUNOIA_CONFIG.site.title;
+
+  const linksContainer = $('lobbyLinks');
+  linksContainer.innerHTML = '';
+  (EUNOIA_CONFIG.links || []).forEach((l) => {
+    const a = document.createElement('a');
+    a.href = l.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = l.label;
+    linksContainer.appendChild(a);
+  });
+
+  // Touch device check
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    $('touchNote').classList.remove('hidden');
+  }
+
+  $('btnEnter').addEventListener('click', enterExhibition);
+  $('btnCatalog').addEventListener('click', () => {
+    enterExhibition();
+    setTimeout(() => toggleCatalog(true), 350);
+  });
+}
+
+function enterExhibition() {
+  initAudio();
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+
+  isLobbyActive = false;
+  $('lobby').classList.add('out');
+  document.body.classList.add('in-gallery');
+
+  wakeAllHogwartsVideos();
+
+  // Spawn player in Grand Rotunda facing the central sculpture and north arch
+  camera.position.set(0, EYE_HEIGHT, -4.5);
+  camera.lookAt(0, EYE_HEIGHT, 4.0);
+  camera.rotation.setFromQuaternion(camera.quaternion, 'YXZ');
+  if (controls.object) controls.object.position.set(0, EYE_HEIGHT, -4.5);
+  velocity.set(0, 0, 0);
+
+  if (isTouchDevice) {
+    isMobileActive = true;
+    updateMobileUIState();
+  } else {
+    try { controls.lock(); } catch (e) {}
+  }
+}
+
+function openLobby() {
+  isLobbyActive = true;
+  document.body.classList.remove('in-gallery');
+  $('lobby').classList.remove('out');
+  if (isTouchDevice) {
+    isMobileActive = false;
+    updateMobileUIState();
+  } else {
+    controls.unlock();
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4.17  ANIMATION & RENDER LOOP
+   -------------------------------------------------------------------------- */
+const clock = new THREE.Clock();
+let rotundaOrbitAngle = 0;
+let lastRoomCheck = 0;
+let frameCount = 0;
+let lastFpsTime = performance.now();
+const hudFpsEl = $('hudFps');
+
+function updateCurrentWingCaption(pos) {
+  const locEl = $('hudLoc');
+  const cap = $('roomCaption');
+  const capNum = $('capNum');
+  const capTitle = $('capTitle');
+
+  let wingName = 'Grand Rotunda';
+  let wingNum = 'Entrance';
+
+  if (pos.z > 51.5) {
+    // Wing IV: The Kinematic Pavilion
+    wingNum = 'Wing IV';
+    if (pos.z > 68.0) {
+      wingName = 'Wing IV · Master Storyboard & Pre-Visualization';
+    } else if (pos.x > 8.0) {
+      wingName = 'Wing IV · Applied Graphic Design & Brand Identity';
+    } else if (pos.x < -8.0) {
+      wingName = 'Wing IV · Production Design & Art Direction';
+    } else {
+      wingName = 'Wing IV · 2D Animation & Cinema Atrium';
+    }
+  } else if (pos.z > 8.0 && Math.abs(pos.x) <= 24.0) {
+    // Wing II: 3D Virtual Worlds
+    wingNum = 'Wing II';
+    if (pos.x < -4.0) {
+      if (pos.z < 30.0) {
+        wingName = 'Wing II · 3D Environment Gallery';
+      } else {
+        wingName = 'Wing II · 3D VFX Dynamic Simulations';
+      }
+    } else if (pos.x > 4.0) {
+      if (pos.z < 30.0) {
+        wingName = 'Wing II · 3D Interior Architecture';
+      } else {
+        wingName = 'Wing II · 3D Still Life Studio';
+      }
+    } else {
+      wingName = 'Wing II · 3D Character Topology Studio';
+    }
+  } else if (pos.x > 7.5) {
+    // Wing I: The Classical & Fine Arts Wing
+    wingNum = 'Wing I';
+    if (pos.x > 44.0) {
+      if (pos.z > 5.0) {
+        wingName = 'Wing I · Traditional Fine Art & Life Study';
+      } else if (pos.z < -5.0) {
+        wingName = 'Wing I · 2D Character Anatomy Studio';
+      } else {
+        wingName = 'Wing I · Classical Foyer & Vestibule';
+      }
+    } else {
+      wingName = 'Wing I · Digital Concept Art & Painting';
+    }
+  } else if (pos.x < -7.5) {
+    // Wing III: The Nocturne Gallery
+    wingNum = 'Wing III';
+    if (pos.z > 5.0) {
+      if (pos.x < -47.0) {
+        wingName = 'Wing III · Editorial & Model Portraiture';
+      } else {
+        wingName = 'Wing III · Lunar Astrophotography Observatory';
+      }
+    } else if (pos.z < -5.0) {
+      if (pos.x < -47.0) {
+        wingName = 'Wing III · Still Life & Observational Objects';
+      } else {
+        wingName = 'Wing III · Wildlife & Animal Photography';
+      }
+    } else {
+      wingName = 'Wing III · Observational Street Photography';
+    }
+  }
+
+  locEl.textContent = wingName;
+  if (capTitle.textContent !== wingName) {
+    capTitle.textContent = wingName;
+    capNum.textContent = wingNum;
+    cap.classList.add('show');
+    clearTimeout(cap._timer);
+    cap._timer = setTimeout(() => cap.classList.remove('show'), 3200);
+  }
+}
+
+// ============================================================================
+// HIERARCHICAL OCCLUSION CULLING & ACTIVE SECTOR MANAGEMENT
+// ============================================================================
+let currentWingKey = 'R';
+const WING_PORTALS = {
+  I: new THREE.Vector3(8.3, 0, 0),
+  II: new THREE.Vector3(0, 0, 8.3),
+  III: new THREE.Vector3(-8.3, 0, 0)
+};
+const _cullFwd = new THREE.Vector3();
+const _cullTmp = new THREE.Vector3();
+
+/* From inside the Rotunda, hide deep sub-chambers (> 28 m from the wing threshold). */
+function setWingDepthCull(key, active) {
+  const group = { I: wingI_group, II: wingII_group, III: wingIII_group }[key];
+  if (!group || group.userData.depthCulled === active) return;
+  if (active && !group.userData.cullCache) {
+    group.updateMatrixWorld(true);
+    group.userData.cullCache = group.children.map((c) => ({ c, box: new THREE.Box3().setFromObject(c) }));
+  }
+  const cache = group.userData.cullCache;
+  if (cache) {
+    const portal = WING_PORTALS[key];
+    for (let i = 0; i < cache.length; i++) {
+      const e = cache[i];
+      e.c.visible = active ? (e.box.isEmpty() || e.box.distanceToPoint(portal) < 28.0) : true;
+    }
+  }
+  group.userData.depthCulled = active;
+}
+
+function updateWingCulling() {
+  const camX = camera.position.x;
+  const camZ = camera.position.z;
+
+  const inWingIV  = (camZ >= 50.0);
+  const inWingI   = (camX >= 42.0 && Math.abs(camZ) <= 24.0) || (camX >= 7.5 && Math.abs(camZ) <= 5.5);
+  const inWingIII = (camX <= -22.0 && Math.abs(camZ) <= 24.0) || (camX <= -7.5 && Math.abs(camZ) <= 5.5);
+  const inWingII  = (camZ >= 7.5 && camZ < 50.0 && Math.abs(camX) < 22.0);
+
+  const inRotunda = !inWingIV && !inWingII && !inWingI && !inWingIII;
+  if (!inRotunda) { setWingDepthCull('I', false); setWingDepthCull('II', false); setWingDepthCull('III', false); }
+
+  if (inWingIV) {
+    currentWingKey = 'IV';
+    rotunda_group.visible = false;
+    wingIV_group.visible = true;
+    wingII_group.visible = (camZ < 68.0);
+    wingI_group.visible = false;
+    wingIII_group.visible = false;
+  } else if (inWingII) {
+    currentWingKey = 'II';
+    rotunda_group.visible = (camZ < 16.0);
+    wingII_group.visible = true;
+    wingIV_group.visible = (camZ > 36.0);
+    wingI_group.visible = false;
+    wingIII_group.visible = false;
+  } else if (inWingI) {
+    currentWingKey = 'I';
+    rotunda_group.visible = (camX < 18.0);
+    wingI_group.visible = true;
+    wingII_group.visible = false;
+    wingIII_group.visible = false;
+    wingIV_group.visible = false;
+  } else if (inWingIII) {
+    currentWingKey = 'III';
+    rotunda_group.visible = (camX > -18.0);
+    wingIII_group.visible = true;
+    wingI_group.visible = false;
+    wingII_group.visible = false;
+    wingIV_group.visible = false;
+  } else {
+    currentWingKey = 'R';
+    rotunda_group.visible = true;
+    wingIV_group.visible = false;
+    const rotunda = Math.hypot(camX, camZ) < 8.5;
+    camera.getWorldDirection(_cullFwd);
+    const groups = { I: wingI_group, II: wingII_group, III: wingIII_group };
+    for (const key of ['I', 'II', 'III']) {
+      let vis = true;
+      if (rotunda) {
+        _cullTmp.subVectors(WING_PORTALS[key], camera.position);
+        const dist = _cullTmp.length();
+        _cullTmp.y = 0; _cullTmp.normalize();
+        const facing = _cullFwd.x * _cullTmp.x + _cullFwd.z * _cullTmp.z;
+        vis = dist < 12.0 || facing > 0.25;
+      }
+      groups[key].visible = vis;
+      setWingDepthCull(key, rotunda);
+    }
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   4.13.5  MOBILE DUAL-TOUCH ENGINE: VIRTUAL JOYSTICK & TOUCH LOOK
+   -------------------------------------------------------------------------- */
+const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches);
+let isMobileActive = false;
+
+// Joystick state
+const joystickMove = { x: 0, y: 0 };
+let joystickTouchId = null;
+let joystickCenter = { x: 0, y: 0 };
+const JOYSTICK_MAX_R = 46;
+
+// Look around touch state
+let lookTouchId = null;
+let lastLookX = 0, lastLookY = 0;
+
+function updateMobileUIState() {
+  const joy = $('virtualJoystick');
+  if (!joy) return;
+  const shouldShow = isTouchDevice && !isLobbyActive && !isInspecting && !isCatalogOpen && !isPhoneModalOpen && !isCardModalOpen;
+  joy.classList.toggle('visible', shouldShow);
+  joy.setAttribute('aria-hidden', (!shouldShow).toString());
+}
+
+// 1. Virtual Joystick Listeners (Bottom-Left)
+const joystickBase = $('joystickBase');
+const joystickKnob = $('joystickKnob');
+
+function updateJoystickKnob(clientX, clientY) {
+  let dx = clientX - joystickCenter.x;
+  let dy = clientY - joystickCenter.y;
+  const dist = Math.hypot(dx, dy);
+  if (dist > JOYSTICK_MAX_R) {
+    dx = (dx / dist) * JOYSTICK_MAX_R;
+    dy = (dy / dist) * JOYSTICK_MAX_R;
+  }
+  if (joystickKnob) {
+    joystickKnob.style.transform = `translate(${dx}px, ${dy}px)`;
+  }
+  const normDist = dist / JOYSTICK_MAX_R;
+  if (normDist < 0.12) {
+    joystickMove.x = 0;
+    joystickMove.y = 0;
+  } else {
+    joystickMove.x = dx / JOYSTICK_MAX_R;
+    joystickMove.y = dy / JOYSTICK_MAX_R;
+  }
+}
+
+if (joystickBase) {
+  window.addEventListener('touchstart', (e) => {
+    if (!isTouchDevice || isLobbyActive || isInspecting || isCatalogOpen || isPhoneModalOpen || isCardModalOpen) return;
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      const t = e.changedTouches[i];
+      const rect = joystickBase.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dist = Math.hypot(t.clientX - cx, t.clientY - cy);
+      // If touch starts within or near joystick base
+      if (dist <= rect.width * 0.78 && joystickTouchId === null) {
+        joystickTouchId = t.identifier;
+        joystickCenter = { x: cx, y: cy };
+        updateJoystickKnob(t.clientX, t.clientY);
+        break;
+      }
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchmove', (e) => {
+    if (joystickTouchId === null) return;
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      const t = e.changedTouches[i];
+      if (t.identifier === joystickTouchId) {
+        updateJoystickKnob(t.clientX, t.clientY);
+        break;
+      }
+    }
+  }, { passive: false });
+
+  function releaseJoystick(e) {
+    if (joystickTouchId === null) return;
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      const t = e.changedTouches[i];
+      if (t.identifier === joystickTouchId) {
+        joystickTouchId = null;
+        joystickMove.x = 0;
+        joystickMove.y = 0;
+        if (joystickKnob) {
+          joystickKnob.style.transform = 'translate(0, 0)';
+        }
+        break;
+      }
+    }
+  }
+  window.addEventListener('touchend', releaseJoystick, { passive: true });
+  window.addEventListener('touchcancel', releaseJoystick, { passive: true });
+}
+
+// 2. Touch Drag to Look Around (Outside Joystick)
+window.addEventListener('touchstart', (e) => {
+  if (isLobbyActive || isInspecting || isCatalogOpen || isPhoneModalOpen || isCardModalOpen) return;
+  for (let i = 0; i < e.changedTouches.length; i++) {
+    const t = e.changedTouches[i];
+    if (t.identifier === joystickTouchId) continue;
+    const target = t.target;
+    if (target && target.closest && (target.closest('button') || target.closest('a') || target.closest('#reticle') || target.closest('#prompt') || target.closest('#virtualJoystick'))) {
+      continue;
+    }
+    if (lookTouchId === null) {
+      lookTouchId = t.identifier;
+      lastLookX = t.clientX;
+      lastLookY = t.clientY;
+    }
+  }
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+  if (isLobbyActive || isInspecting || isCatalogOpen || isPhoneModalOpen || isCardModalOpen) return;
+  if (lookTouchId === null) return;
+  for (let i = 0; i < e.changedTouches.length; i++) {
+    const t = e.changedTouches[i];
+    if (t.identifier === lookTouchId) {
+      const dx = t.clientX - lastLookX;
+      const dy = t.clientY - lastLookY;
+      lastLookX = t.clientX;
+      lastLookY = t.clientY;
+
+      const lookSens = 0.0034;
+      camera.rotation.order = 'YXZ';
+      camera.rotation.y -= dx * lookSens;
+      camera.rotation.x -= dy * lookSens;
+      camera.rotation.x = Math.max(-1.42, Math.min(1.42, camera.rotation.x));
+      break;
+    }
+  }
+}, { passive: true });
+
+function releaseLook(e) {
+  if (lookTouchId === null) return;
+  for (let i = 0; i < e.changedTouches.length; i++) {
+    if (e.changedTouches[i].identifier === lookTouchId) {
+      lookTouchId = null;
+      break;
+    }
+  }
+}
+window.addEventListener('touchend', releaseLook, { passive: true });
+window.addEventListener('touchcancel', releaseLook, { passive: true });
+
+// 3. Tap Crosshair Reticle / Prompt to Inspect Targeted Project
+function triggerInspectCurrentTarget() {
+  if (!hoveredExhibitMesh || isInspecting) return;
+  if (hoveredExhibitMesh.userData.isPhone) {
+    openPhoneModal();
+  } else if (hoveredExhibitMesh.userData.isCard) {
+    openCardModal();
+  } else if (hoveredExhibitMesh.userData.exhibit) {
+    inspectExhibit(hoveredExhibitMesh.userData.exhibit, hoveredExhibitMesh);
+  }
+}
+
+$('reticle')?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  triggerInspectCurrentTarget();
+});
+$('reticle')?.addEventListener('touchend', (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  triggerInspectCurrentTarget();
+});
+
+$('prompt')?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  triggerInspectCurrentTarget();
+});
+$('prompt')?.addEventListener('touchend', (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  triggerInspectCurrentTarget();
+});
+
+$('btnMenu')?.addEventListener('click', () => {
+  openLobby();
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  const delta = Math.min(clock.getDelta(), 0.1);
+
+  // At most ONE texture upload to the GPU per frame
+  TextureLoadQueue.pump();
+
+  // 1. Lobby Slow Camera Orbit
+  if (isLobbyActive) {
+    rotundaOrbitAngle += delta * 0.12;
+    const orbR = 4.8;
+    camera.position.set(
+      Math.sin(rotundaOrbitAngle) * orbR,
+      2.5 + Math.sin(rotundaOrbitAngle * 0.5) * 0.3,
+      Math.cos(rotundaOrbitAngle) * orbR
+    );
+    camera.lookAt(0, 1.8, 0);
+    renderer.render(scene, camera);
+    return;
+  }
+
+  // 2. Camera Interpolation for Inspection
+  if (inspectLerp) {
+    inspectLerp.t += delta / inspectLerp.duration;
+    const progress = clamp(inspectLerp.t, 0, 1);
+    const ease = easeInOutCubic(progress);
+
+    camera.position.lerpVectors(inspectLerp.startPos, inspectLerp.endPos, ease);
+    camera.quaternion.slerpQuaternions(inspectLerp.startQuat, inspectLerp.endQuat, ease);
+
+    if (progress >= 1) {
+      camera.rotation.setFromQuaternion(camera.quaternion, 'YXZ');
+      if (inspectLerp.onComplete) inspectLerp.onComplete();
+      inspectLerp = null;
+    }
+    renderer.render(scene, camera);
+    return;
+  }
+
+  // 3. First-Person Physics & Movement (Desktop Keyboard + Mobile Virtual Joystick)
+  if (isControlsLocked || (isTouchDevice && isMobileActive)) {
+    const isJoyActive = Math.hypot(joystickMove.x, joystickMove.y) > 0.1;
+    const moveSpeed = (moveState.sprint || Math.hypot(joystickMove.x, joystickMove.y) > 0.85) ? 5.8 : 3.4;
+    const damping = 9.0;
+
+    velocity.x -= velocity.x * damping * delta;
+    velocity.z -= velocity.z * damping * delta;
+
+    // Combine keyboard inputs with virtual joystick analog displacement
+    const kForward = (moveState.forward ? 1 : 0) - (moveState.backward ? 1 : 0);
+    const kRight = (moveState.right ? 1 : 0) - (moveState.left ? 1 : 0);
+
+    const joyForward = -joystickMove.y; // Up on joystick is forward
+    const joyRight = joystickMove.x;
+
+    direction.z = kForward + joyForward;
+    direction.x = kRight + joyRight;
+
+    const inputLen = direction.length();
+    if (inputLen > 1.0) direction.normalize();
+
+    if (Math.abs(direction.z) > 0.05) {
+      velocity.z -= direction.z * moveSpeed * 8.0 * delta;
+    }
+    if (Math.abs(direction.x) > 0.05) {
+      velocity.x += direction.x * moveSpeed * 8.0 * delta;
+    }
+
+    controls.moveRight(velocity.x * delta);
+    controls.moveForward(-velocity.z * delta);
+
+    // Collision detection & sliding
+    const playerPos = camera.position;
+    resolveCollision(playerPos);
+
+    // Head-bobbing & Footstep audio trigger
+    const speed = Math.hypot(velocity.x, velocity.z);
+    if (speed > 0.4) {
+      bobTimer += delta * (moveState.sprint ? 14 : 9.5);
+      const bobY = Math.sin(bobTimer) * 0.045;
+      camera.position.y = EYE_HEIGHT + bobY;
+
+      if (Math.sin(bobTimer) < -0.85 && lastFootstepBob >= -0.85) {
+        playFootstep();
+      }
+      lastFootstepBob = Math.sin(bobTimer);
+    } else {
+      camera.position.y = lerp(camera.position.y, EYE_HEIGHT, delta * 6);
+      bobTimer = 0;
+    }
+
+    // Room caption update periodically
+    lastRoomCheck += delta;
+    if (lastRoomCheck > 0.4) {
+      lastRoomCheck = 0;
+      updateCurrentWingCaption(camera.position);
+    }
+  }
+
+  // 4. Raycasting
+  updateRaycast();
+
+  // 4.5 Performance: Dynamic Wing Culling & Hogwarts Video Proximity Streaming
+  updateWingCulling();
+
+  // Hogwarts video proximity manager (every 300 ms)
+  const nowMs = performance.now();
+  if (nowMs - lastVideoCheckTime > 300) {
+    lastVideoCheckTime = nowMs;
+    updateHogwartsVideos();
+  }
+
+  // 5. Render Scene (skipped while the 2D catalog owns the screen)
+  if (!isCatalogOpen) renderer.render(scene, camera);
+
+  // 6. FPS Counter
+  frameCount++;
+  const now = performance.now();
+  if (now - lastFpsTime >= 500) {
+    const fps = Math.round((frameCount * 1000) / (now - lastFpsTime));
+    if (hudFpsEl) hudFpsEl.textContent = `${fps} FPS`;
+    frameCount = 0;
+    lastFpsTime = now;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4.18  RESIZE HANDLER & BOOTSTRAP
+   -------------------------------------------------------------------------- */
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
+});
+
+// Re-draw text textures once web fonts load to guarantee pristine typography
+if (document.fonts) {
+  document.fonts.ready.then(() => {
+    let fi = 0;
+    const CHUNK = 6; // textures redrawn per frame
+    (function redrawChunk() {
+      const stop = Math.min(fi + CHUNK, textTextures.length);
+      for (; fi < stop; fi++) {
+        const { ctx, w, h, draw, t } = textTextures[fi];
+        ctx.clearRect(0, 0, w, h);
+        draw(ctx, w, h);
+        t.needsUpdate = true;
+      }
+      if (fi < textTextures.length) requestAnimationFrame(redrawChunk);
+    })();
+  });
+}
+
+// Bootstrap entire museum
+buildArchitecture();
+layoutExhibits();
+buildLighting();
+buildMuseumAtmosphere();
+initCatalog();
+TextureLoadQueue.resume();
+initLobbyUI();
+updateLoadStatus();
+
+// Expose public API for inspection and testing
+window.EUNOIA_CONFIG = EUNOIA_CONFIG;
+window.teleportToExhibit = teleportToExhibit;
+window.enterExhibition = enterExhibition;
+window.exitInspection = exitInspection;
+window.camera = camera;
+window.controls = controls;
+window.scene = scene;
+window.renderer = renderer;
+window.Colliders = Colliders;
+window.setLobbyActive = (v) => { isLobbyActive = v; };
+window.isTouchDevice = () => isTouchDevice;
+window.isMobileActive = () => isMobileActive;
+window.joystickMove = joystickMove;
+window.updateMobileUIState = updateMobileUIState;
+
+/* --------------------------------------------------------------------------
+   4.16  CONCIERGE MODALS: ROTARY PHONE DISPATCH & 3D GYROSCOPIC CARD
+   -------------------------------------------------------------------------- */
+function openPhoneModal() {
+  if (isControlsLocked) controls.unlock();
+  isPhoneModalOpen = true;
+  updateMobileUIState();
+  const m = $('phoneModal');
+  if (m) {
+    m.classList.add('open');
+    m.setAttribute('aria-hidden', 'false');
+    const input = $('phoneInputName');
+    if (input) setTimeout(() => input.focus(), 120);
+  }
+}
+
+function closePhoneModal() {
+  isPhoneModalOpen = false;
+  updateMobileUIState();
+  const m = $('phoneModal');
+  if (m) {
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden', 'true');
+  }
+}
+
+function openCardModal() {
+  if (isControlsLocked) controls.unlock();
+  isCardModalOpen = true;
+  updateMobileUIState();
+  const m = $('cardModal');
+  if (m) {
+    m.classList.add('open');
+    m.setAttribute('aria-hidden', 'false');
+  }
+  const assets = EUNOIA_CONFIG.site.conciergeAssets || {};
+  const frontEl = $('dossierFaceFront');
+  const backEl = $('dossierFaceBack');
+  if (frontEl && assets.cardFront) frontEl.style.backgroundImage = `url("${assets.cardFront}")`;
+  if (backEl && assets.cardBack) backEl.style.backgroundImage = `url("${assets.cardBack}")`;
+  setCardFlipped(false);
+}
+
+function closeCardModal() {
+  isCardModalOpen = false;
+  updateMobileUIState();
+  const m = $('cardModal');
+  if (m) {
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden', 'true');
+  }
+}
+
+// 3D Dossier Card Click-to-Flip Interaction (Pure Click, No Dragging)
+let isCardFlipped = false;
+
+function setCardFlipped(flipped) {
+  isCardFlipped = flipped;
+  const card = $('dossier3dCard');
+  if (card) {
+    if (isCardFlipped) {
+      card.classList.add('is-flipped');
+    } else {
+      card.classList.remove('is-flipped');
+    }
+  }
+}
+
+function toggleCardFlip() {
+  setCardFlipped(!isCardFlipped);
+}
+
+const cardContainer = $('dossierCardContainer');
+if (cardContainer) {
+  // Click anywhere on the card or container to flip
+  cardContainer.addEventListener('click', () => {
+    toggleCardFlip();
+  });
+
+  // Manual Flip Button
+  $('btnFlipCardManual')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleCardFlip();
+  });
+
+  // Ring Rotary Phone from inside Card Modal
+  $('btnDossierCall')?.addEventListener('click', () => {
+    closeCardModal();
+    setTimeout(openPhoneModal, 150);
+  });
+
+  $('btnCloseCard')?.addEventListener('click', closeCardModal);
+  $('cardModal')?.addEventListener('click', (e) => {
+    if (e.target === $('cardModal')) closeCardModal();
+  });
+}
+
+// Live Formspree API Integration for Rotary Telephone
+const phoneForm = $('phoneContactForm');
+if (phoneForm) {
+  phoneForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = $('phoneSubmitBtn');
+    const statusMsg = $('phoneStatusMsg');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Transmitting via Rotary Line…';
+    }
+    if (statusMsg) {
+      statusMsg.className = 'phone-status-msg';
+      statusMsg.textContent = '';
+    }
+
+    const endpoint = EUNOIA_CONFIG.site.formspreeEndpoint || 'https://formspree.io/f/mrpeqnle';
+    const payload = {
+      name: $('phoneInputName')?.value || '',
+      _replyto: $('phoneInputEmail')?.value || '',
+      subject: $('phoneInputSubject')?.value || '',
+      message: $('phoneInputMessage')?.value || ''
+    };
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        if (statusMsg) {
+          statusMsg.classList.add('success');
+          statusMsg.textContent = '✓ Transmitted! Curator Mangilaya alerted. Expect a response soon.';
+        }
+        phoneForm.reset();
+        if (submitBtn) submitBtn.textContent = 'Dispatched Successfully';
+        setTimeout(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Transmit via Rotary Dispatch';
+          }
+        }, 4000);
+      } else {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Server rejected transmission.');
+      }
+    } catch (err) {
+      if (statusMsg) {
+        statusMsg.classList.add('error');
+        statusMsg.textContent = '⚠ Dispatch Failed: ' + (err.message || 'Network error') + '. Please try again or email hello@eunoia.studio';
+      }
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Retry Rotary Dispatch';
+      }
+    }
+  });
+}
+
+$('btnClosePhone')?.addEventListener('click', closePhoneModal);
+$('phoneModal')?.addEventListener('click', (e) => {
+  if (e.target === $('phoneModal')) closePhoneModal();
+});
+
+window.openPhoneModal = openPhoneModal;
+window.closePhoneModal = closePhoneModal;
+window.openCardModal = openCardModal;
+window.closeCardModal = closeCardModal;
+window.interactivePropMeshes = interactivePropMeshes;
+window.updateCurrentWingCaption = updateCurrentWingCaption;
+window.updateWingCulling = updateWingCulling;
+window.exhibitMeshes = exhibitMeshes;
+window.activeHogwartsVideos = activeHogwartsVideos;
+window.wakeAllHogwartsVideos = wakeAllHogwartsVideos;
+window.loadTracker = loadTracker;
+window.THREE = THREE;
+window.rotunda_group = rotunda_group;
+window.wingI_group = wingI_group;
+window.wingII_group = wingII_group;
+window.wingIII_group = wingIII_group;
+window.wingIV_group = wingIV_group;
+
+animate();
+  
